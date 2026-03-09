@@ -4,274 +4,142 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**无忧存项目知识库** - A comprehensive documentation repository for 无忧存 (Worry-Free Storage), an O2O luggage storage platform.
+**无忧存项目知识库** — O2O 寄存平台「小铁寄存柜 + 无忧存」合并项目的交接知识库。这是一个**纯文档仓库**，无可运行代码，无构建/测试流程。
 
-**Core Business**: Platform connecting users with luggage storage points across 267 cities in China, with 3353+ merchant locations.
+**核心业务**：连接用户与全国 267 城市 3353+ 寄存网点（人工寄存 + 智能寄存柜）的 O2O 平台。
 
-**Major Initiative**: Platform merger project combining 小铁寄存柜 (XiaoTie Smart Lockers) and 无忧存 (Worry-Free Storage) into a unified platform "小铁行李寄存丨无忧存".
+---
 
-## Repository Structure
+## 开始新会话时必读的文档
 
-This is a **documentation repository**, not a codebase. All content is organized as business and technical documentation.
+按顺序读取，快速建立上下文：
 
-### Primary Directories
+| 优先级 | 文档路径 | 核心内容 |
+|--------|---------|---------|
+| 🔴 必读 | `ClaudeCodeSpace/方案/版本合并UI优化方案-20260306.md` (v2.1) | 当前 UI 优化方案主文档，含所有已确认的产品决策 |
+| 🔴 必读 | `ClaudeCodeSpace/方案/交互规范PRD-20260309.md` (v1.0) | 页面状态定义、跳转逻辑、边界场景，可直接交给开发 |
+| 🟡 重要 | `ClaudeCodeSpace/工作日志/工作日志-20260309.md` | 最新工作会话记录，含未决事项和下次继续点 |
+| 🟡 重要 | `002-产品与技术现状 (Product & Tech Stack)/02-产品架构图/无忧存业务全景架构列表.md` | 用户端/商家端/管理后台完整功能清单 |
+| 🟢 参考 | `002-产品与技术现状 (Product & Tech Stack)/04-PRD文档/【小铁无忧存】平台合并项目计划-202510.01.md` | 合并项目目标、里程碑、数据依据 |
+| 🟢 参考 | `004-协作流程与制度 (Process & Culture)/无忧存开发及发布流程.md` | Git 分支策略、Jenkins CI/CD、三端发布流程 |
+
+---
+
+## 平台合并核心认知（必须正确理解）
+
+**两条完全独立的用户路径**：
+
+| 路径 | 入口 | 流程 | 经过首页？ |
+|------|------|------|----------|
+| 扫码流 | 扫机柜/网点二维码（URL含 `box_id` 参数）| 扫码 → **直接跳下单页（P04B）** | ❌ 不经过首页 |
+| 搜索流 | 运营入口/搜索/分享/直接进入 | 首页 → 搜索 → 列表 → 详情 → 下单 | ✅ 经过首页 |
+
+> ⚠️ **常见错误**：v1.0 方案曾误设计"扫码进入首页并展示特殊布局"（场景A/B/C）——此逻辑已废弃。首页只服务搜索流用户。
+
+**信息解锁策略（防爬/防飞单）**：
+- 精确地址、商家电话、实景大图 → **下单后解锁**（非登录后解锁）
+- 地图精确点位 → **始终可见**（锁定的是导航能力，不是位置显示）
+- 列表页/首页缩略图 → **不模糊**；详情页实景大图 → 模糊遮罩
+
+---
+
+## ClaudeCodeSpace 工作目录
+
+Claude 产出文档的工作区。**新文档按以下结构存放**（2026-03-09 起执行）：
 
 ```
-001-业务全景图 (Business Context)/
-├── 品牌介绍/              # Brand introduction
-├── 商业计划书（BP）/      # Business plans
-├── 年度季度目标/          # OKRs and KPIs
-├── 竞品分析/              # Competitor analysis
-└── 行业、市场调研报告/    # Market research
-
-002-产品与技术现状 (Product & Tech Stack)/
-├── 01-会议纪要/           # Meeting minutes
-├── 02-产品架构图/         # Architecture diagrams
-│   ├── 信息架构/          # Information architecture
-│   ├── 功能架构/          # Functional architecture
-│   └── 无忧存业务全景架构列表.md  # **KEY: Complete business architecture**
-├── 03-需求、BUG清单/     # Requirements and bugs
-├── 04-PRD文档/            # Product requirement documents
-│   └── 【小铁无忧存】平台合并项目计划-202510.01.md  # **KEY: Platform merger plan**
-├── 05-操作演示手册/       # Operation manuals
-└── 06-其他/
-
-003-用户与运营数据 (User & Operations)/
-├── FAQ 常见问题集/
-├── 历史埋点数据分析/
-│   └── 无忧存运营情况报告.md  # **KEY: Operations report**
-├── 渠道码/
-├── 用户反馈原声/
-└── 运营活动复盘/
-
-004-协作流程与制度 (Process & Culture)/
-├── 无忧存开发及发布流程.md    # **KEY: Development workflow**
-└── 无忧存入口汇总.md          # **KEY: Entry points and routing**
-
 ClaudeCodeSpace/
-└── # Working directory for Claude-generated analysis and documents
+├── 方案/          # 产品方案文档（PRD、优化方案、策略分析等）
+├── 工作日志/      # 会话记录（工作日志-YYYYMMDD.md）
+├── .claude/       # BMad 斜杠命令（勿移动）
+└── _bmad/         # BMad 工具核心（勿移动）
 ```
 
-## Key Documents to Read First
+> **存档规则**：新产出的方案类文档 → `方案/`；会话记录 → `工作日志/`；设计稿（.pen）→ 仓库根目录。
 
-When starting work on this project, read these documents in order:
+### 方案目录（`ClaudeCodeSpace/方案/`）
 
-1. **`002-产品与技术现状/02-产品架构图/无忧存业务全景架构列表.md`**
-   - Complete business architecture (User端/商家端/管理后台)
-   - Core modules and features
+| 文件 | 版本 | 说明 |
+|------|------|------|
+| `版本合并UI优化方案-20260306.md` | v2.1 | UI 优化主方案，含首页/列表/详情/下单/订单各页面方案 |
+| `交互规范PRD-20260309.md` | v1.0 | PRD 级交互规范，含状态机/跳转逻辑/边界场景 |
+| `无忧存用户旅程地图梳理-20260306.md` | — | 六阶段用户旅程 + P0/P1/P2 痛点矩阵 |
+| `无忧存用户旅程地图-可视化版本.md` | v2.1 | 旅程地图可视化文档（对齐 v2.1 确认结论） |
+| `防飞单策略整理-20260306.md` | — | 10项防飞单策略，含 ROI 测算 |
 
-2. **`002-产品与技术现状/04-PRD文档/【小铁无忧存】平台合并项目计划-202510.01.md`**
-   - Platform merger strategy (小铁 + 无忧存)
-   - Milestones and timelines
-   - Design principles based on user access patterns
+### 工作日志（`ClaudeCodeSpace/工作日志/`）
 
-3. **`004-协作流程与制度/无忧存开发及发布流程.md`**
-   - Git branch strategy (master/pre-master/test-master/feat-xxx)
-   - CI/CD with Jenkins
-   - Deployment procedures for 3 platforms
+每次会话结束后创建/更新日志文件（格式：`工作日志-YYYYMMDD.md`），记录：
+- 今日完成内容
+- 产品侧确认的关键结论
+- 未决议题
+- 下次继续用的上下文速查
 
-4. **`004-协作流程与制度/无忧存入口汇总.md`**
-   - Entry points and routing logic
-   - QR code handling
-   - Source tracking parameters
+---
 
-## Technical Stack
+## BMad 工具（已安装）
 
-### User-Facing Applications
-- **微信小程序** (WeChat Mini Program)
-- **支付宝小程序** (Alipay Mini Program)
-- **抖音小程序** (Douyin Mini Program)
-- **H5** (Mobile web)
-  - Test: `https://test-noproblem-h5.wegui.cn`
-  - Prod: `https://h5wyc.nbdevice.com`
+安装路径：`ClaudeCodeSpace/_bmad/`，配置路径：`ClaudeCodeSpace/.claude/commands/`
 
-### Merchant-Facing
-- **微信小程序/公众号** (WeChat Mini Program/Official Account)
+可用斜杠命令：
 
-### Admin Platform
-- **PC Web**
-  - Test: `https://noproblem-web.wegui.cn` (admin/123456)
-  - Prod: `https://adminnoproblem.nbdevice.com`
+| 命令 | 用途 |
+|------|------|
+| `/bmad-party-mode` | 召集多专家虚拟讨论（Annie/Dana/Marcus/Wei 四个角色）|
+| `/bmad-brainstorming` | 结构化头脑风暴 |
+| `/bmad-review-adversarial-general` | 批判性审查（对方案做对抗性评估）|
+| `/bmad-review-edge-case-hunter` | 边界案例猎手审查 |
+| `/bmad-editorial-review-prose` | 文字质量审查 |
+| `/bmad-editorial-review-structure` | 结构审查 |
 
-### Payment Platforms
-- 微信商户平台 (WeChat Pay)
-- 汇付 (Huifu)
-- 支付宝 (Alipay)
+Party Mode 专家团队（已建立，可直接恢复）：🎨 Annie Chen（UX）/ 📊 Dana Liu（数据PM）/ 👤 Marcus（用研）/ 💻 Wei Zhang（前端架构）
 
-## Development Workflow
+---
 
-### Branch Strategy
+## 文档写作规范
 
-| Branch | Purpose |
-|--------|---------|
-| `master` | Main development branch, create feature branches from here |
-| `public` | H5 production deployment branch |
-| `pre-master` | Pre-release branch (used as release branch, no pre-prod env) |
-| `test-master` | Testing branch |
-| `feat-xxx-xxx` | Feature branch (TAPD task ID + name initials) |
-| `fix-xxx-xxx` | Bug fix branch (TAPD task ID + name initials) |
+**分析输出时，区分三类信息**：
+1. **事实**（附来源文件路径）
+2. **推断**（明确标注为推断）
+3. **待确认项**（单独列出，不混入结论）
 
-### Deployment Process
+**数字相互矛盾时**：两个数字都报出来，并说明可能原因（时间窗口差异或指标口径差异）。
 
-**User端 (C端)**:
-1. Submit merge request to `test-master` → Auto-deploy to test (Jenkins CI/CD)
-2. Test and validate
-3. Submit merge request to `pre-master` → Auto-deploy to staging
-4. Manual submit for review on platform (WeChat/Alipay/Douyin)
-5. Version number auto-incremented from git tag
+**不要凭空发明 KPI 或时间节点**，所有数据必须来自仓库文档。
 
-**Merchant端 (B端)**:
-- Manual build and upload (low frequency, no automation yet)
+---
 
-**PC Admin**:
-- Push to `test-master` → Auto-build + DingTalk notification
-- Push to `master` → Auto-build + DingTalk notification to backend for manual deployment
+## 技术平台（参考）
 
-## Platform Merger Context
+**用户端**：微信小程序 / 支付宝小程序 / 抖音小程序 / H5
+**商家端**：微信小程序/公众号
+**管理后台**：PC Web（测试：`https://noproblem-web.wegui.cn`）
 
-**Critical Understanding**: The platform is merging two distinct products with different user behaviors:
+**Git 分支策略**（代码仓库，非本知识库）：
 
-| Aspect | 小铁寄存柜 | 无忧存 | Merger Challenge |
-|--------|----------|-------|-----------------|
-| **Access Pattern** | 80%+ offline QR scan | 60% search | Dual-scenario UI required |
-| **Usage Scenario** | On-site scan-and-store | Pre-booking online | Different user flows |
-| **Age Profile** | Tourism + business | Younger (60% under 30) | UI style balance |
-| **Homepage Need** | Direct camera for QR | Search + map | Layout conflict |
+| 分支 | 用途 |
+|------|------|
+| `master` | 主开发分支 |
+| `test-master` | 自动部署测试环境（Jenkins CI/CD）|
+| `pre-master` | 预发布分支 |
+| `feat-{tapd_id}-{initials}` | 功能分支 |
+| `fix-{tapd_id}-{initials}` | 修复分支 |
 
-**Design Principle**: Intelligent scenario detection
-- QR scan entry → Direct camera activation
-- Search entry → Highlight search/map features
-- First-time users → Guide to choose preference
+---
 
-## Business Model
+## 关键数据基线
 
-**Revenue Streams**:
-1. Storage service fees (primary)
-2. Merchant onboarding deposits
-3. Advertising (planned)
+来源：`003-用户与运营数据 (User & Operations)/历史埋点数据分析/无忧存运营情况报告.md`
 
-**Commission Structure**:
-- Merchant: Fixed percentage
-- Agent: Tiered (L1/L2)
-- Platform: Remainder
+- 首页搜索使用率：55%+（名称搜索 35.63% + 查找按钮 19.76%）
+- "附近"模块点击率：4.66%（严重低于预期）
+- 微信搜索流量占比：60%
+- 估算飞单率：20-30%
 
-## User Journey Pain Points (Based on Latest Analysis)
+---
 
-**P0 Critical Issues**:
-1. Anti-crawling strategy hurts conversion (details hidden until booking)
-2. Users can't find stores (GPS inaccuracy + limited photos)
-3. Homepage function priority confusion (3 modules, unclear hierarchy)
-4. Unreasonable cancellation fees (merchant fault still charges user)
+## 版本控制原则（本知识库）
 
-**P1 Serious Issues**:
-1. Information architecture lacks hierarchy (details page)
-2. Redundant entry points (4 paths to same destination)
-3. Mandatory coupon usage (no user control)
-4. "Feidian" (offline cash transactions) lack prevention
-
-See `ClaudeCodeSpace/无忧存用户旅程地图梳理-20260306.md` for complete analysis.
-
-## Anti-Feidian Strategy
-
-"Feidian" (飞单) = Merchants bypassing platform to collect cash directly, causing 20-30% revenue loss.
-
-**10 Prevention Strategies** (detailed in `ClaudeCodeSpace/防飞单策略整理-20260306.md`):
-- Tiered commission (70%→85% based on volume)
-- Traffic prioritization algorithm
-- Deposit system (¥2000→¥0 for top merchants)
-- Insurance binding (platform orders only)
-- Points & membership tiers
-- QR code verification workflow
-- Behavioral tracking
-- Cross-platform data comparison
-
-**ROI**: 2-month payback period, 866% ROI
-
-## Working with This Repository
-
-### Adding New Analysis
-
-Place Claude-generated analysis documents in `ClaudeCodeSpace/` with naming convention:
-- Format: `{主题}-{YYYYMMDD}.md`
-- Example: `无忧存用户旅程地图梳理-20260306.md`
-
-### Document Types
-
-- **会议纪要** (.md files in 01-会议纪要/): Meeting minutes with decisions and action items
-- **PRD文档** (.md files in 04-PRD文档/): Product requirement documents with specs and wireframes
-- **运营数据** (.md files in 003-用户与运营数据/): Data analysis reports and metrics
-
-### Version Control Principles
-
-For markdown documentation (this repo):
-- Append dates to filenames for versioning: `文档名称-YYYYMMDD.md`
-- Keep historical versions when major updates occur
-- Add update log at top of document
-
-For code repositories (referenced in docs):
-- Follow git flow with feature branches
-- Never use `git add .` or `git add -A` (specify files to avoid secrets)
-- Never skip hooks (`--no-verify`)
-- Create NEW commits, avoid `--amend` unless explicitly requested
-
-## Data and Metrics
-
-**Key Metrics** (from operational reports):
-- Homepage search usage: 55%+ (name search 35.63% + find button 19.76%)
-- "Nearby" module click rate: 4.66% (underperforming, needs redesign)
-- WeChat search traffic: 60% of total
-- Network coverage: 3353 merchant stores, 267 cities
-- Estimated Feidian rate: 20-30%
-
-## Common Tasks
-
-### Understanding Product Architecture
-```bash
-# Read business architecture overview
-cat "002-产品与技术现状 (Product & Tech Stack)/02-产品架构图/无忧存业务全景架构列表.md"
-```
-
-### Understanding Platform Merger
-```bash
-# Read merger plan
-cat "002-产品与技术现状 (Product & Tech Stack)/04-PRD文档/【小铁无忧存】平台合并项目计划-202510.01.md"
-```
-
-### Accessing Latest Analysis
-```bash
-# List recent Claude-generated analysis
-ls -lt ClaudeCodeSpace/*.md | head -5
-```
-
-### Finding Specific Topics
-```bash
-# Search across all documents
-find . -name "*.md" -exec grep -l "关键词" {} \;
-
-# Example: Find all documents about user journey
-find . -name "*.md" -exec grep -l "用户路径\|用户旅程" {} \;
-```
-
-## Important Notes
-
-1. **This is a documentation repository** - No code compilation or testing required
-2. **Platform context is critical** - Always understand 小铁 vs 无忧存 differences when analyzing features
-3. **User behavior drives design** - Scan-first (小铁) vs Search-first (无忧存) dictate different UX patterns
-4. **Feidian prevention** - Revenue protection is a top priority, any payment flow changes must consider anti-feidian measures
-5. **Multi-platform deployment** - Changes affect WeChat, Alipay, Douyin mini-programs simultaneously
-6. **CI/CD is automated** - Merging to test/pre-master branches triggers auto-deployment
-
-## Contact Information
-
-**Project Leadership** (from merger plan):
-- Product Integration: 周晓洁
-- Business Design: 曾文静、石佳惠
-- Tech Architecture: 师详
-- Project Management: 何荣兴 (13652360712)
-
-## Document Versioning
-
-Latest comprehensive analysis documents in `ClaudeCodeSpace/`:
-- `无忧存用户旅程地图梳理-20260306.md` - Complete user journey with pain points
-- `防飞单策略整理-20260306.md` - Anti-feidian prevention strategies
-- `无忧存用户旅程地图.html` - Interactive visualization of user journey
+- 文档版本用文件名日期管理，不覆盖旧版：`文档名-YYYYMMDD.md`
+- 重大修订在文档头部维护 `更新日志` 表格（含版本号、日期、变更内容）
+- 新内容优先写入 `ClaudeCodeSpace/`，不直接修改 `002-004` 目录的原始文档

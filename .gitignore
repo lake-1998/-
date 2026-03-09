@@ -14,3 +14,6 @@ desktop.ini
 
 # Claude Code 本地配置（含权限设置，不提交）
 .claude/
+
+# Gemini CLI 配置（含 API Key，不提交）
+.gemini/
