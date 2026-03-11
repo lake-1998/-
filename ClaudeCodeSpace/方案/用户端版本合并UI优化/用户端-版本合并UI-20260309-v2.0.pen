@@ -1,0 +1,5356 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "ATo5f",
+      "x": 37,
+      "y": 40,
+      "name": "P01 首页",
+      "clip": true,
+      "width": 390,
+      "height": 868,
+      "fill": "#F6F6F4",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ROWaU",
+          "name": "sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "HAXn2",
+              "name": "sbTime",
+              "fill": "#1A1A1A",
+              "content": "9:41",
+              "fontFamily": "PingFang SC",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "tBcab",
+              "name": "sbIcons",
+              "fill": "#1A1A1A",
+              "content": "▲▲▲  🔋",
+              "fontFamily": "PingFang SC",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Anx8O",
+          "name": "ban",
+          "width": "fill_container",
+          "height": 148,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#FFB300",
+                "position": 0
+              },
+              {
+                "color": "#FF8000",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            28,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "iqSJ9",
+              "name": "banSub",
+              "fill": "#FFE09A",
+              "content": "出行减负 · 全国 267 城 3353+ 网点",
+              "fontFamily": "PingFang SC",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "AvOJW",
+              "name": "banTitle",
+              "fill": "#FFFFFF",
+              "content": "行李寄存，随存随取",
+              "fontFamily": "PingFang SC",
+              "fontSize": 22,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0kQdg",
+          "name": "searchSec",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Glpor",
+              "name": "newSearch",
+              "width": "fill_container",
+              "height": 46,
+              "fill": "#F4F4F4",
+              "cornerRadius": 22,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "0YXzt",
+                  "name": "cityChip",
+                  "gap": 2,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "UEdLL",
+                      "fill": "#FF9800",
+                      "content": "上海",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "215X2",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "chevron-down",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FF9800"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZpMBU",
+                  "name": "divider",
+                  "width": 1,
+                  "height": 22,
+                  "fill": "#DEDEDE"
+                },
+                {
+                  "type": "frame",
+                  "id": "mxPtj",
+                  "name": "searchPart",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "YvyUQ",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "search",
+                      "iconFontFamily": "lucide",
+                      "fill": "#AAAAAA"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lWNY2",
+                      "fill": "#BBBBBB",
+                      "content": "搜索景区 / 地铁站 / 地标",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PW1wV",
+              "name": "tagsRow",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tDbZj",
+                  "name": "tag1",
+                  "fill": "#F5F5F5",
+                  "cornerRadius": 14,
+                  "padding": [
+                    6,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QOtq6",
+                      "name": "tag1Txt",
+                      "fill": "#555555",
+                      "content": "📍 外滩",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cHhYP",
+                  "name": "tag2",
+                  "fill": "#F5F5F5",
+                  "cornerRadius": 14,
+                  "padding": [
+                    6,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OmZ1B",
+                      "name": "tag2Txt",
+                      "fill": "#555555",
+                      "content": "🚉 上海火车站",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zqYhP",
+                  "name": "tag3",
+                  "fill": "#F5F5F5",
+                  "cornerRadius": 14,
+                  "padding": [
+                    6,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "l5H6g",
+                      "name": "tag3Txt",
+                      "fill": "#555555",
+                      "content": "🎭 迪士尼",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qvc7G",
+              "name": "histRow",
+              "width": "fill_container",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wi9r1",
+                  "name": "histTxt",
+                  "fill": "#999999",
+                  "content": "最近搜索：西湖景区    南京路步行街",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "1HPXt",
+          "name": "nearbySec",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "oXoHn",
+              "name": "nearbyHdr",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "99u2g",
+                  "name": "nearbyTitle",
+                  "fill": "#1A1A1A",
+                  "content": "📌 我附近有 12 个寄存点",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "UMrAM",
+                  "name": "nearbyLink",
+                  "fill": "#FFB300",
+                  "content": "查看地图 →",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "aqxsR",
+              "name": "crdsRow",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "2WPBq",
+                  "name": "mc1",
+                  "clip": true,
+                  "width": 112,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000015",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 10
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "gWNC8",
+                      "name": "mc1Img",
+                      "width": "fill_container",
+                      "height": 72,
+                      "fill": "#E8C89A"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vOcqY",
+                      "name": "mc1TxtArea",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "padding": [
+                        6,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "4eLsC",
+                          "name": "mc1Name",
+                          "fill": "#1A1A1A",
+                          "content": "7-11 便利店",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "DVL44",
+                          "name": "mc1Detail",
+                          "fill": "#888888",
+                          "content": "0.3km · 8元起",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nVMqP",
+                  "name": "mc2",
+                  "clip": true,
+                  "width": 112,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000015",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 10
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "VTaix",
+                      "name": "mc2Img",
+                      "width": "fill_container",
+                      "height": 72,
+                      "fill": "#B8D4E8"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "P3IXV",
+                      "name": "mc2TxtArea",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "padding": [
+                        6,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "rUInA",
+                          "name": "mc2Name",
+                          "fill": "#1A1A1A",
+                          "content": "星巴克·人民广场",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "KTIvK",
+                          "name": "mc2Detail",
+                          "fill": "#888888",
+                          "content": "0.5km · 10元起",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "0fiE0",
+                  "name": "mc3",
+                  "clip": true,
+                  "width": 112,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000015",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 10
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "IVGkF",
+                      "name": "mc3Img",
+                      "width": "fill_container",
+                      "height": 72,
+                      "fill": "#C8E6C9"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BNAiH",
+                      "name": "mc3TxtArea",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "padding": [
+                        6,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "DsLf1",
+                          "name": "mc3Name",
+                          "fill": "#1A1A1A",
+                          "content": "全家便利店",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "xt8W9",
+                          "name": "mc3Detail",
+                          "fill": "#888888",
+                          "content": "0.7km · 5元起",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jRK1w",
+          "name": "qaSec",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "padding": [
+            6,
+            16
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Rzsgz",
+              "name": "qaBtn1",
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                4
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WL0TQ",
+                  "name": "qaCircle1",
+                  "width": 44,
+                  "height": 44,
+                  "fill": "#FFF3E0",
+                  "cornerRadius": 22,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "H9J4H",
+                      "name": "qaIco1",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "scan-qr-code",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FF9800"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ChYit",
+                  "name": "qaLabel1",
+                  "fill": "#333333",
+                  "content": "扫码存包",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kqST3",
+              "name": "qaBtn2",
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                4
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BqJfF",
+                  "name": "qaCircle2",
+                  "width": 44,
+                  "height": 44,
+                  "fill": "#E8F5FF",
+                  "cornerRadius": 22,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "qlPlv",
+                      "name": "qaIco2",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "truck",
+                      "iconFontFamily": "lucide",
+                      "fill": "#2196F3"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "6Njvv",
+                  "name": "qaLabel2",
+                  "fill": "#333333",
+                  "content": "行李配送",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "gN6cP",
+              "name": "qaBtn3",
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                4
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "g45SH",
+                  "name": "qaCircle3",
+                  "width": 44,
+                  "height": 44,
+                  "fill": "#E8F5E9",
+                  "cornerRadius": 22,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "pLFz3",
+                      "name": "qaIco3",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "box",
+                      "iconFontFamily": "lucide",
+                      "fill": "#4CAF50"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "mg4eo",
+                  "name": "qaLabel3",
+                  "fill": "#333333",
+                  "content": "长租柜",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AwoHE",
+              "name": "qaBtn4",
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                4
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "FvbI6",
+                  "name": "qaCircle4",
+                  "width": 44,
+                  "height": 44,
+                  "fill": "#F5F0FF",
+                  "cornerRadius": 22,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "dsD1s",
+                      "name": "qaIco4",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "layout-grid",
+                      "iconFontFamily": "lucide",
+                      "fill": "#9C27B0"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "1BBLM",
+                  "name": "qaLabel4",
+                  "fill": "#333333",
+                  "content": "更多▼",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IrRjJ",
+          "name": "actSec",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "IQMt0",
+              "name": "actHdr",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "93r6n",
+                  "name": "actTitle",
+                  "fill": "#1A1A1A",
+                  "content": "活动专区",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "DqXS5",
+                  "name": "actMore",
+                  "fill": "#FF9800",
+                  "content": "更多 >",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EINqi",
+              "name": "actCard",
+              "width": "fill_container",
+              "height": 100,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 135,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#FFF3E0",
+                    "position": 0
+                  },
+                  {
+                    "color": "#FFE0B2",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "gzfeY",
+                  "name": "actTag",
+                  "fill": "#FF9800",
+                  "cornerRadius": 20,
+                  "padding": [
+                    4,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "1oJQ1",
+                      "name": "actTagTxt",
+                      "fill": "#FFFFFF",
+                      "content": "限时特惠",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "54Atp",
+                  "name": "actCardTitle",
+                  "fill": "#1A1A1A",
+                  "content": "首单立减 5 元，全国网点通用",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "AkVoX",
+                  "name": "actCardSub",
+                  "fill": "#666666",
+                  "content": "下单即享，无需领券 · 限今日",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dPJej",
+          "name": "tabBar",
+          "width": "fill_container",
+          "height": 82,
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#EFEFEF"
+          },
+          "padding": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "vYxr7",
+              "name": "tab1",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                0,
+                0,
+                8,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "xvdY4",
+                  "name": "tab1Ico",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "house",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FF9800"
+                },
+                {
+                  "type": "text",
+                  "id": "a1CJL",
+                  "name": "tab1Lbl",
+                  "fill": "#FF9800",
+                  "content": "首页",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NNjKP",
+              "name": "tab2",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                0,
+                0,
+                8,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "xC7lJ",
+                  "name": "tab2Ico",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "clipboard-list",
+                  "iconFontFamily": "lucide",
+                  "fill": "#999999"
+                },
+                {
+                  "type": "text",
+                  "id": "vYH8a",
+                  "name": "tab2Lbl",
+                  "fill": "#999999",
+                  "content": "订单",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "BX5I5",
+              "name": "tab3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                0,
+                0,
+                8,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "fMpGK",
+                  "name": "tab3Ico",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "user",
+                  "iconFontFamily": "lucide",
+                  "fill": "#999999"
+                },
+                {
+                  "type": "text",
+                  "id": "JNjj9",
+                  "name": "tab3Lbl",
+                  "fill": "#999999",
+                  "content": "我的",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "INisN",
+      "x": 1350,
+      "y": 947,
+      "name": "图例说明",
+      "width": 390,
+      "fill": "#F5F5F5",
+      "cornerRadius": 6,
+      "gap": 16,
+      "padding": 8,
+      "children": [
+        {
+          "type": "text",
+          "id": "WbsHH",
+          "fill": "#C62828",
+          "content": "🔴 删除",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "text",
+          "id": "pmH9Y",
+          "fill": "#E65100",
+          "content": "🟠 修改",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "text",
+          "id": "gbIW6",
+          "fill": "#2E7D32",
+          "content": "🟢 新增",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xHS5C",
+      "x": 480,
+      "y": 947,
+      "name": "图例说明",
+      "width": 390,
+      "fill": "#F5F5F5",
+      "cornerRadius": 6,
+      "gap": 16,
+      "padding": 8,
+      "children": [
+        {
+          "type": "text",
+          "id": "TFlVL",
+          "fill": "#C62828",
+          "content": "🔴 删除",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "text",
+          "id": "0ONQ2",
+          "fill": "#E65100",
+          "content": "🟠 修改",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "text",
+          "id": "BuiC5",
+          "fill": "#2E7D32",
+          "content": "🟢 新增",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "HZ3bE",
+      "x": 923,
+      "y": 1559,
+      "name": "P03-标注",
+      "width": 390,
+      "fill": "#FAFAFA",
+      "cornerRadius": 8,
+      "stroke": {
+        "align": "inside",
+        "thickness": 1
+      },
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "BGz3v",
+          "name": "p03hdr",
+          "width": "fill_container",
+          "height": 36,
+          "fill": "#37474F",
+          "padding": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "KAwXi",
+              "fill": "#FFFFFF",
+              "content": "P03 网点详情页  ·  7处优化点",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dcQmG",
+          "name": "p03i6",
+          "width": "fill_container",
+          "fill": "#FFEBEE",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "GqYqz",
+              "fill": "#B71C1C",
+              "textGrowth": "fixed-width-height",
+              "width": 364,
+              "height": 32,
+              "content": "🔴 ⑥ 地图区导航按钮隐藏 → 隐藏导航能力，降低不安全感（但地图点位始终可见）",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "a9HnQ",
+          "name": "p03i11",
+          "width": "fill_container",
+          "fill": "#FFEBEE",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "APWYY",
+              "fill": "#B71C1C",
+              "textGrowth": "fixed-width-height",
+              "width": 370,
+              "height": 34,
+              "content": "🔴 ⑦ 隐藏商家电话模块 → 防飞单策略？本质应该是防爬，电话在下单后展示（考虑使用虚拟号）",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "KfmSi",
+          "name": "p03i10",
+          "width": "fill_container",
+          "fill": "#E8F5E9",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "ozQ4X",
+              "fill": "#2E7D32",
+              "textGrowth": "fixed-width-height",
+              "width": 372,
+              "height": 18,
+              "content": "🟢 ⑧ 新增下单后立即解锁模块说明 → 降低用户决策顾虑",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LFWff",
+          "name": "p03i12",
+          "width": "fill_container",
+          "fill": "#FFF3E0",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "st45E",
+              "fill": "#E65100",
+              "textGrowth": "fixed-width-height",
+              "width": 377,
+              "height": 32,
+              "content": "🟠 ⑨ 调整预定须知模块，目前该模块显示的内容过多，且过于冗杂，删掉无意义的告知，仅保留退改规则说明",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "u3WBJ",
+          "name": "p03i12",
+          "width": "fill_container",
+          "fill": "#FFF3E0",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "ymvKu",
+              "fill": "#E65100",
+              "textGrowth": "fixed-width-height",
+              "width": 377,
+              "height": 32,
+              "content": "🟠 ⑩ CTA栏左侧改为收藏店铺 → 调整前：「¥5起/件」价格信息；调整后：♡ 收藏店铺（引导复购收藏）",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Rt7FJ",
+      "x": 480,
+      "y": 40,
+      "name": "P02 搜索结果页",
+      "clip": true,
+      "width": 390,
+      "height": 814,
+      "fill": "#F6F6F4",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "1ZNWB",
+          "name": "p02sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "oBnjO",
+              "name": "p02sbTime",
+              "fill": "#1A1A1A",
+              "content": "9:41",
+              "fontFamily": "PingFang SC",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "LVb1j",
+              "name": "p02sbIcons",
+              "fill": "#1A1A1A",
+              "content": "▲▲▲  🔋",
+              "fontFamily": "PingFang SC",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "D8Bc0",
+          "name": "p3nav",
+          "width": "fill_container",
+          "height": 52,
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#EFEFEF"
+          },
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "U9I1W",
+              "name": "p3navLeft",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "HXkcz",
+                  "name": "p3backIco",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "chevron-left",
+                  "iconFontFamily": "lucide",
+                  "fill": "#1A1A1A"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "8hEHb",
+              "name": "p3navTitle",
+              "fill": "#1A1A1A",
+              "content": "寄存地图",
+              "fontFamily": "PingFang SC",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "icon_font",
+              "id": "Su83R",
+              "name": "p3shareIco",
+              "width": 22,
+              "height": 22,
+              "iconFontName": "share-2",
+              "iconFontFamily": "lucide",
+              "fill": "#555555"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "D55go",
+          "name": "p02nav",
+          "width": "fill_container",
+          "height": 52,
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#EFEFEF"
+          },
+          "gap": 10,
+          "padding": [
+            0,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "o4i6H",
+              "name": "cityBtn",
+              "width": 72,
+              "height": 40,
+              "fill": "#FFF9E6",
+              "cornerRadius": 20,
+              "gap": 4,
+              "padding": [
+                7,
+                14
+              ],
+              "justifyContent": "space_around",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "auRmf",
+                  "name": "cityTxt",
+                  "fill": "#FF9800",
+                  "textGrowth": "fixed-width",
+                  "width": 45,
+                  "content": "上海  ▼",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QNHT5",
+              "name": "p02searchBox",
+              "width": 276,
+              "height": 42,
+              "fill": "#F4F4F4",
+              "cornerRadius": 21,
+              "gap": 8,
+              "padding": [
+                0,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "uDOxW",
+                  "name": "p02searchIco",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "search",
+                  "iconFontFamily": "lucide",
+                  "fill": "#999999"
+                },
+                {
+                  "type": "text",
+                  "id": "C9zbG",
+                  "name": "p02searchTxt",
+                  "fill": "#AAAAAA",
+                  "content": "搜索地区 / 地铁站 / 地标",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "qpYKB",
+          "name": "mapArea",
+          "width": "fill_container",
+          "height": 280,
+          "fill": "#C8D8C8",
+          "layout": "vertical",
+          "gap": 8,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "lmhfS",
+              "name": "mapLbl",
+              "fill": "#6B8F6B",
+              "content": "地图区域",
+              "fontFamily": "PingFang SC",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "YltFz",
+              "name": "mapPinA",
+              "fill": "#FF9800",
+              "cornerRadius": 20,
+              "gap": 4,
+              "padding": [
+                6,
+                10
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "MFgtR",
+                  "name": "mapPinAIco",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "map-pin",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "90UKv",
+                  "name": "mapPinATxt",
+                  "fill": "#FFFFFF",
+                  "content": "人工·外滩",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "N05Ai",
+              "name": "mapPinB",
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 0,
+                "fill": "#CCCCCC"
+              },
+              "padding": [
+                5,
+                8
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "rtX5I",
+                  "name": "mapPinBTxt",
+                  "fill": "#333333",
+                  "content": "📍 目的地",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ggOi0",
+              "name": "mapPinA",
+              "fill": "#2196F3",
+              "cornerRadius": 20,
+              "gap": 4,
+              "padding": [
+                6,
+                10
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "2bthn",
+                  "name": "mapPinAIco",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "map-pin",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "4Q48u",
+                  "name": "mapPinATxt",
+                  "fill": "#FFFFFF",
+                  "content": "机柜·附近",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IR7vJ",
+          "name": "resultHdr",
+          "width": "fill_container",
+          "height": 40,
+          "fill": "#F6F6F4",
+          "padding": [
+            10,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "jrquS",
+              "name": "resultCount",
+              "fill": "#666666",
+              "content": "附近共 12 个网点",
+              "fontFamily": "PingFang SC",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "group",
+              "id": "syCI5",
+              "layout": "horizontal",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "XY8DM",
+                  "name": "resultSort",
+                  "width": 183,
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dfZSS",
+                      "name": "resultSortTxt",
+                      "fill": "#FF9800",
+                      "content": "网点过滤",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "fLQOr",
+                      "name": "resultSortIco",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "chevron-down",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FF9800"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "0FyJR",
+                  "name": "resultSort",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oIag3",
+                      "name": "resultSortTxt",
+                      "fill": "#FF9800",
+                      "content": "距离排序",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Ky89Q",
+                      "name": "resultSortIco",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "chevron-down",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FF9800"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dJTBp",
+          "name": "card1",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#F0F0F0"
+          },
+          "gap": 12,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "EeAeZ",
+              "name": "card1Img",
+              "width": 72,
+              "height": 72,
+              "fill": "#E8C89A",
+              "cornerRadius": 8,
+              "justifyContent": "center",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HEaos",
+                  "name": "card1TagA",
+                  "fill": "#FF7043",
+                  "cornerRadius": 14,
+                  "layout": "vertical",
+                  "padding": [
+                    3,
+                    8
+                  ],
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BoPMD",
+                      "name": "card1TagATxt",
+                      "fill": "#FFFFFF",
+                      "content": "👤 人工寄存",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n8S2e",
+              "name": "card1Info",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5NGki",
+                  "name": "card1Name",
+                  "fill": "#1A1A1A",
+                  "content": "7-11便利店（外滩南京路店）",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "WkBix",
+                  "name": "c1tags",
+                  "width": "fill_container",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "RyX6i",
+                      "name": "c1t2",
+                      "fill": "#FFF3E0",
+                      "cornerRadius": 10,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "iWEJ2",
+                          "fill": "#FF9800",
+                          "content": "专人看守",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Jn3rU",
+                      "name": "c1t3",
+                      "fill": "#F5F0FF",
+                      "cornerRadius": 10,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fsiyM",
+                          "fill": "#9C27B0",
+                          "content": "可过夜",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wS2lE",
+                      "name": "c1t4",
+                      "fill": "#E3F2FD",
+                      "cornerRadius": 10,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "jCnvj",
+                          "fill": "#2196F3",
+                          "content": "可预约",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FWUzh",
+                  "name": "c1hrs",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yASMq",
+                      "fill": "#4CAF50",
+                      "content": "🟢 营业中",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kNbWW",
+                      "fill": "#999999",
+                      "content": "· 06:00 – 22:00",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "83drr",
+                  "name": "card1Meta",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Xxn1e",
+                      "name": "card1Dist",
+                      "fill": "#666666",
+                      "content": "📍 0.3km",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HMrlp",
+                      "name": "card1Price",
+                      "fill": "#FF5722",
+                      "content": "¥5起/件",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4FoA2",
+          "name": "card2",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#F0F0F0"
+          },
+          "gap": 12,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "4TjOY",
+              "name": "card2Img",
+              "width": 73,
+              "height": 72,
+              "fill": "#B8D4E8",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ES3UU",
+                  "name": "card2Tags",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Xu8qs",
+                      "name": "card2TagA",
+                      "fill": "#0097A7",
+                      "cornerRadius": 14,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "TWvMb",
+                          "name": "card2TagATxt",
+                          "fill": "#FFFFFF",
+                          "content": "🤖 自助机柜",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Cxvx3",
+              "name": "card2Info",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Pfl0I",
+                  "name": "card2Name",
+                  "fill": "#1A1A1A",
+                  "content": "无忧存智能柜（南京路店）",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "tqQHO",
+                  "name": "c2tags",
+                  "width": "fill_container",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "laXgL",
+                      "name": "c2t2",
+                      "fill": "#E8F5E9",
+                      "cornerRadius": 10,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "UflTJ",
+                          "fill": "#4CAF50",
+                          "content": "安全可靠",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Ml5ZI",
+                      "name": "c2t3",
+                      "fill": "#E3F2FD",
+                      "cornerRadius": 10,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fg96j",
+                          "fill": "#2196F3",
+                          "content": "自动提醒",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "LOFMD",
+                      "name": "c2t4",
+                      "fill": "#F0F8FF",
+                      "cornerRadius": 10,
+                      "padding": [
+                        3,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "siSjT",
+                          "fill": "#2196F3",
+                          "content": "有监控",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zvwFn",
+                  "name": "c2hrs",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kacXa",
+                      "fill": "#4CAF50",
+                      "content": "🟢 营业中",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "b5kZn",
+                      "fill": "#999999",
+                      "content": "· 全天 24小时",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "P31h9",
+                  "name": "card2Meta",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oGrn3",
+                      "name": "card2Dist",
+                      "fill": "#666666",
+                      "content": "📍 0.5km",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "It8Wv",
+                      "name": "card2Price",
+                      "fill": "#FF5722",
+                      "content": "¥8起/天",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BHVz1",
+          "name": "p02tabBar",
+          "width": "fill_container",
+          "height": 82,
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#EFEFEF"
+          },
+          "padding": [
+            10,
+            0,
+            0,
+            0
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "0I2qV",
+              "name": "p02tab1",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                0,
+                0,
+                8,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "Kznxv",
+                  "name": "p02tab1Ico",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "house",
+                  "iconFontFamily": "lucide",
+                  "fill": "#CCCCCC"
+                },
+                {
+                  "type": "text",
+                  "id": "RdFgx",
+                  "name": "p02tab1Lbl",
+                  "fill": "#CCCCCC",
+                  "content": "首页",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "T1Ucz",
+              "name": "p02tab2",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                0,
+                0,
+                8,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "rt0dn",
+                  "name": "p02tab2Ico",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "clipboard-list",
+                  "iconFontFamily": "lucide",
+                  "fill": "#CCCCCC"
+                },
+                {
+                  "type": "text",
+                  "id": "sYofu",
+                  "name": "p02tab2Lbl",
+                  "fill": "#CCCCCC",
+                  "content": "订单",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sBxnc",
+              "name": "p02tab3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                0,
+                0,
+                8,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "Mn6dZ",
+                  "name": "p02tab3Ico",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "user",
+                  "iconFontFamily": "lucide",
+                  "fill": "#CCCCCC"
+                },
+                {
+                  "type": "text",
+                  "id": "zWUmm",
+                  "name": "p02tab3Lbl",
+                  "fill": "#CCCCCC",
+                  "content": "我的",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y1YlI",
+      "x": 923,
+      "y": 40,
+      "name": "P03 网点详情页",
+      "clip": true,
+      "width": 378,
+      "height": 1423,
+      "fill": "#F6F6F4",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "tq3W3",
+          "name": "p3sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "YA1js",
+              "name": "p3sbTime",
+              "fill": "#1A1A1A",
+              "content": "9:41",
+              "fontFamily": "PingFang SC",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "w3ts9",
+              "name": "p3sbIco",
+              "fill": "#1A1A1A",
+              "content": "▲▲▲  🔋",
+              "fontFamily": "PingFang SC",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Ecb7T",
+          "name": "p3nav",
+          "width": "fill_container",
+          "height": 52,
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#EFEFEF"
+          },
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "3jJRr",
+              "name": "p3navLeft",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "i9w6f",
+                  "name": "p3backIco",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "chevron-left",
+                  "iconFontFamily": "lucide",
+                  "fill": "#1A1A1A"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "tLlgC",
+              "name": "p3navTitle",
+              "fill": "#1A1A1A",
+              "content": "网点详情",
+              "fontFamily": "PingFang SC",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "icon_font",
+              "id": "dsg57",
+              "name": "p3shareIco",
+              "width": 22,
+              "height": 22,
+              "iconFontName": "share-2",
+              "iconFontFamily": "lucide",
+              "fill": "#555555"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NFQEx",
+          "name": "p3notif",
+          "width": "fill_container",
+          "fill": "#FFF9E6",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#FFE082"
+          },
+          "gap": 6,
+          "padding": [
+            8,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "3s11c",
+              "name": "p3notifIco",
+              "width": 14,
+              "height": 14,
+              "iconFontName": "zap",
+              "iconFontFamily": "lucide",
+              "fill": "#FF9800"
+            },
+            {
+              "type": "text",
+              "id": "5oVBl",
+              "name": "p3notifTxt",
+              "fill": "#FF9800",
+              "content": "价格实时更新，以下单页展示为准",
+              "fontFamily": "PingFang SC",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ibmA7",
+          "name": "newMapHero",
+          "clip": true,
+          "width": "fill_container",
+          "height": 200,
+          "fill": "#C8D8C8",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "8BeEO",
+              "name": "midArea",
+              "width": "fill_container",
+              "height": "fill_container",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "1Idbx",
+                  "name": "pinIcon",
+                  "width": 36,
+                  "height": 36,
+                  "iconFontName": "map-pin",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FF5722"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "aAHi0",
+              "name": "bottomOverlay",
+              "width": "fill_container",
+              "fill": "#000000b3",
+              "padding": [
+                10,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PWpLL",
+                  "name": "areaTxt",
+                  "fill": "#FFFFFF",
+                  "content": "外滩附近 · 南京东路步行街区域",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lEFaU",
+          "name": "p3info",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Pefl3",
+              "name": "p3name",
+              "fill": "#1A1A1A",
+              "content": "外滩附近便利店",
+              "fontFamily": "PingFang SC",
+              "fontSize": 17,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "3NlG8",
+              "name": "p3ratingRow",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MrhLJ",
+                  "name": "p3stars",
+                  "fill": "#FF9800",
+                  "content": "⭐ 4.8",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "swc0Z",
+                  "name": "p3reviews",
+                  "fill": "#999999",
+                  "content": "· 52 条评价",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NvExx",
+              "name": "p3tagRow",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nd5xu",
+                  "name": "p3tag1",
+                  "fill": "#FFF3E0",
+                  "cornerRadius": 12,
+                  "padding": [
+                    4,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VzOGq",
+                      "name": "p3tag1Txt",
+                      "fill": "#FF9800",
+                      "content": "专人看守",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YsFca",
+                  "name": "p3tag2",
+                  "fill": "#F0F8FF",
+                  "cornerRadius": 12,
+                  "padding": [
+                    4,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "W78Fk",
+                      "name": "p3tag2Txt",
+                      "fill": "#2196F3",
+                      "content": "有监控",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "UfHyY",
+                  "name": "p3tag3",
+                  "fill": "#F5F0FF",
+                  "cornerRadius": 12,
+                  "padding": [
+                    4,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LfAei",
+                      "name": "p3tag3Txt",
+                      "fill": "#9C27B0",
+                      "content": "可过夜",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "JwJ4c",
+          "name": "priceSec",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "64HSb",
+              "name": "priceHdr",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yrEP0",
+                  "fill": "#1A1A1A",
+                  "content": "寄存价格",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "bXMQu",
+                  "name": "szLink",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "NDYya",
+                      "fill": "#999999",
+                      "content": "尺寸说明",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "ftE7g",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "chevron-right",
+                      "iconFontFamily": "lucide",
+                      "fill": "#CCCCCC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NJ89d",
+              "name": "priceRow",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VESdX",
+                  "name": "bpCol",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "QEaWr",
+                      "name": "bpTop",
+                      "gap": 10,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "KUXMG",
+                          "fill": "#d9d9d9ff",
+                          "content": "🎒",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 36,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vajSF",
+                          "fill": "#FF5722",
+                          "content": "¥5/天",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 22,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "4r1p8",
+                      "fill": "#333333",
+                      "content": "背包 / 双肩包",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YfMx7",
+                      "fill": "#999999",
+                      "content": "最长不超过45cm",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "MnC5J",
+                  "width": 1,
+                  "height": 70,
+                  "fill": "#F0F0F0"
+                },
+                {
+                  "type": "frame",
+                  "id": "znNU7",
+                  "name": "lgCol",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "oY5Sm",
+                      "name": "lgTop",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qYUqI",
+                          "fill": "#d9d9d9ff",
+                          "content": "🧳",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 36,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kEzdM",
+                          "fill": "#FF5722",
+                          "content": "¥8/天",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 22,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Kr6MV",
+                      "fill": "#333333",
+                      "content": "行李箱 / 拉杆箱",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "3tr9j",
+                      "fill": "#999999",
+                      "content": "从14寸起至28寸",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "eOX9q",
+              "fill": "#999999",
+              "content": "*按天计费，一个自然日为一天（超过晚上24:00天数加1）",
+              "fontFamily": "PingFang SC",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Hngsp",
+          "name": "p3infoRows",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "padding": [
+            4,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "VvvAs",
+              "name": "p3hoursRow",
+              "width": "fill_container",
+              "gap": 10,
+              "padding": [
+                12,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "03RB6",
+                  "name": "p3hoursIco",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "timer",
+                  "iconFontFamily": "lucide",
+                  "fill": "#666666"
+                },
+                {
+                  "type": "text",
+                  "id": "R3zAn",
+                  "name": "p3hoursTxt",
+                  "fill": "#333333",
+                  "content": "营业时间：06:00 - 22:00 · 每天",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "70itp",
+          "name": "procSec",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "kNS2s",
+              "name": "procHdr",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JoDoP",
+                  "fill": "#1A1A1A",
+                  "content": "行李寄存流程",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "IMPVw",
+                  "name": "procHdrLink",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I9DaV",
+                      "fill": "#999999",
+                      "content": "完整流程",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "ztY4E",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "chevron-right",
+                      "iconFontFamily": "lucide",
+                      "fill": "#CCCCCC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zNMCK",
+              "name": "procSteps",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Dmuap",
+                  "name": "s1",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "FJmjb",
+                      "name": "s1ico",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "#FFF3E0",
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "lVhYV",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "timer",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FF9800"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "0Bl32",
+                      "fill": "#333333",
+                      "content": "线上预约",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "e9BMk",
+                      "fill": "#999999",
+                      "content": "请选时间/数量",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon_font",
+                  "id": "oaXtQ",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "chevron-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#CCCCCC"
+                },
+                {
+                  "type": "frame",
+                  "id": "VY6Bf",
+                  "name": "s2",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "IeVix",
+                      "name": "s2ico",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "#FFF3E0",
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "9B9e9",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FF9800"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "4N0xk",
+                      "fill": "#333333",
+                      "content": "前往寄存点",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Sim6O",
+                      "fill": "#999999",
+                      "content": "下单后获取地址",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon_font",
+                  "id": "Kzuz0",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "chevron-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#CCCCCC"
+                },
+                {
+                  "type": "frame",
+                  "id": "Y2cML",
+                  "name": "s3",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "5HsYX",
+                      "name": "s3ico",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "#FFF3E0",
+                      "cornerRadius": 20,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "ARZT5",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "package",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FF9800"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "iJDEO",
+                      "fill": "#333333",
+                      "content": "完成寄存",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OwZmA",
+                      "fill": "#999999",
+                      "content": "生成行李凭证",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "C6bTn",
+          "name": "p3rules",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "XzqUc",
+              "name": "p3rulesTitle",
+              "fill": "#1A1A1A",
+              "content": "退改规则",
+              "fontFamily": "PingFang SC",
+              "fontSize": 15,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "NgaXv",
+              "name": "p3rule1",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "X5Sch",
+                  "name": "p3rule1Dot",
+                  "width": 8,
+                  "height": 8,
+                  "fill": "#4CAF50",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "OreqL",
+                  "name": "p3rule1Txt",
+                  "fill": "#333333",
+                  "content": "寄存开始前：可免费取消，全额退款",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VmAsX",
+              "name": "p3rule2",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ya3eJ",
+                  "name": "p3rule2Dot",
+                  "width": 8,
+                  "height": 8,
+                  "fill": "#FF9800",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "xHGTM",
+                  "name": "p3rule2Txt",
+                  "fill": "#333333",
+                  "content": "寄存进行中：可取消，可能扣除部分手续费（约20%）",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "G9XVx",
+              "name": "p3rule3",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "chdWf",
+                  "name": "p3rule3Dot",
+                  "width": 8,
+                  "height": 8,
+                  "fill": "#F44336",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "nVPfk",
+                  "name": "p3rule3Txt",
+                  "fill": "#333333",
+                  "content": "寄存已结束：不可取消",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Ss3s6",
+          "name": "reviewSec",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "mAKco",
+              "name": "reviewHdr",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "B2hg9",
+                  "fill": "#1A1A1A",
+                  "content": "用户评价",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "iYFZf",
+                  "name": "reviewHdrLink",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "s9jDu",
+                      "fill": "#999999",
+                      "content": "全部评价",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "iWH5F",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "chevron-right",
+                      "iconFontFamily": "lucide",
+                      "fill": "#CCCCCC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "7Nrey",
+              "name": "reviewItem",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "OTCWB",
+                  "name": "avatar",
+                  "width": 36,
+                  "height": 36,
+                  "fill": "#FFE0B2",
+                  "cornerRadius": 18,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Frgnb",
+                      "fill": "#FF9800",
+                      "content": "用",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TQYkz",
+                  "name": "reviewRight",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "K718w",
+                      "name": "reviewTopRow",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "d14fc",
+                          "fill": "#1A1A1A",
+                          "content": "176****8088",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "f42Ec",
+                          "fill": "#FF9800",
+                          "content": "⭐⭐⭐⭐⭐  5星",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "mOeWL",
+                      "fill": "#AAAAAA",
+                      "content": "2024-12-29 16:16:49",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "s9h5K",
+                      "fill": "#333333",
+                      "content": "态度很好，很安全",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dti4R",
+          "name": "guaranteeSec",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "udycJ",
+              "fill": "#1A1A1A",
+              "content": "寄存保障",
+              "fontFamily": "PingFang SC",
+              "fontSize": 15,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "EKJxe",
+              "name": "guaranteeGrid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vl9Kr",
+                  "name": "gRow1",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "t0cBD",
+                      "name": "gItem1",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "thacR",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "badge-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#4CAF50"
+                        },
+                        {
+                          "type": "text",
+                          "id": "N34jk",
+                          "fill": "#333333",
+                          "content": "官方认证",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "iSJbm",
+                      "name": "gItem2",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "iQI1C",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "shield-check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#2196F3"
+                        },
+                        {
+                          "type": "text",
+                          "id": "17iAV",
+                          "fill": "#333333",
+                          "content": "交易保障",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "oBq2Q",
+                  "name": "gRow2",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Oawpg",
+                      "name": "gItem3",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "tOu5R",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "umbrella",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FF9800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "toREv",
+                          "fill": "#333333",
+                          "content": "安全险",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fV2NG",
+                      "name": "gItem4",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "XLJUg",
+                          "width": 20,
+                          "height": 20,
+                          "iconFontName": "video",
+                          "iconFontFamily": "lucide",
+                          "fill": "#F44336"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JVE7Z",
+                          "fill": "#333333",
+                          "content": "视频监控",
+                          "fontFamily": "PingFang SC",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "koMQc",
+          "name": "benBox",
+          "width": "fill_container",
+          "fill": "#FFF9E6",
+          "stroke": {
+            "thickness": {
+              "top": 2
+            },
+            "fill": "#FFE082"
+          },
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "rbBBS",
+              "name": "benHeader",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "Nh7Rj",
+                  "name": "benHeaderIco",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "lock-open",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FF9800"
+                },
+                {
+                  "type": "text",
+                  "id": "lFtwR",
+                  "name": "benHeaderTxt",
+                  "fill": "#FF9800",
+                  "content": "下单后立即解锁",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jF6ra",
+              "name": "benItem1",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "CYRZ1",
+                  "name": "benItem1Ico",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "navigation",
+                  "iconFontFamily": "lucide",
+                  "fill": "#888888"
+                },
+                {
+                  "type": "text",
+                  "id": "7Z8HY",
+                  "name": "benItem1Txt",
+                  "fill": "#666666",
+                  "content": "一键导航到精确位置",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "S72Vv",
+              "name": "benItem2",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "lmNwG",
+                  "name": "benItem2Ico",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "phone",
+                  "iconFontFamily": "lucide",
+                  "fill": "#888888"
+                },
+                {
+                  "type": "text",
+                  "id": "HGTWx",
+                  "name": "benItem2Txt",
+                  "fill": "#666666",
+                  "content": "商家直联电话",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TdjVA",
+              "name": "benItem3",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "magE4",
+                  "name": "benItem3Ico",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "camera",
+                  "iconFontFamily": "lucide",
+                  "fill": "#888888"
+                },
+                {
+                  "type": "text",
+                  "id": "x0kAM",
+                  "name": "benItem3Txt",
+                  "fill": "#666666",
+                  "content": "全部实景照片（8张）",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "6Wdbo",
+          "name": "p3ctaBar",
+          "width": "fill_container",
+          "height": 80,
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#EFEFEF"
+          },
+          "padding": [
+            12,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ttSg3",
+              "name": "favBtn",
+              "layout": "vertical",
+              "gap": 4,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "wjBsO",
+                  "width": 26,
+                  "height": 26,
+                  "iconFontName": "heart",
+                  "iconFontFamily": "lucide",
+                  "fill": "#CCCCCC"
+                },
+                {
+                  "type": "text",
+                  "id": "MwjO1",
+                  "fill": "#999999",
+                  "content": "收藏店铺",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "U47rT",
+              "name": "p3bookBtn",
+              "width": 140,
+              "height": 48,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#FFB300",
+                    "position": 0
+                  },
+                  {
+                    "color": "#FF8000",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 24,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kR2Aq",
+                  "name": "p3bookTxt",
+                  "fill": "#FFFFFF",
+                  "content": "立即预订",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "NMRdd",
+      "x": 1350,
+      "y": 40,
+      "name": "P04A 下单页",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": "#F6F6F4",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Qxb0S",
+          "name": "p4sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "0hY7I",
+              "name": "p4sbTime",
+              "fill": "#1A1A1A",
+              "content": "9:41",
+              "fontFamily": "PingFang SC",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "ecLJD",
+              "name": "p4sbIco",
+              "fill": "#1A1A1A",
+              "content": "▲▲▲  🔋",
+              "fontFamily": "PingFang SC",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "caYM3",
+          "name": "p4nav",
+          "width": "fill_container",
+          "height": 52,
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#EFEFEF"
+          },
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "BD9mS",
+              "name": "p4backIco",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "chevron-left",
+              "iconFontFamily": "lucide",
+              "fill": "#1A1A1A"
+            },
+            {
+              "type": "text",
+              "id": "851sd",
+              "name": "p4navTitle",
+              "fill": "#1A1A1A",
+              "content": "确认订单",
+              "fontFamily": "PingFang SC",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "05G6W",
+              "name": "p4navSpacer",
+              "width": 24,
+              "height": 24
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "uadNP",
+          "name": "p4storeCard",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "oqUYU",
+              "name": "p4storeHdr",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ogPrc",
+                  "name": "p4storeName",
+                  "fill": "#1A1A1A",
+                  "content": "7-11便利店（外滩南京路店）",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "jTO1R",
+                  "name": "p4storeEdit",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "chevron-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#CCCCCC"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "0zAMG",
+              "name": "p4hoursRow",
+              "width": "fill_container",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "tDSw1",
+                  "name": "p4hoursIco",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "timer",
+                  "iconFontFamily": "lucide",
+                  "fill": "#999999"
+                },
+                {
+                  "type": "text",
+                  "id": "T5npr",
+                  "name": "p4hoursTxt",
+                  "fill": "#666666",
+                  "content": "营业中 · 06:00–22:00",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "UtYac",
+          "name": "p4dateCard",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "tL0As",
+              "name": "p4dateTitle",
+              "width": "fill_container",
+              "padding": [
+                12,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZXue5",
+                  "name": "p4dateTitleTxt",
+                  "fill": "#1A1A1A",
+                  "content": "寄存时间",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "tTrlQ",
+              "name": "p4startRow",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#F5F5F5"
+              },
+              "padding": [
+                10,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DLCvV",
+                  "name": "p4startLeft",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "WVXtr",
+                      "name": "p4startIco",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "calendar",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FF9800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SG3Ve",
+                      "name": "p4startLbl",
+                      "fill": "#666666",
+                      "content": "开始时间",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "skFw1",
+                  "name": "p4startVal",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FzsoU",
+                      "name": "p4startDate",
+                      "fill": "#1A1A1A",
+                      "content": "3月9日 14:00",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "TORIZ",
+                      "name": "p4startArrow",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "chevron-right",
+                      "iconFontFamily": "lucide",
+                      "fill": "#CCCCCC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "0lEKa",
+              "name": "p4endRow",
+              "width": "fill_container",
+              "padding": [
+                10,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "FCpCs",
+                  "name": "p4endLeft",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "Xb4Dc",
+                      "name": "p4endIco",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "calendar",
+                      "iconFontFamily": "lucide",
+                      "fill": "#999999"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Iwy1Y",
+                      "name": "p4endLbl",
+                      "fill": "#666666",
+                      "content": "结束时间",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yLwqD",
+                  "name": "p4endVal",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wzUwA",
+                      "name": "p4endDate",
+                      "fill": "#1A1A1A",
+                      "content": "3月9日 20:00",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "tYLFp",
+                      "name": "p4endArrow",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "chevron-right",
+                      "iconFontFamily": "lucide",
+                      "fill": "#CCCCCC"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AUJ4y",
+          "name": "newCountCard",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "17sLR",
+              "name": "countHdr",
+              "width": 360,
+              "gap": 6,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "group",
+                  "id": "BvLOq",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jq5OB",
+                      "name": "countHdrTxt",
+                      "fill": "#1A1A1A",
+                      "content": "寄存件数",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vlmJv",
+                      "name": "countHdrHint",
+                      "fill": "#999999",
+                      "content": "· 每件单独计费",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bwwNL",
+                  "name": "szLink",
+                  "gap": 2,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "32Vl9",
+                      "fill": "#999999",
+                      "content": "尺寸说明",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Mzw0r",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "chevron-right",
+                      "iconFontFamily": "lucide",
+                      "fill": "#CCCCCC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QsZgy",
+              "name": "bpRow",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "group",
+                  "id": "PeIZX",
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3AoUj",
+                      "name": "bpLabel",
+                      "fill": "#000000ff",
+                      "textGrowth": "fixed-width",
+                      "width": 154,
+                      "content": "背包 / 双肩包",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vbMJr",
+                      "fill": "#ff0000ff",
+                      "content": "￥5/天",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "X9ud1",
+                  "name": "bpCounter",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OVRmb",
+                      "name": "bpMinus",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#F4F4F4",
+                      "cornerRadius": 18,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "cOljb",
+                          "name": "bpMinusIco",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "minus",
+                          "iconFontFamily": "lucide",
+                          "fill": "#666666"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "g6Pv2",
+                      "name": "bpNum",
+                      "fill": "#1A1A1A",
+                      "content": "1",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9YNRl",
+                      "name": "bpPlus",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#FF9800",
+                      "cornerRadius": 18,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "dt5Ps",
+                          "name": "bpPlusIco",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "plus",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WyBsZ",
+              "name": "lgRow",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "group",
+                  "id": "ziDkT",
+                  "layout": "horizontal",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4J1eQ",
+                      "name": "lgLabel",
+                      "fill": "#333333",
+                      "textGrowth": "fixed-width",
+                      "width": 168,
+                      "content": "行李箱 / 拉杆箱",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "8X6wk",
+                      "fill": "#ff0000ff",
+                      "content": "￥10/天",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "g8CdM",
+                  "name": "lgCounter",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "X09T8",
+                      "name": "lgMinus",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#F4F4F4",
+                      "cornerRadius": 18,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "N0r1F",
+                          "name": "lgMinusIco",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "minus",
+                          "iconFontFamily": "lucide",
+                          "fill": "#CCCCCC"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "QbmF8",
+                      "name": "lgNum",
+                      "fill": "#CCCCCC",
+                      "content": "0",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "T5kGx",
+                      "name": "lgPlus",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#FF9800",
+                      "cornerRadius": 18,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "F8MBi",
+                          "name": "lgPlusIco",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "plus",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ljtTP",
+          "name": "p4couponCard",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "padding": [
+            14,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "dD4zq",
+              "name": "p4couponLeft",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "97AdU",
+                  "name": "p4couponChk",
+                  "width": 20,
+                  "height": 20,
+                  "fill": "#FF9800",
+                  "cornerRadius": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "ppjsM",
+                      "name": "p4couponChkIco",
+                      "width": 12,
+                      "height": 12,
+                      "iconFontName": "check",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "3z90Y",
+                  "name": "p4couponInfo",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KqohV",
+                      "name": "p4couponName",
+                      "fill": "#1A1A1A",
+                      "content": "新用户首单立减券",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qtkBe",
+                      "name": "p4couponSub",
+                      "fill": "#999999",
+                      "content": "满 ¥10 可用 · 今日到期",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "Cp7ol",
+              "name": "p4couponAmt",
+              "fill": "#FF5722",
+              "content": "-¥5.00",
+              "fontFamily": "PingFang SC",
+              "fontSize": 15,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "RXiFv",
+          "name": "p4priceCard",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 6
+            },
+            "fill": "#F0F0F0"
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Yk4NO",
+              "name": "p4priceTitle",
+              "width": "fill_container",
+              "padding": [
+                12,
+                16
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Cu5OD",
+                  "name": "p4priceTitleTxt",
+                  "fill": "#1A1A1A",
+                  "content": "费用明细",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lkjkk",
+              "name": "p4pr1",
+              "width": "fill_container",
+              "padding": [
+                8,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fj7eG",
+                  "name": "p4pr1Lbl",
+                  "fill": "#666666",
+                  "content": "寄存费（背包1件 + 行李箱0件）",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ah7JE",
+                  "name": "p4pr1Val",
+                  "fill": "#333333",
+                  "content": "¥10.00",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "x9UiJ",
+              "name": "p4pr2",
+              "width": "fill_container",
+              "padding": [
+                8,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0fwJ6",
+                  "name": "p4pr2Lbl",
+                  "fill": "#666666",
+                  "content": "平台服务费",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ceT3X",
+                  "name": "p4pr2Val",
+                  "fill": "#333333",
+                  "content": "¥0.00",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JHEsx",
+              "name": "p4pr2",
+              "width": "fill_container",
+              "padding": [
+                8,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XmtbA",
+                  "name": "p4pr2Lbl",
+                  "fill": "#666666",
+                  "content": "优惠券抵扣",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ShU69",
+                  "name": "p4pr2Val",
+                  "fill": "#333333",
+                  "content": "¥-5.00",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "trSUP",
+              "name": "p4prDivider",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "#F5F5F5",
+              "padding": [
+                0,
+                16
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jTmys",
+              "name": "p4prTotal",
+              "width": "fill_container",
+              "padding": [
+                12,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VfIGS",
+                  "name": "p4prTotalLbl",
+                  "fill": "#1A1A1A",
+                  "content": "合计",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Qijbz",
+                  "name": "p4prTotalVal",
+                  "fill": "#FF5722",
+                  "content": "¥5.00",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "r4OjG",
+          "name": "agreeRow",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#F0F0F0"
+          },
+          "gap": 8,
+          "padding": [
+            10,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "4I0OR",
+              "name": "agreeChk",
+              "width": 18,
+              "height": 18,
+              "fill": "#FF9800",
+              "cornerRadius": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "2TgeQ",
+                  "name": "agreeChkIco",
+                  "width": 12,
+                  "height": 12,
+                  "iconFontName": "check",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "0VOsC",
+              "name": "agreeTxt",
+              "fill": "#666666",
+              "content": "已阅读并同意",
+              "fontFamily": "PingFang SC",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "wWY7o",
+              "name": "agreeLinkTxt",
+              "fill": "#FF9800",
+              "content": "《寄存服务协议》",
+              "fontFamily": "PingFang SC",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pvhF4",
+          "name": "p4payBar",
+          "width": "fill_container",
+          "height": 80,
+          "fill": "#FFFFFF",
+          "stroke": {
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#EFEFEF"
+          },
+          "padding": [
+            12,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rdKbM",
+              "name": "p4payLeft",
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yypPB",
+                  "name": "p4payLbl",
+                  "fill": "#999999",
+                  "content": "实付金额",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "fYXqp",
+                  "name": "p4payPrice",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JS2hG",
+                      "name": "p4payVal",
+                      "fill": "#FF5722",
+                      "content": "¥5.00",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 22,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "6jJFK",
+                      "name": "p4payOrigin",
+                      "fill": "#FF9800",
+                      "content": "（省¥5）",
+                      "fontFamily": "PingFang SC",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "laNqO",
+              "name": "p4payBtn",
+              "width": 150,
+              "height": 48,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#FFB300",
+                    "position": 0
+                  },
+                  {
+                    "color": "#FF8000",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 24,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "pSm6h",
+                  "name": "p4payBtnTxt",
+                  "fill": "#FFFFFF",
+                  "content": "立即支付",
+                  "fontFamily": "PingFang SC",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "9LkNt",
+      "x": 37,
+      "y": 1001,
+      "name": "P01-标注",
+      "width": 390,
+      "fill": "#FAFAFA",
+      "cornerRadius": 8,
+      "stroke": {
+        "align": "inside",
+        "thickness": 1
+      },
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "CyqWx",
+          "name": "p01hdr",
+          "width": "fill_container",
+          "height": 36,
+          "fill": "#37474F",
+          "padding": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "fR4K9",
+              "fill": "#ffffffff",
+              "content": "P01 首页  ·  2处优化点",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "CBnaq",
+          "name": "p01i1",
+          "width": "fill_container",
+          "fill": "#FFEBEE",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "BeNER",
+              "fill": "#b71c1cff",
+              "textGrowth": "fixed-width-height",
+              "width": 367,
+              "height": 34,
+              "content": "🔴 ① 删除品牌Logo导航栏  |  调整前：顶部「小铁行李寄存｜无忧存」独立导航栏（44px）→ 调整后：已删除，Banner上移，首屏内容空间扩大",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "V81tc",
+          "name": "p01i2",
+          "width": 389,
+          "height": 65,
+          "fill": "#FFF3E0",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "fygXs",
+              "fill": "#e65100ff",
+              "textGrowth": "fixed-width-height",
+              "width": 361,
+              "height": 47,
+              "content": "🟠 ② 城市选择器内嵌搜索框  |  调整前：城市选择器单独一行显示 → 调整后：[上海▼ | 🔍 搜索景区/地铁站/地标] ，增加历史搜索记录，合并为搜索框内联控件",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "HN0Rt",
+      "x": 480,
+      "y": 1001,
+      "name": "P02-标注",
+      "width": 390,
+      "fill": "#FAFAFA",
+      "cornerRadius": 8,
+      "stroke": {
+        "align": "inside",
+        "thickness": 1
+      },
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "MWOKS",
+          "name": "p02hdr",
+          "width": "fill_container",
+          "height": 36,
+          "fill": "#37474F",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "bGUOO",
+              "fill": "#000000ff",
+              "content": "P02 地图页  ·  3处优化点",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OCwMf",
+          "name": "p02i3",
+          "width": "fill_container",
+          "fill": "#FFF3E0",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "ikGxS",
+              "fill": "#000000ff",
+              "textGrowth": "fixed-width",
+              "width": 370,
+              "content": "🟠 ③ 地图Pin区分网点类型  |  调整前：所有网点Pin样式统一 → 调整后：🟠人工网点(橙#FF7043) / 🔵机柜网点(蓝#2196F3)",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QR3ZZ",
+          "name": "p02i4",
+          "width": "fill_container",
+          "fill": "#E8F5E9",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "UbmMO",
+              "fill": "#000000ff",
+              "textGrowth": "fixed-width",
+              "width": 367,
+              "content": "🟢 ④ 网点卡片新增类型标识  |  调整前：无类型区分 → 调整后：左侧竖向Badge「人工寄存」橙/「自助机柜」蓝绿",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "rsWN8",
+      "x": 1350,
+      "y": 1001,
+      "name": "P04A-标注",
+      "width": 390,
+      "fill": "#FAFAFA",
+      "cornerRadius": 8,
+      "stroke": {
+        "align": "inside",
+        "thickness": 1
+      },
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "9uvLg",
+          "name": "p04hdr",
+          "width": "fill_container",
+          "height": 36,
+          "fill": "#37474F",
+          "padding": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "uXtNX",
+              "fill": "#FFFFFF",
+              "content": "P04A 下单页  ·  1处优化点",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ADQlt",
+          "name": "p04i13",
+          "width": "fill_container",
+          "fill": "#FFEBEE",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "IgUaP",
+              "fill": "#B71C1C",
+              "textGrowth": "fixed-width-height",
+              "width": 370,
+              "height": 31,
+              "content": "🔴 ⑪ 下单页不再显示退改违约说明，降低不安全感，如果一定要，则提示收取手续费，不要说收取违约金。",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Annik",
+          "name": "p03i12",
+          "width": "fill_container",
+          "fill": "#FFF3E0",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "QDUSo",
+              "fill": "#E65100",
+              "textGrowth": "fixed-width-height",
+              "width": 369,
+              "height": 51,
+              "content": "🟠 ⑫ 调整价格显示模块，补充平台服务费模块，方便后续合理收取服务费等其他费用。优惠券实际抵扣额度单独拎出来一栏，方便查看实际是否使用优惠券，",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yo3QA",
+          "name": "p02i5",
+          "width": "fill_container",
+          "fill": "#E8F5E9",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "OBLOI",
+              "fill": "#2e7d32ff",
+              "textGrowth": "fixed-width",
+              "width": 363,
+              "content": "🟢 ⑤ 下单完成后，页面优化",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "QxqMv",
+      "x": 37,
+      "y": -64,
+      "name": "标注总标题",
+      "width": 1703,
+      "height": 48,
+      "fill": "#1A1A1A",
+      "cornerRadius": 8,
+      "padding": 16,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "9wnKM",
+          "fill": "#FFB300",
+          "content": "无忧存 版本合并 UI优化标注稿  ·  共11处优化点  ·  P01首页 / P02地图页 / P03详情页 / P04A下单页  ·  2026.03.09",
+          "fontFamily": "Inter",
+          "fontSize": 12,
+          "fontWeight": "bold"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ofnBB",
+      "x": 37,
+      "y": 947,
+      "name": "图例说明",
+      "width": 390,
+      "fill": "#F5F5F5",
+      "cornerRadius": 6,
+      "gap": 16,
+      "padding": 8,
+      "children": [
+        {
+          "type": "text",
+          "id": "oXXth",
+          "fill": "#C62828",
+          "content": "🔴 删除",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "text",
+          "id": "a6v0G",
+          "fill": "#E65100",
+          "content": "🟠 修改",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "text",
+          "id": "fEFnr",
+          "fill": "#2E7D32",
+          "content": "🟢 新增",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "65tEH",
+      "x": 480,
+      "y": 1001,
+      "name": "P02-标注",
+      "width": 390,
+      "fill": "#FAFAFA",
+      "cornerRadius": 8,
+      "stroke": {
+        "align": "inside",
+        "thickness": 1
+      },
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "eMtaa",
+          "name": "p02hdr",
+          "width": "fill_container",
+          "height": 36,
+          "fill": "#37474F",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "AgnOm",
+              "fill": "#ffffffff",
+              "content": "P02 地图页  ·  3处优化点",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "E8l6K",
+          "name": "p02i3",
+          "width": "fill_container",
+          "fill": "#FFF3E0",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "ykTIQ",
+              "fill": "#e65100ff",
+              "textGrowth": "fixed-width",
+              "width": 370,
+              "content": "🟠 ③ [修改] 网点卡片，价格显示调整为一项  |  调整前：分别显示人工网点背包和行李箱的价格，寄存网点不显示价格 → 调整后：人工和寄存网点都显示价格，价格取当前网点一天最少的价格",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bHnbv",
+          "name": "p02i3",
+          "width": "fill_container",
+          "fill": "#FFF3E0",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "aoFFj",
+              "fill": "#e65100ff",
+              "textGrowth": "fixed-width",
+              "width": 370,
+              "content": "🟠 ③ [修改] 网点卡片，将具体点位的信息隐藏掉，仅显示网点距离目标点位的直线距离，精确到10米",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "l1iie",
+          "name": "p02i4",
+          "width": "fill_container",
+          "fill": "#E8F5E9",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "AKWba",
+              "fill": "#2e7d32ff",
+              "textGrowth": "fixed-width-height",
+              "width": 375,
+              "height": 18,
+              "content": "🟢 ④ [新增]  网点过滤 — 列表新增「人工寄存/智能柜」类型切换筛选按钮",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kwCvd",
+          "name": "p02i5",
+          "width": "fill_container",
+          "fill": "#E8F5E9",
+          "layout": "vertical",
+          "padding": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "R3UFP",
+              "fill": "#2e7d32ff",
+              "textGrowth": "fixed-width",
+              "width": 363,
+              "content": "🟢 ⑤ 卡片新增营业时间+营业状态（营业中/已打烊）  |  \n调整前：无营业信息 → 调整后：🟢营业中·06:00-22:00 / 全天24小时",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "gFSDi",
+      "x": 923,
+      "y": 1501,
+      "name": "图例说明",
+      "width": 390,
+      "fill": "#F5F5F5",
+      "cornerRadius": 6,
+      "gap": 16,
+      "padding": 8,
+      "children": [
+        {
+          "type": "text",
+          "id": "tH2h8",
+          "fill": "#C62828",
+          "content": "🔴 删除",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "text",
+          "id": "ELFh0",
+          "fill": "#E65100",
+          "content": "🟠 修改",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "text",
+          "id": "IdDo7",
+          "fill": "#2E7D32",
+          "content": "🟢 新增",
+          "fontFamily": "Inter",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        }
+      ]
+    }
+  ]
+}

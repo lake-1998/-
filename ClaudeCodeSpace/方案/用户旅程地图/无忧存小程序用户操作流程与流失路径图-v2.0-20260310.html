@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>无忧存小程序 · 用户操作流程 + 流失路径图</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    min-width: 1100px;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    border-bottom: 1px solid #30363d;
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; color: #f0f6ff; }
+  .header .subtitle { font-size: 12px; color: #8b949e; line-height: 1.8; }
+  .header .meta { text-align: right; font-size: 12px; color: #8b949e; line-height: 2; }
+  .badge {
+    display: inline-block; background: #238636; color: #fff;
+    padding: 2px 10px; border-radius: 12px; font-size: 11px;
+    font-weight: 600; margin-bottom: 8px;
+  }
+
+  /* Layout */
+  .main { padding: 24px 40px; display: flex; gap: 24px; align-items: flex-start; }
+
+  /* Flow Column */
+  .flow-col { flex: 1; min-width: 0; }
+  .sidebar { flex: 0 0 300px; }
+
+  /* Section titles */
+  .section-title {
+    font-size: 11px; font-weight: 700; color: #8b949e;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+  }
+
+  /* Entry point */
+  .entry-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .entry-box {
+    flex: 1;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    font-size: 11px;
+  }
+  .entry-box .pct {
+    font-size: 18px; font-weight: 800;
+    color: #58a6ff; display: block; margin: 4px 0;
+  }
+  .entry-box .label { color: #8b949e; font-size: 10px; }
+
+  /* Page block */
+  .page-block {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    overflow: hidden;
+  }
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #21262d;
+    cursor: default;
+  }
+  .page-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .page-name { font-weight: 700; font-size: 13px; color: #f0f6ff; }
+  .page-sub { font-size: 10px; color: #8b949e; margin-top: 1px; }
+  .page-body { padding: 10px 14px; }
+
+  /* Steps in page */
+  .step-list { display: flex; flex-direction: column; gap: 6px; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    background: #0d1117;
+    border: 1px solid #21262d;
+    line-height: 1.5;
+  }
+  .step-num {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #21262d;
+    color: #8b949e;
+    font-size: 9px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .step-content { color: #c9d1d9; }
+  .step-content .step-note { color: #8b949e; font-size: 10px; }
+
+  /* Arrow down */
+  .arrow-down {
+    text-align: center;
+    color: #30363d;
+    font-size: 20px;
+    margin: 2px 0;
+    line-height: 1;
+  }
+  .arrow-down.warn { color: #d29922; }
+
+  /* Dropoff block */
+  .dropoff {
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 1px solid;
+    font-size: 11px;
+    line-height: 1.6;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .dropoff.major {
+    background: rgba(218, 54, 51, 0.1);
+    border-color: #da3633;
+  }
+  .dropoff.minor {
+    background: rgba(210, 153, 34, 0.1);
+    border-color: #d29922;
+  }
+  .dropoff.silent {
+    background: rgba(139, 148, 158, 0.1);
+    border-color: #484f58;
+  }
+  .dropoff-icon { font-size: 18px; flex-shrink: 0; }
+  .dropoff-body { flex: 1; }
+  .dropoff-title { font-weight: 700; margin-bottom: 4px; }
+  .dropoff.major .dropoff-title { color: #ff7b72; }
+  .dropoff.minor .dropoff-title { color: #e3b341; }
+  .dropoff.silent .dropoff-title { color: #8b949e; }
+  .dropoff-rate {
+    font-size: 13px; font-weight: 800;
+    display: inline-block; margin-right: 6px;
+  }
+  .dropoff.major .dropoff-rate { color: #ff7b72; }
+  .dropoff.minor .dropoff-rate { color: #e3b341; }
+  .dropoff-reason { color: #8b949e; font-size: 10px; margin-top: 3px; line-height: 1.5; }
+
+  /* Branch */
+  .branch-row {
+    display: flex;
+    gap: 10px;
+    margin: 6px 0;
+  }
+  .branch-item {
+    flex: 1;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 11px;
+    text-align: center;
+    color: #c9d1d9;
+  }
+  .branch-item .b-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+  .branch-item .b-label { font-weight: 600; display: block; margin-bottom: 4px; }
+  .branch-item.success { border-color: #238636; background: rgba(35,134,54,0.08); }
+  .branch-item.fail { border-color: #da3633; background: rgba(218,54,51,0.08); }
+  .branch-item.neutral { border-color: #30363d; }
+
+  /* Funnel sidebar */
+  .funnel-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .funnel-bar-wrap { margin-bottom: 10px; }
+  .funnel-label {
+    display: flex; justify-content: space-between;
+    font-size: 11px; margin-bottom: 4px;
+    color: #c9d1d9;
+  }
+  .funnel-pct { font-weight: 700; color: #58a6ff; }
+  .funnel-bar-bg { background: #21262d; border-radius: 4px; height: 8px; overflow: hidden; }
+  .funnel-bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+  .funnel-divider { height: 1px; background: #21262d; margin: 10px 0; }
+  .funnel-loss {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px; color: #ff7b72; margin-bottom: 6px;
+  }
+  .funnel-loss::before { content: '▼'; font-size: 9px; }
+
+  /* Platform comparison */
+  .compare-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .compare-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    padding: 6px 0;
+    border-bottom: 1px solid #21262d;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-label { color: #8b949e; }
+  .compare-us { color: #ff7b72; font-weight: 600; }
+  .compare-them { color: #3fb950; font-weight: 600; }
+
+  /* Key insights */
+  .insight-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .insight-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #21262d;
+  }
+  .insight-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .insight-num {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #388bfd20;
+    color: #58a6ff;
+    font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .insight-text { color: #c9d1d9; }
+  .insight-text strong { color: #f0f6ff; display: block; margin-bottom: 2px; }
+
+  /* Page colors */
+  .p01 { background: #1f3d6e; }
+  .p02 { background: #1d4737; }
+  .p03 { background: #1a3a1a; }
+  .p04a { background: #4a1d1d; }
+  .p04b { background: #3d2b1d; }
+  .p05 { background: #1d3a4a; }
+  .p06 { background: #2d1d4a; }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid #21262d;
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: #484f58;
+  }
+  .footer span { color: #8b949e; }
+
+  /* Connector line */
+  .connector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 2px 0;
+    font-size: 10px;
+    color: #484f58;
+    padding-left: 14px;
+  }
+  .connector::before { content: ''; width: 2px; height: 16px; background: #30363d; display: block; margin-left: 2px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="badge">操作流程 · 流失分析</div>
+    <h1>无忧存小程序 · 用户操作全流程 + 流失路径图</h1>
+    <div class="subtitle">
+      覆盖范围：用户端C端全路径 · 含关键流失节点 · 含竞品对比 · 含飞单分析<br>
+      数据基准：无忧存运营情况报告 + 旅程地图梳理-20260306
+    </div>
+  </div>
+  <div class="meta">
+    <div>流程版本 v1.0</div>
+    <div>输出日期 2026-03-10</div>
+    <div style="margin-top:8px;color:#484f58">— 优化前现状分析 —</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Left: Main flow -->
+  <div class="flow-col">
+
+    <!-- Entry -->
+    <div class="section-title">用户入口来源</div>
+    <div class="entry-row">
+      <div class="entry-box">
+        <span style="font-size:20px">🔍</span>
+        <span class="pct">60%</span>
+        <span class="label">微信/支付宝搜索<br>"行李寄存"</span>
+      </div>
+      <div class="entry-box">
+        <span style="font-size:20px">📱</span>
+        <span class="pct">~25%</span>
+        <span class="label">小红书/攻略推荐<br>朋友分享链接</span>
+      </div>
+      <div class="entry-box">
+        <span style="font-size:20px">📷</span>
+        <span class="pct">~15%</span>
+        <span class="label">线下扫码<br>（机柜/网点物料）</span>
+      </div>
+    </div>
+
+    <!-- 扫码分流 -->
+    <div class="branch-row" style="margin-bottom: 4px;">
+      <div class="branch-item neutral">
+        <span class="b-icon">📷</span>
+        <span class="b-label">扫码流</span>
+        <span style="color:#8b949e;font-size:10px">含box_id参数<br>→ 直接跳下单页P04B<br>不经过首页</span>
+      </div>
+      <div class="branch-item neutral">
+        <span class="b-icon">🔍</span>
+        <span class="b-label">搜索流</span>
+        <span style="color:#8b949e;font-size:10px">运营/搜索/分享<br>→ 进入首页P01<br>开始搜索找点</span>
+      </div>
+    </div>
+    <div class="arrow-down">↓</div>
+
+    <!-- P01 首页 -->
+    <div class="section-title" style="margin-top:12px">页面流程</div>
+
+    <div class="page-block">
+      <div class="page-header">
+        <div class="page-icon p01">🏠</div>
+        <div>
+          <div class="page-name">首页 P01</div>
+          <div class="page-sub">搜索流用户入口 · 核心任务：快速找到目标寄存网点</div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">①</div>
+            <div class="step-content">
+              看到三大模块：扫码存包 / 行李配送 / 寄存网点（视觉权重相同）
+              <div class="step-note">❌ P0：搜索用户需要判断选哪个，认知负担重</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">②</div>
+            <div class="step-content">
+              进入寄存网点搜索区：定位 / 热门搜索点 / 更多 / 搜索框 / 查找按钮
+              <div class="step-note">❌ P0：5个入口 → 2种目标，路径混乱</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">③</div>
+            <div class="step-content">输入地标名称 / 城市 / 景区名称</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">④</div>
+            <div class="step-content">
+              可选：点击"我的附近"查看附近网点
+              <div class="step-note">点击率仅 4.66%（与搜索差距 13×）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropoff major">
+      <div class="dropoff-icon">🚨</div>
+      <div class="dropoff-body">
+        <div class="dropoff-title">流失点① <span class="dropoff-rate">10-15%</span> 在首页离开</div>
+        <div class="dropoff-reason">原因：三模块认知混乱（扫码/配送/网点分不清）→ 决策疲劳 → 直接关闭或转竞品</div>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- P02/P03 列表/地图 -->
+    <div class="page-block">
+      <div class="page-header">
+        <div class="page-icon p02">🗺️</div>
+        <div>
+          <div class="page-name">地图/列表页 P02 / P03</div>
+          <div class="page-sub">展示搜索结果 · 网点卡片 + 地图标注</div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">①</div>
+            <div class="step-content">浏览网点卡片列表（缩略图 · 价格 · 距离 · 评分 · 营业状态）</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">②</div>
+            <div class="step-content">
+              可选：切换城市（15.04%用户操作）/ 地图模式查看位置
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">③</div>
+            <div class="step-content">点击感兴趣的网点 → 进入详情页</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropoff minor">
+      <div class="dropoff-icon">⚠️</div>
+      <div class="dropoff-body">
+        <div class="dropoff-title">流失点② <span class="dropoff-rate">5-10%</span> 在列表页离开</div>
+        <div class="dropoff-reason">原因：无合适网点（太贵/太远/不营业/覆盖不足）→ 放弃 或 换搜索词重试</div>
+      </div>
+    </div>
+
+    <div class="arrow-down warn">↓</div>
+
+    <!-- P04A 详情页 -->
+    <div class="page-block" style="border-color: #da3633;">
+      <div class="page-header" style="background: rgba(218,54,51,0.12); border-bottom-color: #da3633;">
+        <div class="page-icon p04a">📋</div>
+        <div>
+          <div class="page-name">网点详情页 P04A <span style="color:#ff7b72;font-size:11px">◀ 最大流失点</span></div>
+          <div class="page-sub">用户决策核心页 · 停留1-3分钟/网点 · 通常对比3-5个</div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">①</div>
+            <div class="step-content">
+              查看距离 · 价格 · 营业时间 · 评分
+            </div>
+          </div>
+          <div class="step-item" style="border-color: #da3633;">
+            <div class="step-num" style="background:#da363330;color:#ff7b72">②</div>
+            <div class="step-content">
+              <strong style="color:#ff7b72">查找精确地址 → ❌ 显示"下单后查看"</strong>
+              <div class="step-note" style="color:#ff7b72">用户安全感急剧下降 · 转投竞品</div>
+            </div>
+          </div>
+          <div class="step-item" style="border-color: #da3633;">
+            <div class="step-num" style="background:#da363330;color:#ff7b72">③</div>
+            <div class="step-content">
+              <strong style="color:#ff7b72">查看实景大图 → 无法查看</strong>
+              <div class="step-note">对网点实际情况无法判断</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">④</div>
+            <div class="step-content">
+              查看价格规则 · 取消政策 · 用户评价
+              <div class="step-note">返回列表对比其他网点（决策疲劳，无对比功能）</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">⑤</div>
+            <div class="step-content">确认选择 → 点击"立即预订"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropoff major" style="border-color: #da3633; background: rgba(218,54,51,0.15);">
+      <div class="dropoff-icon">🔴</div>
+      <div class="dropoff-body">
+        <div class="dropoff-title">流失点③（最大） <span class="dropoff-rate" style="font-size:16px">40-50%</span> 在详情页流失</div>
+        <div class="dropoff-reason">
+          主因①：精确地址不可见 → "不透明/不安全" → 打开竞品（存知己精确地址直接显示）<br>
+          主因②：实景大图模糊 → 无法判断实际情况 → 不敢下单<br>
+          主因③：反复横跳多个网点对比 → 决策疲劳 → 放弃
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down warn">↓</div>
+
+    <!-- P04B 下单页 -->
+    <div class="page-block">
+      <div class="page-header">
+        <div class="page-icon p04b">💳</div>
+        <div>
+          <div class="page-name">下单/支付页 P04B</div>
+          <div class="page-sub">扫码流直接进入 · 搜索流从详情页跳转 · 完成支付后解锁精确信息</div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">①</div>
+            <div class="step-content">选择寄存日期（开始时间/结束时间）</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">②</div>
+            <div class="step-content">确认行李数量（背包/行李箱件数）</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">③</div>
+            <div class="step-content">
+              查看违约金/退改规则
+              <div class="step-note">规则较严苛，部分用户感到不安</div>
+            </div>
+          </div>
+          <div class="step-item" style="border-color: #d29922;">
+            <div class="step-num" style="background:#d2992220;color:#e3b341">④</div>
+            <div class="step-content">
+              选择/取消优惠券 → <strong style="color:#e3b341">❌ 系统强制使用，无法取消勾选</strong>
+              <div class="step-note">用户想保留券用于更贵的订单，但无此选项</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">⑤</div>
+            <div class="step-content">勾选寄存协议</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">⑥</div>
+            <div class="step-content">支付（微信 / 支付宝 / 汇付）→ <strong style="color:#3fb950">支付成功 ✅</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropoff minor">
+      <div class="dropoff-icon">⚠️</div>
+      <div class="dropoff-body">
+        <div class="dropoff-title">流失点④ <span class="dropoff-rate">5-10%</span> 在下单页放弃</div>
+        <div class="dropoff-reason">原因①：违约金条款过严，用户反悔 | 原因②：优惠券强制使用，想留着不用却无法操作</div>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- 支付成功 -->
+    <div class="page-block" style="border-color:#238636;">
+      <div class="page-header" style="background:rgba(35,134,54,0.1);border-bottom-color:#238636;">
+        <div class="page-icon p05">✅</div>
+        <div>
+          <div class="page-name">支付成功页</div>
+          <div class="page-sub">解锁：精确地址 · 商家电话 · 专属订单号 · 100万保险保障</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- 线下履约 -->
+    <div class="page-block" style="border-color:#d29922;">
+      <div class="page-header" style="background:rgba(210,153,34,0.08);border-bottom-color:#d29922;">
+        <div class="page-icon" style="background:#3d2d00;">⚡</div>
+        <div>
+          <div class="page-name">线下履约 <span style="color:#e3b341;font-size:11px">◀ 飞单风险</span></div>
+          <div class="page-sub">到店寄存 + 取包全流程</div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="branch-row">
+          <div class="branch-item success">
+            <span class="b-icon">😊</span>
+            <span class="b-label">顺利到店</span>
+            <span style="font-size:10px;color:#8b949e">导航正常 → 找到店铺<br>出示凭证 → 拍照存包<br>寄存中... 安心游玩</span>
+          </div>
+          <div class="branch-item fail">
+            <span class="b-icon">😤</span>
+            <span class="b-label">找不到网点</span>
+            <span style="font-size:10px;color:#8b949e">GPS偏差>50米<br>电话无人接听<br>超时被迫取消+扣违约金</span>
+          </div>
+          <div class="branch-item" style="border-color:#d29922;background:rgba(210,153,34,0.08)">
+            <span class="b-icon">💸</span>
+            <span class="b-label">飞单</span>
+            <span style="font-size:10px;color:#8b949e">商家"给我现金少5元"<br>用户同意 → 平台<br>损失订单</span>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#8b949e;margin-top:8px;padding: 0 4px;">
+          取包流程：到时间→出示订单凭证→核验→取包→完成订单
+        </div>
+      </div>
+    </div>
+
+    <div class="dropoff major">
+      <div class="dropoff-icon">🚨</div>
+      <div class="dropoff-body">
+        <div class="dropoff-title">流失点⑤-A <span class="dropoff-rate">15-20%</span> 到店后取消</div>
+        <div class="dropoff-reason">GPS漂移+图片仅门头+商家不接电话 → 找不到店 → 超时强制取消 → 还扣违约金 → 差评+永不复购</div>
+      </div>
+    </div>
+    <div class="dropoff minor" style="margin-top:6px">
+      <div class="dropoff-icon">💸</div>
+      <div class="dropoff-body">
+        <div class="dropoff-title">流失点⑤-B <span class="dropoff-rate">20-30%</span> 飞单损失</div>
+        <div class="dropoff-reason">商家直收省平台分成（~30%），用户觉得现金更方便；平台无有效约束手段</div>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- 后续服务 -->
+    <div class="page-block">
+      <div class="page-header">
+        <div class="page-icon p06">🔄</div>
+        <div>
+          <div class="page-name">后续服务（复购/留存）</div>
+          <div class="page-sub">复购周期 3-6 个月 · 会员体系缺失</div>
+        </div>
+      </div>
+      <div class="page-body">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">①</div>
+            <div class="step-content">查看历史订单 / 申请退款 / 收藏网点</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">②</div>
+            <div class="step-content">3-6个月后再次有寄存需求</div>
+          </div>
+          <div class="step-item" style="border-color:#484f58">
+            <div class="step-num" style="background:#21262d;color:#8b949e">③</div>
+            <div class="step-content" style="color:#8b949e">
+              微信搜"行李寄存" → 存知己先出现 → <span style="color:#ff7b72">用竞品了</span>
+              <div class="step-note">原因：无会员体系/积分/复购激励，品牌记忆弱</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropoff silent">
+      <div class="dropoff-icon">💤</div>
+      <div class="dropoff-body">
+        <div class="dropoff-title">流失点⑥ 沉默流失（难以量化）</div>
+        <div class="dropoff-reason">无会员/积分/召回机制 → 品牌记忆弱 → 复购时用竞品 → 获客成本无法摊销</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right: Sidebar -->
+  <div class="sidebar">
+
+    <!-- Funnel -->
+    <div class="section-title">转化漏斗</div>
+    <div class="funnel-card">
+      <div class="funnel-bar-wrap">
+        <div class="funnel-label">
+          <span>进入小程序</span>
+          <span class="funnel-pct">100%</span>
+        </div>
+        <div class="funnel-bar-bg">
+          <div class="funnel-bar-fill" style="width:100%;background:linear-gradient(90deg,#388bfd,#58a6ff)"></div>
+        </div>
+      </div>
+      <div class="funnel-loss">流失①：首页认知混乱 10-15%</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-label">
+          <span>进入列表页</span>
+          <span class="funnel-pct">85-90%</span>
+        </div>
+        <div class="funnel-bar-bg">
+          <div class="funnel-bar-fill" style="width:87%;background:linear-gradient(90deg,#388bfd,#58a6ff)"></div>
+        </div>
+      </div>
+      <div class="funnel-loss">流失②：无合适网点 5-10%</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-label">
+          <span>进入详情页</span>
+          <span class="funnel-pct">75-85%</span>
+        </div>
+        <div class="funnel-bar-bg">
+          <div class="funnel-bar-fill" style="width:80%;background:linear-gradient(90deg,#388bfd,#58a6ff)"></div>
+        </div>
+      </div>
+      <div class="funnel-loss" style="color:#ff4444;font-weight:700">⚠️ 流失③：详情页不信任 40-50%</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-label">
+          <span>进入下单页</span>
+          <span class="funnel-pct">25-45%</span>
+        </div>
+        <div class="funnel-bar-bg">
+          <div class="funnel-bar-fill" style="width:35%;background:linear-gradient(90deg,#e3b341,#f0c040)"></div>
+        </div>
+      </div>
+      <div class="funnel-loss">流失④：违约条款 5-10%</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-label">
+          <span>完成支付</span>
+          <span class="funnel-pct">15-40%</span>
+        </div>
+        <div class="funnel-bar-bg">
+          <div class="funnel-bar-fill" style="width:27%;background:linear-gradient(90deg,#3fb950,#56d364)"></div>
+        </div>
+      </div>
+      <div class="funnel-divider"></div>
+      <div style="font-size:10px;color:#8b949e;line-height:1.6">
+        ⚡ 线下损耗：到店取消 15-20%<br>
+        ⚡ 飞单损失：20-30%<br>
+        💤 复购沉默流失：难以量化
+      </div>
+    </div>
+
+    <!-- Competitor Comparison -->
+    <div class="section-title">竞品对比（关键流失节点）</div>
+    <div class="compare-card">
+      <div style="font-size:10px;color:#8b949e;margin-bottom:8px">详情页关键信息展示</div>
+      <div class="compare-row">
+        <span class="compare-label">精确地址</span>
+        <div style="display:flex;gap:12px">
+          <span class="compare-us">❌ 下单后</span>
+          <span class="compare-them">✅ 直接显示</span>
+        </div>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">商家电话</span>
+        <div style="display:flex;gap:12px">
+          <span class="compare-us">❌ 下单后</span>
+          <span class="compare-them">✅ 直接显示</span>
+        </div>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">实景大图</span>
+        <div style="display:flex;gap:12px">
+          <span class="compare-us">❌ 模糊遮罩</span>
+          <span class="compare-them">✅ 高清显示</span>
+        </div>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">地图精定位</span>
+        <div style="display:flex;gap:12px">
+          <span class="compare-us">⚠️ 模糊</span>
+          <span class="compare-them">✅ 精确</span>
+        </div>
+      </div>
+      <div style="font-size:10px;color:#484f58;margin-top:8px">竞品：存知己 / 途简单</div>
+    </div>
+
+    <!-- Key Data -->
+    <div class="section-title">关键埋点数据</div>
+    <div class="funnel-card">
+      <div class="compare-row">
+        <span class="compare-label">首页搜索使用率</span>
+        <span style="color:#58a6ff;font-weight:700">55%+</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">名称搜索占比</span>
+        <span style="color:#58a6ff;font-weight:700">35.63%</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">查找按钮占比</span>
+        <span style="color:#58a6ff;font-weight:700">19.76%</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">我的附近点击率</span>
+        <span style="color:#ff7b72;font-weight:700">4.66%</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">选择城市</span>
+        <span style="color:#58a6ff;font-weight:700">15.04%</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">微信搜索流量占比</span>
+        <span style="color:#58a6ff;font-weight:700">60%</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">飞单率估算</span>
+        <span style="color:#e3b341;font-weight:700">20-30%</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">到店取消率</span>
+        <span style="color:#e3b341;font-weight:700">15-20%</span>
+      </div>
+    </div>
+
+    <!-- Key insights -->
+    <div class="section-title">核心结论</div>
+    <div class="insight-card">
+      <div class="insight-item">
+        <div class="insight-num">1</div>
+        <div class="insight-text">
+          <strong>详情页是最大单点流失</strong>
+          "精确地址下单后才显示"直接导致40-50%流失，竞品做到了无忧存没做的
+        </div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-num">2</div>
+        <div class="insight-text">
+          <strong>线下履约是已付费用户的最大损耗</strong>
+          到店取消（15-20%）+ 飞单（20-30%）复合损耗极高，品牌口碑主要损耗点
+        </div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-num">3</div>
+        <div class="insight-text">
+          <strong>首页认知混乱是漏斗入口的无形损耗</strong>
+          55%用户需要搜索网点，却要在扫码/配送/网点三选一
+        </div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-num">4</div>
+        <div class="insight-text">
+          <strong>无复购机制导致获客成本无法摊销</strong>
+          用户3-6个月后复购时记不住无忧存，被竞品截走
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform note -->
+    <div class="funnel-card" style="border-color:#388bfd30;background:rgba(56,139,253,0.05);">
+      <div style="font-size:11px;color:#8b949e;line-height:1.8;">
+        <div style="font-weight:700;color:#58a6ff;margin-bottom:8px">平台合并核心差异（已确认）</div>
+        <div>📷 <strong style="color:#c9d1d9">扫码流</strong>：扫码 → 直达下单P04B，不经首页</div>
+        <div style="margin-top:4px">🔍 <strong style="color:#c9d1d9">搜索流</strong>：首页 → 搜索 → 列表 → 详情 → 下单</div>
+        <div style="margin-top:8px;font-size:10px;color:#484f58">v1.0方案"扫码进首页"逻辑已废弃（v2.0修正）</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  无忧存产品团队 · <span>用户操作流程与流失路径图 v1.0</span> · 2026-03-10<br>
+  数据来源：无忧存运营情况报告 · 用户旅程地图梳理-20260306 · 版本合并UI优化方案v2.1
+</div>
+
+</body>
+</html>

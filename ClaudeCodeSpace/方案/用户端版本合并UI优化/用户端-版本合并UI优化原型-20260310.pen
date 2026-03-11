@@ -1,0 +1,5648 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "9Ldb0",
+      "x": -785,
+      "y": -23,
+      "name": "P01 首页",
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F4F1",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "2eCIS",
+          "name": "sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FF8000",
+          "padding": [
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "6IoeU",
+              "name": "sbt",
+              "fill": "#FFFFFF",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "whIOY",
+              "name": "sbr",
+              "fill": "#FFFFFF",
+              "content": "📶 🔋",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "A1nD6",
+          "name": "srch",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 8,
+          "padding": [
+            10,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "4PWM4",
+              "name": "sinp",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#F5F4F1",
+              "cornerRadius": 22,
+              "gap": 8,
+              "padding": [
+                0,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "t4Ajr",
+                  "name": "si1",
+                  "content": "🔍",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "1QdKp",
+                  "name": "si2",
+                  "fill": "#9C9B99",
+                  "content": "搜索地标、商圈、景点...",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bF95C",
+              "name": "aibtn",
+              "width": 76,
+              "height": 44,
+              "fill": "#FF8000",
+              "cornerRadius": 22,
+              "gap": 4,
+              "padding": [
+                0,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "O561p",
+                  "name": "ait1",
+                  "content": "✨",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "UvX3H",
+                  "name": "ait2",
+                  "fill": "#FFFFFF",
+                  "content": "AI找",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BXI3l",
+          "name": "hist",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            10,
+            16,
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "iwJob",
+              "name": "hh",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ibyE4",
+                  "name": "hhl",
+                  "fill": "#9C9B99",
+                  "content": "最近搜索 / 热门标签",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "txN43",
+                  "name": "hhr",
+                  "fill": "#9C9B99",
+                  "content": "清除",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "DWAmB",
+              "name": "htags",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "B6RyS",
+                  "name": "ht1",
+                  "fill": "#FFF0E6",
+                  "cornerRadius": 14,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CyJGZ",
+                      "name": "ht1t",
+                      "fill": "#FF7043",
+                      "content": "🔥 南京路步行街",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "8NwQz",
+                  "name": "ht2",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 14,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mQ2O9",
+                      "name": "ht2t",
+                      "fill": "#1A1918",
+                      "content": "外滩",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zwYhM",
+                  "name": "ht3",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 14,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "clisP",
+                      "name": "ht3t",
+                      "fill": "#1A1918",
+                      "content": "上海站",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AKyTK",
+                  "name": "ht4",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 14,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kKnLj",
+                      "name": "ht4t",
+                      "fill": "#1A1918",
+                      "content": "虹桥机场",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "PfZVJ",
+          "name": "banner-wrap",
+          "width": "fill_container",
+          "fill": "#F5F4F1",
+          "padding": [
+            8,
+            16,
+            4,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "7D49T",
+              "name": "顶部Banner轮播",
+              "width": "fill_container",
+              "height": 156,
+              "fill": "#FF8000",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "3P4NO",
+                  "name": "bnr-body",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "gap": 12,
+                  "padding": [
+                    20,
+                    16,
+                    8,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "rP9vb",
+                      "name": "bnr-left",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 7,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "i8XBl",
+                          "name": "bnrTag",
+                          "fill": "#FFFFFF44",
+                          "cornerRadius": 20,
+                          "padding": [
+                            3,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gPlou",
+                              "name": "bnrTagT",
+                              "fill": "#FFFFFF",
+                              "content": "新人专享",
+                              "fontFamily": "Inter",
+                              "fontSize": 10,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "Qhv3t",
+                          "name": "bnrTitle",
+                          "fill": "#FFFFFF",
+                          "content": "首次寄存立减 5 元",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "text",
+                          "id": "i67aD",
+                          "name": "bnrSub",
+                          "fill": "#FFF3E0",
+                          "content": "全国 3353+ 网点 · 随存随取",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "0iwIh",
+                          "name": "bnrBtn",
+                          "fill": "#FFFFFF",
+                          "cornerRadius": 20,
+                          "padding": [
+                            7,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ucOCd",
+                              "name": "bnrBtnT",
+                              "fill": "#FF8000",
+                              "content": "立即领取 →",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "0wrtY",
+                      "name": "bnrEmoji",
+                      "fill": "#FFFFFF",
+                      "content": "🧳",
+                      "fontFamily": "Inter",
+                      "fontSize": 66,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "sRzBE",
+                  "name": "bnr-dots",
+                  "gap": 5,
+                  "padding": [
+                    0,
+                    0,
+                    12,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ZdoPs",
+                      "name": "dot1",
+                      "width": 20,
+                      "height": 4,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "x9Gzu",
+                      "name": "dot2",
+                      "width": 6,
+                      "height": 4,
+                      "fill": "#FFFFFF88",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rWguv",
+                      "name": "dot3",
+                      "width": 6,
+                      "height": 4,
+                      "fill": "#FFFFFF88",
+                      "cornerRadius": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZK1wJ",
+          "name": "sep1",
+          "width": "fill_container",
+          "height": 6,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "2ayjz",
+          "name": "附近网点区",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "mwEXx",
+              "name": "nbh",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eqsdu",
+                  "name": "nbht",
+                  "fill": "#1A1918",
+                  "content": "📍 附近 3 个寄存点",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "WtWaQ",
+                  "name": "nbhm",
+                  "fill": "#FF8000",
+                  "content": "查看全部 →",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "BJuGI",
+              "name": "cds",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VhRbw",
+                  "name": "c1",
+                  "width": 190,
+                  "height": 130,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "QEAy7",
+                      "name": "c1i",
+                      "width": "fill_container",
+                      "height": 68,
+                      "fill": "#FFE0B2",
+                      "cornerRadius": [
+                        10,
+                        10,
+                        0,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "nDLqY",
+                          "name": "c1b",
+                          "fill": "#FF7043",
+                          "cornerRadius": 4,
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "2mxR4",
+                              "name": "c1bt",
+                              "fill": "#FFFFFF",
+                              "content": "人工",
+                              "fontFamily": "Inter",
+                              "fontSize": 9,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "N4RcT",
+                      "name": "c1n",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "padding": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "k8MkF",
+                          "name": "c1nt",
+                          "fill": "#1A1918",
+                          "content": "联合广场B1",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "v4KW5",
+                          "name": "c1s",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "8PON2",
+                              "name": "c1sd",
+                              "width": 6,
+                              "height": 6,
+                              "fill": "#22C55E",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "25x2P",
+                              "name": "c1st",
+                              "fill": "#22C55E",
+                              "content": "营业中",
+                              "fontFamily": "Inter",
+                              "fontSize": 9,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "jE7mk",
+                          "name": "c1d",
+                          "fill": "#6D6C6A",
+                          "content": "¥5起 · 320m",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n2OqG",
+                  "name": "c2",
+                  "width": 190,
+                  "height": 130,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "DpWAf",
+                      "name": "c2i",
+                      "width": "fill_container",
+                      "height": 68,
+                      "fill": "#FFF3CD",
+                      "cornerRadius": [
+                        10,
+                        10,
+                        0,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Pnk1l",
+                          "name": "c2b",
+                          "fill": "#0097A7",
+                          "cornerRadius": 4,
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "wgYJl",
+                              "name": "c2bt",
+                              "fill": "#FFFFFF",
+                              "content": "机柜",
+                              "fontFamily": "Inter",
+                              "fontSize": 9,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "8gIsY",
+                      "name": "c2n",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "padding": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gfigZ",
+                          "name": "c2nt",
+                          "fill": "#1A1918",
+                          "content": "南京路地铁站",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "W5lJN",
+                          "name": "c2s",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "bGBLm",
+                              "name": "c2sd",
+                              "width": 6,
+                              "height": 6,
+                              "fill": "#EF4444",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "UY8q2",
+                              "name": "c2st",
+                              "fill": "#EF4444",
+                              "content": "暂停营业",
+                              "fontFamily": "Inter",
+                              "fontSize": 9,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "wD0W2",
+                          "name": "c2d",
+                          "fill": "#6D6C6A",
+                          "content": "¥10起 · 580m",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "6h2y2",
+                  "name": "c3",
+                  "width": 190,
+                  "height": 130,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "mciRw",
+                      "name": "c3i",
+                      "width": "fill_container",
+                      "height": 68,
+                      "fill": "#FFE0B2",
+                      "cornerRadius": [
+                        10,
+                        10,
+                        0,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "zXoze",
+                          "name": "c3b",
+                          "fill": "#FF7043",
+                          "cornerRadius": 4,
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Tjz9r",
+                              "name": "c3bt",
+                              "fill": "#FFFFFF",
+                              "content": "人工",
+                              "fontFamily": "Inter",
+                              "fontSize": 9,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sbC4D",
+                      "name": "c3n",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "padding": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Bax6k",
+                          "name": "c3nt",
+                          "fill": "#1A1918",
+                          "content": "新世界百货附近",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dIJja",
+                          "name": "c3s",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "3AGxZ",
+                              "name": "c3sd",
+                              "width": 6,
+                              "height": 6,
+                              "fill": "#22C55E",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "fb5Vl",
+                              "name": "c3st",
+                              "fill": "#22C55E",
+                              "content": "营业中",
+                              "fontFamily": "Inter",
+                              "fontSize": 9,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "In4Qi",
+                          "name": "c3d",
+                          "fill": "#6D6C6A",
+                          "content": "¥6起 · 820m",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "5RHAz",
+          "name": "金刚区",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 4,
+          "padding": [
+            12,
+            8
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "JzadE",
+              "name": "jg1",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                0,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Fstp3",
+                  "name": "jg1bg",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "#FFF3E0",
+                  "cornerRadius": 14,
+                  "padding": [
+                    14,
+                    0,
+                    0,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PLHs5",
+                      "name": "jg1ic",
+                      "fill": "#FF8000",
+                      "content": "📷",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "wPa7i",
+                  "name": "jg1lb",
+                  "fill": "#1A1918",
+                  "content": "扫码存包",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "7FXWv",
+              "name": "jg2",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                0,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "IIeZ1",
+                  "name": "jg2bg",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "#FFF3E0",
+                  "cornerRadius": 14,
+                  "padding": [
+                    14,
+                    0,
+                    0,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XLYxP",
+                      "name": "jg2ic",
+                      "fill": "#FF8000",
+                      "content": "🚚",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "VMTGl",
+                  "name": "jg2lb",
+                  "fill": "#1A1918",
+                  "content": "行李配送",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PwQgH",
+              "name": "jg3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                0,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "cBuB3",
+                  "name": "jg3bg",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "#E3F2FD",
+                  "cornerRadius": 14,
+                  "padding": [
+                    14,
+                    0,
+                    0,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "t9yZP",
+                      "name": "jg3ic",
+                      "fill": "#0097A7",
+                      "content": "🗄️",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "tvJqP",
+                  "name": "jg3lb",
+                  "fill": "#1A1918",
+                  "content": "长租柜",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pZqY3",
+              "name": "jg4",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                0,
+                8,
+                4,
+                8
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "T0g4q",
+                  "name": "jg4bg",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 14,
+                  "padding": [
+                    14,
+                    0,
+                    0,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "8OnuI",
+                      "name": "jg4ic",
+                      "fill": "#6D6C6A",
+                      "content": "⋯",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Al1Yh",
+                  "name": "jg4lb",
+                  "fill": "#6D6C6A",
+                  "content": "更多",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "H9oGf",
+          "name": "sep2",
+          "width": "fill_container",
+          "height": 6,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "frlPq",
+          "name": "保障区",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "4GX3o",
+              "name": "grd1",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "j3qcF",
+                  "name": "grd1ico",
+                  "fill": "#FF8000",
+                  "content": "🔒",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "xqrGV",
+                  "name": "grd1t",
+                  "fill": "#1A1918",
+                  "content": "下单解锁",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "nBQ6l",
+                  "name": "grd1s",
+                  "fill": "#9C9B99",
+                  "content": "精确地址",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kzoIM",
+              "name": "grd2",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MQoPi",
+                  "name": "grd2ico",
+                  "fill": "#FF8000",
+                  "content": "🛡️",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ogEji",
+                  "name": "grd2t",
+                  "fill": "#1A1918",
+                  "content": "寄存保障",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "ty4sP",
+                  "name": "grd2s",
+                  "fill": "#9C9B99",
+                  "content": "最高500元",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vBFCR",
+              "name": "grd3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "z4p5m",
+                  "name": "grd3ico",
+                  "fill": "#FF8000",
+                  "content": "⭐",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "sCcuo",
+                  "name": "grd3t",
+                  "fill": "#1A1918",
+                  "content": "真实评价",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "SnWxL",
+                  "name": "grd3s",
+                  "fill": "#9C9B99",
+                  "content": "用户口碑",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4UNv0",
+          "name": "tb",
+          "width": "fill_container",
+          "height": 83,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            32
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "FcFd0",
+              "name": "tb1",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                8,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "3YIeI",
+                  "name": "icon-home-active",
+                  "width": 24,
+                  "height": 24,
+                  "fill": "#FF8000",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "sj2dk",
+                  "name": "tb1l",
+                  "fill": "#FF8000",
+                  "content": "首页",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "L76EX",
+              "name": "tb2",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                8,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "0UirA",
+                  "name": "icon-map",
+                  "width": 24,
+                  "height": 24,
+                  "fill": "#E8E8E8",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "5MY76",
+                  "name": "tb2l",
+                  "fill": "#9C9B99",
+                  "content": "地图",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PPKMK",
+              "name": "tb3",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                8,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xigOw",
+                  "name": "icon-user",
+                  "width": 24,
+                  "height": 24,
+                  "fill": "#E8E8E8",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "4X2y3",
+                  "name": "tb3l",
+                  "fill": "#9C9B99",
+                  "content": "我的",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wVt2C",
+      "x": 957,
+      "y": -23,
+      "name": "P04 网点详情页",
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F4F1",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ZTt9J",
+          "name": "p04sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "B1cpb",
+              "name": "p04sbt",
+              "fill": "#1A1918",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "O6OI3",
+              "name": "p04sbr",
+              "fill": "#1A1918",
+              "content": "📶 🔋",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "L2eqC",
+          "name": "p04nav",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "dDxp2",
+              "name": "p04bk",
+              "fill": "#1A1918",
+              "content": "← 返回",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "9HcfE",
+              "name": "p04sp",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "text",
+              "id": "3RuC2",
+              "name": "p04mr",
+              "fill": "#1A1918",
+              "content": "⋯",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gAKQb",
+          "name": "地图（无导航/电话·改动F）",
+          "width": "fill_container",
+          "height": 200,
+          "fill": "#C8E6C9",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "fAzFP",
+              "x": 185,
+              "y": 85,
+              "name": "p04pin",
+              "width": 20,
+              "height": 20,
+              "fill": "#FF7043",
+              "cornerRadius": 10
+            },
+            {
+              "type": "frame",
+              "id": "br3AU",
+              "x": 0,
+              "y": 160,
+              "name": "p04shield",
+              "width": 390,
+              "height": 40,
+              "fill": "#00000044",
+              "padding": [
+                0,
+                16
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bn66F",
+                  "name": "p04shieldt",
+                  "fill": "#FFFFFF",
+                  "content": "🛡 寄存安全保障",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VUe7W",
+              "x": 344,
+              "y": 90,
+              "name": "定位按钮（改动F：移至中央，无导航电话）",
+              "width": 36,
+              "height": 36,
+              "fill": "#FFFFFF",
+              "cornerRadius": 18,
+              "padding": [
+                0,
+                10
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aAePv",
+                  "name": "p04loct",
+                  "fill": "#6D6C6A",
+                  "content": "⊙",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6p6yr",
+              "x": 0,
+              "y": 90,
+              "name": "road-h",
+              "width": 400,
+              "height": 2,
+              "fill": "#D0D0D0"
+            },
+            {
+              "type": "frame",
+              "id": "HmVwD",
+              "x": 130,
+              "y": 0,
+              "name": "road-v1",
+              "width": 2,
+              "height": 200,
+              "fill": "#D0D0D0"
+            },
+            {
+              "type": "frame",
+              "id": "psCje",
+              "x": 270,
+              "y": 0,
+              "name": "road-v2",
+              "width": 2,
+              "height": 200,
+              "fill": "#D0D0D0"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TUw0I",
+          "name": "p04info",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            14,
+            16,
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "YCJwN",
+              "name": "p04brow",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xKMJe",
+                  "name": "p04badge",
+                  "fill": "#FF7043",
+                  "cornerRadius": 4,
+                  "padding": [
+                    3,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YfORz",
+                      "name": "p04badget",
+                      "fill": "#FFFFFF",
+                      "content": "人工寄存",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Oqw2n",
+                  "name": "p04name",
+                  "fill": "#1A1918",
+                  "content": "联合广场B1寄存点",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bpuHP",
+              "name": "p04st",
+              "width": "fill_container",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "swyxS",
+                  "name": "p04std",
+                  "width": 8,
+                  "height": 8,
+                  "fill": "#22C55E",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "75EA2",
+                  "name": "p04stt",
+                  "fill": "#22C55E",
+                  "content": "营业中",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ZqKGu",
+                  "name": "p04sth",
+                  "fill": "#6D6C6A",
+                  "content": "· 00:00–24:00",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "65w6g",
+              "name": "p04addr",
+              "width": "fill_container",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "693G5",
+                  "name": "p04addi",
+                  "content": "📍",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "t2jTl",
+                  "name": "p04addt",
+                  "fill": "#9C9B99",
+                  "content": "上海市黄浦区（下单后显示精确地址）",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Qme1I",
+          "name": "解锁引导卡（改动G）",
+          "width": "fill_container",
+          "fill": "#FFF9E6",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "MI6CQ",
+              "name": "ulkl",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ggcwr",
+                  "name": "ulkt",
+                  "fill": "#FF8000",
+                  "content": "🔒 下单后立即解锁",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "VK4TS",
+                  "name": "ulk1",
+                  "fill": "#6D6C6A",
+                  "content": "📍 精确地址（街道门牌号）",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "6lUs8",
+                  "name": "ulk2",
+                  "fill": "#6D6C6A",
+                  "content": "📞 商家电话",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "QJD4L",
+                  "name": "ulk3",
+                  "fill": "#6D6C6A",
+                  "content": "🗺️ 一键导航",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NmlrV",
+              "name": "ulkr",
+              "fill": "#FF8000",
+              "cornerRadius": 8,
+              "padding": [
+                8,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aHxQi",
+                  "name": "ulkrt",
+                  "fill": "#FFFFFF",
+                  "content": "立即预订 →",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rIpjU",
+          "name": "p04price",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 8,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "j89qx",
+              "name": "p04pl",
+              "fill": "#6D6C6A",
+              "content": "💼 背包/小件",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "61dbo",
+              "name": "p04pv",
+              "fill": "#FF7043",
+              "content": "¥5 / 件·天起",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "RDoIA",
+          "name": "p04tags",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 8,
+          "padding": [
+            10,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "k7cuE",
+              "name": "p04ta",
+              "fill": "#F0FDF4",
+              "cornerRadius": 4,
+              "padding": [
+                3,
+                8
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "b8IOd",
+                  "name": "p04tat",
+                  "fill": "#22C55E",
+                  "content": "✅ 可过夜",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eVzig",
+              "name": "p04tb",
+              "fill": "#F0FDF4",
+              "cornerRadius": 4,
+              "padding": [
+                3,
+                8
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FLKzZ",
+                  "name": "p04tbt",
+                  "fill": "#22C55E",
+                  "content": "📹 有监控",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "MjnuP",
+          "name": "p04sep2",
+          "width": "fill_container",
+          "height": 6,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "XUbm5",
+          "name": "寄存须知",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "usNue",
+              "name": "noteh",
+              "fill": "#1A1918",
+              "content": "寄存须知",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "0XWiq",
+              "name": "noter1",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "KFqZu",
+                  "name": "noter1ico",
+                  "fill": "#FF8000",
+                  "content": "📋",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Rgq3u",
+                  "name": "noter1txt",
+                  "fill": "#6D6C6A",
+                  "content": "存入当天18:00前免费取消，全额退款",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sNSKZ",
+              "name": "noter2",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Hqun0",
+                  "name": "noter2ico",
+                  "fill": "#FF8000",
+                  "content": "⏰",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "xxS12",
+                  "name": "noter2txt",
+                  "fill": "#6D6C6A",
+                  "content": "存入后如需提前取回请联系商家",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EL1mC",
+              "name": "noter3",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "f3a8R",
+                  "name": "noter3ico",
+                  "fill": "#FF8000",
+                  "content": "🛡️",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "gSvsK",
+                  "name": "noter3txt",
+                  "fill": "#6D6C6A",
+                  "content": "如有贵重物品，建议开启寄存保障险",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "vc76E",
+          "name": "p04sp2",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "JSJWL",
+          "name": "CTA栏（改动I：收藏移至左侧）",
+          "width": "fill_container",
+          "height": 88,
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "XPmcy",
+              "name": "收藏按钮",
+              "width": 72,
+              "height": 52,
+              "fill": "#F5F4F1",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                7,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "R5H1R",
+                  "name": "p04favi",
+                  "fill": "#CCCCCC",
+                  "content": "♡",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "no7Fe",
+                  "name": "p04favl",
+                  "fill": "#6D6C6A",
+                  "content": "收藏",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZEMCy",
+              "name": "p04book",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#FF8000",
+              "cornerRadius": 12,
+              "gap": 6,
+              "padding": [
+                0,
+                20
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QBLdb",
+                  "name": "p04booki",
+                  "fill": "#FFFFFF",
+                  "content": "⚡",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "BdKAp",
+                  "name": "p04bookt",
+                  "fill": "#FFFFFF",
+                  "content": "立即预订",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "yznxQ",
+      "x": 2031,
+      "y": -23,
+      "name": "P05E 支付成功页",
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F4F1",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "vIXVF",
+          "name": "p05esb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "ZiiKN",
+              "name": "p05esbt",
+              "fill": "#1A1918",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "CzlPV",
+              "name": "p05esbr",
+              "fill": "#1A1918",
+              "content": "📶 🔋",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "e4hlh",
+          "name": "p05etop",
+          "width": "fill_container",
+          "height": 200,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "3oxdP",
+              "x": 159,
+              "y": 36,
+              "name": "p05eicon",
+              "width": 72,
+              "height": 72,
+              "fill": "#22C55E",
+              "cornerRadius": 36,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "x18Wr",
+                  "name": "p05eicont",
+                  "fill": "#FFFFFF",
+                  "content": "✓",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "MwjyX",
+              "x": 106,
+              "y": 122,
+              "name": "p05etitle",
+              "fill": "#1A1918",
+              "content": "预订成功！",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "NaAIT",
+              "x": 78,
+              "y": 158,
+              "name": "p05esub",
+              "fill": "#6D6C6A",
+              "content": "行李已安全预约，请按时到店寄存",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Vmirm",
+          "name": "解锁信息卡（改动K）",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "sIatF",
+              "name": "ulkch",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "etUlz",
+                  "name": "ulkchi",
+                  "content": "🔓",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "bPfkl",
+                  "name": "ulkcht",
+                  "fill": "#1A1918",
+                  "content": "已解锁寄存地址和联系方式",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "4kDDN",
+              "name": "ulkdiv",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "#F5F4F1"
+            },
+            {
+              "type": "frame",
+              "id": "YNts9",
+              "name": "addrrow",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                4,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "LCVSc",
+                  "name": "addrl",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "R3xD9",
+                      "name": "addrll",
+                      "fill": "#9C9B99",
+                      "content": "📍 精确地址",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "4CqRI",
+                      "name": "addrlv",
+                      "fill": "#1A1918",
+                      "content": "上海市黄浦区南京东路128号联合广场B1",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xjeyV",
+                  "name": "navbtn",
+                  "fill": "#FF8000",
+                  "cornerRadius": 8,
+                  "padding": [
+                    8,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "369b1",
+                      "name": "navbtnt",
+                      "fill": "#FFFFFF",
+                      "content": "🗺️ 导航",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "0Jc87",
+              "name": "ulkdiv2",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "#F5F4F1"
+            },
+            {
+              "type": "frame",
+              "id": "7J4Mj",
+              "name": "phonerow",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                4,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "KxbAa",
+                  "name": "phonel",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "NtH3W",
+                      "name": "phonell",
+                      "fill": "#9C9B99",
+                      "content": "📞 商家电话",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Kmcjq",
+                      "name": "phonelv",
+                      "fill": "#1A1918",
+                      "content": "021-6888-8888",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "a3oxT",
+                  "name": "callbtn",
+                  "fill": "#FF8000",
+                  "cornerRadius": 8,
+                  "padding": [
+                    8,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "phRnd",
+                      "name": "callbtnt",
+                      "fill": "#FFFFFF",
+                      "content": "📞 拨打",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g2IyA",
+          "name": "p05eord",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 6,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "z4780",
+              "name": "p05eoh",
+              "fill": "#1A1918",
+              "content": "📋 预订信息",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "NRTAl",
+              "name": "p05eor1",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "idrIv",
+                  "name": "p05eor1l",
+                  "fill": "#6D6C6A",
+                  "content": "寄存时间",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Uxbkr",
+                  "name": "p05eor1r",
+                  "fill": "#1A1918",
+                  "content": "2026-03-10 至 2026-03-11",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "h0Ffe",
+              "name": "p05eor2",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "dqO5W",
+                  "name": "p05eor2l",
+                  "fill": "#6D6C6A",
+                  "content": "取件凭证",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "IGmkY",
+                  "name": "p05eor2r",
+                  "fill": "#FF8000",
+                  "content": "WYC2026031001234",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "8KFYC",
+          "name": "p05esp",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "kbai2",
+          "name": "p05ebtns",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            12,
+            16,
+            24,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "XaJJP",
+              "name": "p05evbtn",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#FF8000",
+              "cornerRadius": 12,
+              "padding": [
+                0,
+                20
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0Ywhy",
+                  "name": "p05evbtnt",
+                  "fill": "#FFFFFF",
+                  "content": "查看订单详情",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "dqg0r",
+              "name": "p05ecl",
+              "fill": "#9C9B99",
+              "content": "点击联系商家客服",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "KZWSl",
+      "x": 407,
+      "y": -23,
+      "name": "P03 地图列表页",
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F4F1",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "mxqwn",
+          "name": "p03sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "4QyvR",
+              "name": "p03sbt",
+              "fill": "#1A1918",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "z3Wwm",
+              "name": "p03sbr",
+              "fill": "#1A1918",
+              "content": "📶 🔋",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "P9nB6",
+          "name": "p03nav",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "#FFFFFF",
+          "gap": 8,
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "0jX47",
+              "name": "p03bk",
+              "fill": "#1A1918",
+              "content": "← 返回",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "LOLLw",
+              "name": "p03tt",
+              "fill": "#1A1918",
+              "content": "外滩 附近网点",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "8ga0P",
+              "name": "p03fl",
+              "fill": "#FF8000",
+              "content": "筛选 ▼",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "mKrc6",
+          "name": "筛选Tab栏",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "#FFFFFF",
+          "gap": 8,
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "ebpIj",
+              "name": "tab1",
+              "fill": "#FFF3E0",
+              "cornerRadius": 20,
+              "padding": [
+                7,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FPJGp",
+                  "name": "tab1t",
+                  "fill": "#FF8000",
+                  "content": "人工寄存",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6NDWA",
+              "name": "tab2",
+              "fill": "#F5F4F1",
+              "cornerRadius": 20,
+              "padding": [
+                7,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mILvT",
+                  "name": "tab2t",
+                  "fill": "#6D6C6A",
+                  "content": "智能机柜",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "1ZgiE",
+          "name": "地图（改动O）",
+          "width": "fill_container",
+          "height": 280,
+          "fill": "#C8E6C9",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "D5YGq",
+              "x": 160,
+              "y": 100,
+              "name": "人工Pin·橙圆",
+              "width": 24,
+              "height": 24,
+              "fill": "#FF7043",
+              "cornerRadius": 12
+            },
+            {
+              "type": "frame",
+              "id": "27Zdj",
+              "x": 240,
+              "y": 140,
+              "name": "机柜Pin·黄方",
+              "width": 24,
+              "height": 24,
+              "fill": "#FFB300",
+              "cornerRadius": 4
+            },
+            {
+              "type": "frame",
+              "id": "w0YTw",
+              "x": 100,
+              "y": 160,
+              "name": "人工Pin",
+              "width": 24,
+              "height": 24,
+              "fill": "#FF7043",
+              "cornerRadius": 12
+            },
+            {
+              "type": "frame",
+              "id": "p5hCk",
+              "x": 195,
+              "y": 195,
+              "name": "当前位置",
+              "width": 16,
+              "height": 16,
+              "fill": "#2196F3",
+              "cornerRadius": 8
+            },
+            {
+              "type": "frame",
+              "id": "aMMzz",
+              "x": 0,
+              "y": 70,
+              "name": "road-h1",
+              "width": 400,
+              "height": 3,
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "frame",
+              "id": "TIwEd",
+              "x": 0,
+              "y": 190,
+              "name": "road-h2",
+              "width": 400,
+              "height": 3,
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "frame",
+              "id": "jHdqb",
+              "x": 100,
+              "y": 0,
+              "name": "road-v1",
+              "width": 3,
+              "height": 280,
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "frame",
+              "id": "FANKN",
+              "x": 240,
+              "y": 0,
+              "name": "road-v2",
+              "width": 3,
+              "height": 280,
+              "fill": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TbbV8",
+          "name": "p03llbl",
+          "width": "fill_container",
+          "height": 36,
+          "fill": "#F5F4F1",
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "s7IAF",
+              "name": "p03llblt",
+              "fill": "#6D6C6A",
+              "content": "附近 8 个寄存点 · 综合排序",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "RQKHt",
+              "name": "p03llblr",
+              "fill": "#FF8000",
+              "content": "距离 ↑",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dtKi8",
+          "name": "p03lc1",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "cXXvg",
+              "name": "p03lc1img",
+              "width": 72,
+              "height": 72,
+              "fill": "#FFE0B2",
+              "cornerRadius": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "pWSR1",
+                  "name": "p03lc1b",
+                  "fill": "#FF7043",
+                  "cornerRadius": 4,
+                  "padding": [
+                    2,
+                    6
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FpYon",
+                      "name": "p03lc1bt",
+                      "fill": "#FFFFFF",
+                      "content": "人工",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GDKMi",
+              "name": "p03lc1bd",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "08ZmO",
+                  "name": "p03lc1n",
+                  "fill": "#1A1918",
+                  "content": "联合广场B1寄存点",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "r61al",
+                  "name": "p03lc1tg",
+                  "fill": "#6D6C6A",
+                  "content": "可过夜 · 专人看守",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "NHllz",
+                  "name": "p03lc1sr",
+                  "gap": 5,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "r6jro",
+                      "name": "p03lc1d",
+                      "width": 7,
+                      "height": 7,
+                      "fill": "#22C55E",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "3ibX8",
+                      "name": "p03lc1dt",
+                      "fill": "#22C55E",
+                      "content": "营业中",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nOC5f",
+                      "name": "p03lc1h",
+                      "fill": "#9C9B99",
+                      "content": "· 00:00-24:00",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "D6LES",
+                  "name": "p03lc1m",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FvpiO",
+                      "name": "p03lc1di",
+                      "fill": "#6D6C6A",
+                      "content": "📍 320m",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NpFlt",
+                      "name": "p03lc1pr",
+                      "fill": "#FF7043",
+                      "content": "¥5起",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "1vQuD",
+                      "name": "p03lc1sc",
+                      "fill": "#6D6C6A",
+                      "content": "⭐ 5.0",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "crOAl",
+          "name": "p03div",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "jpI7Y",
+          "name": "p03lc2",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "1u8kt",
+              "name": "p03lc2img",
+              "width": 72,
+              "height": 72,
+              "fill": "#FFF3CD",
+              "cornerRadius": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jKD2U",
+                  "name": "p03lc2b",
+                  "fill": "#0097A7",
+                  "cornerRadius": 4,
+                  "padding": [
+                    2,
+                    6
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "URXuY",
+                      "name": "p03lc2bt",
+                      "fill": "#FFFFFF",
+                      "content": "机柜",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GNl7p",
+              "name": "p03lc2bd",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ch7pg",
+                  "name": "p03lc2n",
+                  "fill": "#1A1918",
+                  "content": "南京路地铁2号出口机柜",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "JBnW0",
+                  "name": "p03lc2sr",
+                  "gap": 5,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "67nkh",
+                      "name": "p03lc2dd",
+                      "width": 7,
+                      "height": 7,
+                      "fill": "#EF4444",
+                      "cornerRadius": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "N0SSq",
+                      "name": "p03lc2dt",
+                      "fill": "#EF4444",
+                      "content": "暂停营业",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LlPOw",
+                      "name": "p03lc2rp",
+                      "fill": "#9C9B99",
+                      "content": "· 09:00重新开放",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fkmK8",
+                  "name": "p03lc2m",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "idczK",
+                      "name": "p03lc2di",
+                      "fill": "#6D6C6A",
+                      "content": "📍 580m",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DQQHH",
+                      "name": "p03lc2pr",
+                      "fill": "#FF7043",
+                      "content": "¥10起",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "b7exZ",
+          "name": "div3",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "g5bFg",
+          "name": "p03lc3",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "cHC9M",
+              "name": "lc3img",
+              "width": 72,
+              "height": 72,
+              "fill": "#FFE0B2",
+              "cornerRadius": 8
+            },
+            {
+              "type": "frame",
+              "id": "wrxzp",
+              "name": "lc3bd",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9usfc",
+                  "name": "lc3hr",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "VgnBM",
+                      "name": "lc3badge",
+                      "fill": "#FF7043",
+                      "cornerRadius": 4,
+                      "padding": [
+                        2,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YR1LH",
+                          "name": "lc3bt",
+                          "fill": "#FFFFFF",
+                          "content": "人工",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "K6tcM",
+                      "name": "lc3name",
+                      "fill": "#1A1918",
+                      "content": "上海站南广场寄存处",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZbXDm",
+                  "name": "lc3meta",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2ttXy",
+                      "name": "lc3st",
+                      "fill": "#22C55E",
+                      "content": "● 营业中",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TT9hj",
+                      "name": "lc3hrs",
+                      "fill": "#6D6C6A",
+                      "content": "06:00-22:00",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KrGgj",
+                  "name": "lc3row3",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dqFFV",
+                      "name": "lc3dist",
+                      "fill": "#6D6C6A",
+                      "content": "📍 1.2km",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "F4vdS",
+                      "name": "lc3price",
+                      "fill": "#FF7043",
+                      "content": "¥8起",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zbxnZ",
+                      "name": "lc3rating",
+                      "fill": "#6D6C6A",
+                      "content": "⭐ 4.7",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rTADH",
+          "name": "p03sp",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "caRG1",
+          "name": "p03tb",
+          "width": "fill_container",
+          "height": 83,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            32
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "JTKsO",
+              "name": "p03tb1",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "MMWVZ",
+                  "name": "icon-home",
+                  "width": 24,
+                  "height": 24,
+                  "fill": "#E8E8E8",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "4L9v0",
+                  "name": "p03tb1l",
+                  "fill": "#9C9B99",
+                  "content": "首页",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GEdbc",
+              "name": "p03tb2",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "aQ7MQ",
+                  "name": "icon-map-active",
+                  "width": 24,
+                  "height": 24,
+                  "fill": "#FF8000",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "4QlfT",
+                  "name": "p03tb2l",
+                  "fill": "#FF8000",
+                  "content": "地图",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Zp3Rg",
+              "name": "p03tb3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "j55ZJ",
+                  "name": "icon-user",
+                  "width": 24,
+                  "height": 24,
+                  "fill": "#E8E8E8",
+                  "cornerRadius": 4
+                },
+                {
+                  "type": "text",
+                  "id": "Cz0Zm",
+                  "name": "p03tb3l",
+                  "fill": "#9C9B99",
+                  "content": "我的",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xar6k",
+      "x": -135,
+      "y": -23,
+      "name": "P02A 选择地标页",
+      "width": 390,
+      "height": 844,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "YomKX",
+          "name": "p02sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "w4ohF",
+              "name": "p02sbt",
+              "fill": "#1A1918",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "ljJSc",
+              "name": "p02sbr",
+              "fill": "#1A1918",
+              "content": "📶 🔋",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "z1Kt4",
+          "name": "p02nav",
+          "width": "fill_container",
+          "height": 52,
+          "fill": "#FFFFFF",
+          "gap": 10,
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "l8mvZ",
+              "name": "p02bk",
+              "fill": "#1A1918",
+              "content": "✕",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "LK7Gz",
+              "name": "p02inp",
+              "width": "fill_container",
+              "height": 40,
+              "fill": "#F5F4F1",
+              "cornerRadius": 20,
+              "gap": 8,
+              "padding": [
+                0,
+                14
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Pmrzw",
+                  "name": "p02inpi",
+                  "content": "🔍",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "MFAYk",
+                  "name": "p02inpp",
+                  "fill": "#9C9B99",
+                  "content": "搜索地标、商圈...",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "sRZH3",
+          "name": "locSep",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "fsv23",
+          "name": "使用当前位置",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Q8xxz",
+              "name": "locIco",
+              "fill": "#FF8000",
+              "content": "📍",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "HTP8h",
+              "name": "locTxtWrap",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0Gz0M",
+                  "name": "locMain",
+                  "fill": "#FF8000",
+                  "content": "使用当前位置",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "BingC",
+                  "name": "locSub",
+                  "fill": "#9C9B99",
+                  "content": "上海市外滩滨江大道（自动定位）",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "DX9rw",
+              "name": "locArrow",
+              "fill": "#9C9B99",
+              "content": "›",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aNalP",
+          "name": "历史搜索（改动C）",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "auCrv",
+              "name": "p02hh",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "7j2Ku",
+                  "name": "p02hhl",
+                  "fill": "#1A1918",
+                  "content": "历史搜索",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "r2AXn",
+                  "name": "p02hhr",
+                  "fill": "#9C9B99",
+                  "content": "清除全部",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wUVGb",
+              "name": "p02htgs",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AHW1m",
+                  "name": "p02ht1",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 16,
+                  "gap": 6,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Wx9rO",
+                      "name": "p02ht1t",
+                      "fill": "#1A1918",
+                      "content": "外滩",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mcxQD",
+                      "name": "p02ht1x",
+                      "fill": "#9C9B99",
+                      "content": "×",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EsbOW",
+                  "name": "p02ht2",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 16,
+                  "gap": 6,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "1cVDn",
+                      "name": "p02ht2t",
+                      "fill": "#1A1918",
+                      "content": "上海站",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gvHV2",
+                      "name": "p02ht2x",
+                      "fill": "#9C9B99",
+                      "content": "×",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d4HWN",
+                  "name": "p02ht3",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 16,
+                  "gap": 6,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oqGAH",
+                      "name": "p02ht3t",
+                      "fill": "#1A1918",
+                      "content": "虹桥机场",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AJTrB",
+                      "name": "p02ht3x",
+                      "fill": "#9C9B99",
+                      "content": "×",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QvXDT",
+          "name": "热门标签（全量·直接跳）",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            0,
+            16,
+            16,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "caZIz",
+              "name": "p02hoth",
+              "fill": "#1A1918",
+              "content": "热门地标",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "RTw0c",
+              "name": "p02hotr1",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "E7dc0",
+                  "name": "p02hx1",
+                  "fill": "#FFF0E6",
+                  "cornerRadius": 16,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wfgGF",
+                      "name": "p02hx1t",
+                      "fill": "#FF7043",
+                      "content": "🔥 南京路步行街",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q7o8Z",
+                  "name": "p02hx2",
+                  "fill": "#FFF0E6",
+                  "cornerRadius": 16,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lFsFP",
+                      "name": "p02hx2t",
+                      "fill": "#FF7043",
+                      "content": "🔥 迪士尼乐园",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ckiug",
+              "name": "p02hotr2",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CUjrq",
+                  "name": "p02hx3",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 16,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VsrUp",
+                      "name": "p02hx3t",
+                      "fill": "#6D6C6A",
+                      "content": "虹桥火车站",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Ee8Wi",
+                  "name": "p02hx4",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 16,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SiqHt",
+                      "name": "p02hx4t",
+                      "fill": "#6D6C6A",
+                      "content": "浦东机场",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "2zWdr",
+          "name": "p02hint",
+          "width": "fill_container",
+          "fill": "#F0F9FF",
+          "gap": 8,
+          "padding": [
+            10,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "qR83p",
+              "name": "p02hintt",
+              "fill": "#0097A7",
+              "content": "💡 点击标签或记录→直接跳转网点列表，无需手动输入（改动C）",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "0Qe40",
+      "x": 1488,
+      "y": -23,
+      "name": "P05A 下单页",
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F4F1",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "WQKvZ",
+          "name": "p05asb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "OHixe",
+              "name": "p05asbt",
+              "fill": "#1A1918",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "HPUyB",
+              "name": "p05asbr",
+              "fill": "#1A1918",
+              "content": "📶 🔋",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LaSCE",
+          "name": "p05anav",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "MYjE9",
+              "name": "p05abk",
+              "fill": "#1A1918",
+              "content": "← 返回",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "B9Gxz",
+              "name": "p05att",
+              "fill": "#1A1918",
+              "content": "确认下单",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "5iwiy",
+          "name": "p05ast",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "SrWWE",
+              "name": "p05astimg",
+              "width": 52,
+              "height": 52,
+              "fill": "#FFE0B2",
+              "cornerRadius": 8
+            },
+            {
+              "type": "frame",
+              "id": "9WJAr",
+              "name": "p05astinfo",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "okh3V",
+                  "name": "p05astn",
+                  "fill": "#1A1918",
+                  "content": "联合广场B1寄存点",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "vYWcn",
+                  "name": "p05asta",
+                  "fill": "#6D6C6A",
+                  "content": "上海市黄浦区南京东路128号",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "f4EQl",
+          "name": "p05asep",
+          "width": "fill_container",
+          "height": 6,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "AdvfX",
+          "name": "时间选择（含开始+结束·修改5修复）",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "6k9iS",
+              "name": "p05adateh",
+              "fill": "#1A1918",
+              "content": "寄存时间",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "0uVE5",
+              "name": "p05adater",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DjuAj",
+                  "name": "p05adf",
+                  "width": "fill_container",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xk7fd",
+                      "name": "p05adfl",
+                      "fill": "#9C9B99",
+                      "content": "开始日期",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "9T8Rm",
+                      "name": "p05adfv",
+                      "fill": "#1A1918",
+                      "content": "2026-03-10",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "WCb57",
+                  "name": "p05aarw",
+                  "fill": "#9C9B99",
+                  "content": "→",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "MG5qR",
+                  "name": "p05adt",
+                  "width": "fill_container",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "akVoD",
+                      "name": "p05adtl",
+                      "fill": "#9C9B99",
+                      "content": "结束日期",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "i1MDj",
+                      "name": "p05adtv",
+                      "fill": "#1A1918",
+                      "content": "2026-03-11",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AxNKS",
+          "name": "p05asep2",
+          "width": "fill_container",
+          "height": 6,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "yIpDw",
+          "name": "物品信息",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "KbkiW",
+              "name": "gdsh",
+              "fill": "#1A1918",
+              "content": "物品信息",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "CMoy6",
+              "name": "pills",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "QSYCc",
+                  "name": "pill1",
+                  "fill": "#FFF3E0",
+                  "cornerRadius": 20,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "b2S6S",
+                      "name": "pill1t",
+                      "fill": "#FF8000",
+                      "content": "背包/小件",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Rmct6",
+                  "name": "pill2",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 20,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "F1C1N",
+                      "name": "pill2t",
+                      "fill": "#6D6C6A",
+                      "content": "行李箱",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ae8lz",
+                  "name": "pill3",
+                  "fill": "#F5F4F1",
+                  "cornerRadius": 20,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U8U8m",
+                      "name": "pill3t",
+                      "fill": "#6D6C6A",
+                      "content": "大件行李",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0bB31",
+          "name": "sep_goods",
+          "width": "fill_container",
+          "height": 6,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "diSSn",
+          "name": "增值保障",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "0f51R",
+              "name": "insrow",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qUODW",
+                  "name": "insleft",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mJxxG",
+                      "name": "inslt",
+                      "fill": "#1A1918",
+                      "content": "🛡️  寄存保障险",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lyFfe",
+                      "name": "insls",
+                      "fill": "#9C9B99",
+                      "content": "最高500元赔付 · 行李丢失必赔",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jWrKd",
+                  "name": "instog",
+                  "height": 28,
+                  "fill": "#FF8000",
+                  "cornerRadius": 14,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bBG9a",
+                      "name": "instont",
+                      "fill": "#FFFFFF",
+                      "content": "已开启",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EIpLF",
+          "name": "退改说明（改动J·正向化）",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "NAqe0",
+              "name": "p05acxlh",
+              "fill": "#1A1918",
+              "content": "退改说明",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "kibVP",
+              "name": "p05acr1",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HT4aw",
+                  "name": "p05acr1i",
+                  "content": "✅",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "VAnp4",
+                  "name": "p05acr1t",
+                  "fill": "#22C55E",
+                  "content": "存入当天 18:00 前：免费取消，全额退款",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "1ZMJc",
+              "name": "p05acr2",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "D8Mm7",
+                  "name": "p05acr2i",
+                  "content": "⚠️",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "pGHih",
+                  "name": "p05acr2t",
+                  "fill": "#FF8000",
+                  "content": "已存入行李后：不支持取消，可联系商家协商",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "e2gQ5",
+              "name": "p05anp",
+              "width": "fill_container",
+              "fill": "#FFF9E6",
+              "cornerRadius": 8,
+              "padding": [
+                8,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QA25Y",
+                  "name": "p05anpt",
+                  "fill": "#FF8000",
+                  "content": "✨ 本方案无违约金条款",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4mgTm",
+          "name": "p05asp",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "oUC5s",
+          "name": "p05apb",
+          "width": "fill_container",
+          "height": 88,
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "ab2Fa",
+              "name": "p05api",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "6kHRu",
+                  "name": "p05apil",
+                  "fill": "#9C9B99",
+                  "content": "共计费用",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "xCYBB",
+                  "name": "p05apiv",
+                  "fill": "#FF7043",
+                  "content": "¥ 10.00",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FX7w3",
+              "name": "p05acb",
+              "width": 140,
+              "height": 52,
+              "fill": "#FF8000",
+              "cornerRadius": 12,
+              "padding": [
+                0,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nu2KK",
+                  "name": "p05acbt",
+                  "fill": "#FFFFFF",
+                  "content": "确认下单",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ij0iW",
+      "x": 2547,
+      "y": -23,
+      "name": "P06 订单详情页",
+      "width": 390,
+      "height": 844,
+      "fill": "#F5F4F1",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Ec0j5",
+          "name": "p06sb",
+          "width": "fill_container",
+          "height": 62,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "oIqqg",
+              "name": "p06sbt",
+              "fill": "#1A1918",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "PIVR5",
+              "name": "p06sbr",
+              "fill": "#1A1918",
+              "content": "📶 🔋",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pyCBO",
+          "name": "p06nav",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "#FFFFFF",
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "bX6nW",
+              "name": "p06bk",
+              "fill": "#1A1918",
+              "content": "← 返回",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "ir0Wh",
+              "name": "p06tt",
+              "fill": "#1A1918",
+              "content": "订单详情",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BvAQE",
+          "name": "p06band",
+          "width": "fill_container",
+          "height": 64,
+          "fill": "#E8F5E9",
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            10,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "octnr",
+              "name": "p06brow",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "1gFu7",
+                  "name": "p06bdot",
+                  "width": 10,
+                  "height": 10,
+                  "fill": "#22C55E",
+                  "cornerRadius": 5
+                },
+                {
+                  "type": "text",
+                  "id": "HWWWz",
+                  "name": "p06btt",
+                  "fill": "#22C55E",
+                  "content": "订单已完成",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "afKqi",
+              "name": "p06bsub",
+              "fill": "#6D6C6A",
+              "content": "寄存于 2026-03-09，已于 2026-03-10 取回",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Fwqrp",
+          "name": "p06store",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "wr8g0",
+              "name": "p06simg",
+              "width": 52,
+              "height": 52,
+              "fill": "#FFE0B2",
+              "cornerRadius": 8
+            },
+            {
+              "type": "frame",
+              "id": "OCrXk",
+              "name": "p06sbdy",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xxWql",
+                  "name": "p06sn",
+                  "fill": "#1A1918",
+                  "content": "联合广场B1寄存点",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "PVzUq",
+                  "name": "p06sa",
+                  "fill": "#6D6C6A",
+                  "content": "上海市黄浦区南京东路128号B1",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "GFKFx",
+                  "name": "p06sp",
+                  "fill": "#FF8000",
+                  "content": "📞 021-6888-8888（下单后解锁）",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Dn2gI",
+          "name": "p06sep",
+          "width": "fill_container",
+          "height": 6,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "YpImX",
+          "name": "p06det",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "eFGyg",
+              "name": "p06deth",
+              "fill": "#1A1918",
+              "content": "订单明细",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ZN2ZV",
+              "name": "p06r1",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0C9HX",
+                  "name": "p06r1l",
+                  "fill": "#6D6C6A",
+                  "content": "寄存日期",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "XOLIv",
+                  "name": "p06r1r",
+                  "fill": "#1A1918",
+                  "content": "2026-03-09 至 2026-03-10",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "29JIR",
+              "name": "p06r2",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XcRUb",
+                  "name": "p06r2l",
+                  "fill": "#6D6C6A",
+                  "content": "行李件数",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "G9LWQ",
+                  "name": "p06r2r",
+                  "fill": "#1A1918",
+                  "content": "2 件",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "9HILk",
+              "name": "p06r3",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "crbIQ",
+                  "name": "p06r3l",
+                  "fill": "#6D6C6A",
+                  "content": "实付金额",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "emHxp",
+                  "name": "p06r3r",
+                  "fill": "#FF7043",
+                  "content": "¥ 20.00",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "7oxuN",
+          "name": "consep",
+          "width": "fill_container",
+          "height": 6,
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "BXlt6",
+          "name": "联系方式",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            14,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "aqYPc",
+              "name": "conth",
+              "fill": "#1A1918",
+              "content": "联系方式",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "FZOGV",
+              "name": "conr1",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nUxuq",
+                  "name": "conr1ico",
+                  "fill": "#FF7043",
+                  "content": "📍",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "74UNR",
+                  "name": "conr1txt",
+                  "fill": "#1A1918",
+                  "content": "上海市黄浦区南京东路128号联合广场B1",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OfVjI",
+              "name": "conr2",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qPHS7",
+                  "name": "conr2ico",
+                  "fill": "#0097A7",
+                  "content": "📞",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "piY25",
+                  "name": "conr2txt",
+                  "fill": "#1A1918",
+                  "content": "021-6888-8888",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "ypmlp",
+                  "name": "conr2btn",
+                  "fill": "#FF8000",
+                  "cornerRadius": 20,
+                  "padding": [
+                    4,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sayRz",
+                      "name": "conr2btnt",
+                      "fill": "#FFFFFF",
+                      "content": "拨打",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "9dA4I",
+              "name": "conr3",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tCQaf",
+                  "name": "conr3ico",
+                  "fill": "#0097A7",
+                  "content": "🗺️",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "w3GL6",
+                  "name": "conr3txt",
+                  "fill": "#1A1918",
+                  "content": "一键导航到店",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "WTu0U",
+                  "name": "conr3btn",
+                  "fill": "#0097A7",
+                  "cornerRadius": 20,
+                  "padding": [
+                    4,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JcFH1",
+                      "name": "conr3btnt",
+                      "fill": "#FFFFFF",
+                      "content": "导航",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "5YwlE",
+          "name": "p06sp2",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#F5F4F1"
+        },
+        {
+          "type": "frame",
+          "id": "Jxyt7",
+          "name": "再次下单（改动L）",
+          "width": "fill_container",
+          "height": 88,
+          "fill": "#FFFFFF",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "qMMZb",
+              "name": "p06rbtn",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#FF8000",
+              "cornerRadius": 12,
+              "gap": 6,
+              "padding": [
+                0,
+                20
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sh4uA",
+                  "name": "p06rbti",
+                  "fill": "#FFFFFF",
+                  "content": "🔄",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "7oe8l",
+                  "name": "p06rbtt",
+                  "fill": "#FFFFFF",
+                  "content": "再次下单",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "klz0K",
+          "name": "p06hint",
+          "width": "fill_container",
+          "fill": "#FFF9E6",
+          "padding": [
+            8,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Gf65B",
+              "name": "p06hintt",
+              "fill": "#FF8000",
+              "content": "仅「已完成」订单显示，点击跳下单页并预填上次寄存信息",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "szaAJ",
+      "x": -785,
+      "y": 934,
+      "name": "【标注】P01首页 审查结论",
+      "width": 390,
+      "height": 280,
+      "fill": "#FFFDE7",
+      "cornerRadius": 12,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "DjQKE",
+          "name": "ann1h",
+          "fill": "#FF8000",
+          "content": "🎨 Annie × 💻 Wei 联合审查 — P01 首页",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "9fzav",
+          "name": "ann1d",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#FFD740"
+        },
+        {
+          "type": "text",
+          "id": "YcVSy",
+          "name": "ann1t1",
+          "fill": "#1A1918",
+          "content": "✅ A：双品牌Logo已删除，Banner直接从状态栏开始",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "cQUML",
+          "name": "ann1t2",
+          "fill": "#1A1918",
+          "content": "✅ B：搜索区历史+热门标签到位，清除功能入口正确",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "EkLuK",
+          "name": "ann1t3",
+          "fill": "#1A1918",
+          "content": "✅ B2：AI入口「✨AI找」橙色圆角醒目，位置合理",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "w2zj6",
+          "name": "ann1t4",
+          "fill": "#1A1918",
+          "content": "✅ N：金刚区4坑位，「更多」灰色固定第4位",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "0PTYZ",
+          "name": "ann1t5",
+          "fill": "#1A1918",
+          "content": "✅ M：附近卡片带营业状态圆点，图片占位已区分色",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "dNK7u",
+          "name": "ann1fix",
+          "width": "fill_container",
+          "fill": "#E8F5E9",
+          "cornerRadius": 6,
+          "padding": [
+            8,
+            10
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "OPHKr",
+              "name": "ann1fixt",
+              "fill": "#22C55E",
+              "content": "🔧 已修改1：人工卡片=橙色占位 #FFE0B2，机柜卡片=黄色占位 #FFF3CD",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "fwN4H",
+      "x": 1007,
+      "y": 934,
+      "name": "【标注】P04详情页 审查结论",
+      "width": 390,
+      "height": 260,
+      "fill": "#FFFDE7",
+      "cornerRadius": 12,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "nLHml",
+          "name": "ann2h",
+          "fill": "#FF8000",
+          "content": "🎨 Annie × 💻 Wei 联合审查 — P04 网点详情页",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "10H2F",
+          "name": "ann2d",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#FFD740"
+        },
+        {
+          "type": "text",
+          "id": "CSW5f",
+          "name": "ann2t1",
+          "fill": "#1A1918",
+          "content": "✅ F：地图区彻底无导航/电话按钮，仅保留定位回中⊙",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "OALOv",
+          "name": "ann2t2",
+          "fill": "#1A1918",
+          "content": "✅ G：黄色解锁引导卡样式正确，「立即预订→」入口清晰",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "vnjfJ",
+          "name": "ann2t3",
+          "fill": "#1A1918",
+          "content": "✅ H：营业状态绿点+时间同行显示，视觉对齐清晰",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "id6Gr",
+          "name": "ann2t4",
+          "fill": "#1A1918",
+          "content": "✅ I：CTA栏收藏图标+文字横排，与预订按钮比例合理",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "SBPcG",
+          "name": "ann2fix1",
+          "width": "fill_container",
+          "fill": "#E8F5E9",
+          "cornerRadius": 6,
+          "padding": [
+            8,
+            10
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "5bEhB",
+              "name": "ann2fix1t",
+              "fill": "#22C55E",
+              "content": "🔧 已修改2：收藏按钮改为横排(图标+文字)，宽度72px",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "8OSzm",
+          "name": "ann2fix2",
+          "width": "fill_container",
+          "fill": "#E8F5E9",
+          "cornerRadius": 6,
+          "padding": [
+            8,
+            10
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Oq921",
+              "name": "ann2fix2t",
+              "fill": "#22C55E",
+              "content": "🔧 已修改6：定位⊙按钮位置从y=8移至y=90，避开导航栏",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "1xzHM",
+      "x": 2069,
+      "y": 934,
+      "name": "【标注】P05E支付成功 审查结论",
+      "width": 390,
+      "height": 260,
+      "fill": "#FFFDE7",
+      "cornerRadius": 12,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "INsnG",
+          "name": "p05eTitle",
+          "fill": "#E65100",
+          "content": "【标注】P05E 支付成功页",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "frame",
+          "id": "ZKQyF",
+          "name": "p05eDiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#FFD740"
+        },
+        {
+          "type": "text",
+          "id": "8RSq2",
+          "name": "p05eItem1",
+          "fill": "#2E7D32",
+          "content": "✅ K: 解锁信息卡含精确地址+导航+\n    电话+拨打四个元素",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "uvPy2",
+          "name": "p05eItem2",
+          "fill": "#2E7D32",
+          "content": "✅ K: 解锁引导卡位于下单按钮上方\n    背景#FFF9E6，边框#FFD740",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "BQvQ2",
+          "name": "p05eItem3",
+          "fill": "#2E7D32",
+          "content": "✅ F: 商家电话仅在解锁卡中显示，\n    详情页收起隐藏区已移除",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "xCPPD",
+          "name": "p05eFix",
+          "fill": "#E65100",
+          "content": "🔧 修改3: 导航/拨打按钮已改为品\n    牌橙色 #FF8000（原版误用绿色）",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "XCbXm",
+      "x": 387,
+      "y": 934,
+      "name": "【标注】P03地图列表 审查结论",
+      "width": 390,
+      "height": 300,
+      "fill": "#FFFDE7",
+      "cornerRadius": 12,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "Lwnpu",
+          "name": "p03Title",
+          "fill": "#E65100",
+          "content": "【标注】P03 地图列表页",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "frame",
+          "id": "hioie",
+          "name": "p03Div",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#FFD740"
+        },
+        {
+          "type": "text",
+          "id": "jn2LB",
+          "name": "p03Item1",
+          "fill": "#2E7D32",
+          "content": "✅ B: 卡片营业状态徽章位于左下角\n    绿色#22C55E/红色#EF4444",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "i9Zpl",
+          "name": "p03Item2",
+          "fill": "#2E7D32",
+          "content": "✅ D: 营业状态在列表卡片三处统一\n    显示（徽章+文字+详情页顶部）",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "E9dbP",
+          "name": "p03Item3",
+          "fill": "#2E7D32",
+          "content": "✅ C: 缩略图占位色区分——人工\n    #FFE0B2，机柜#FFF3CD",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "OFldu",
+          "name": "p03Item4",
+          "fill": "#2E7D32",
+          "content": "✅ N: 机柜卡片可用格状态\n    显示「3/8格可用」",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "TWuaT",
+          "name": "p03Item5",
+          "fill": "#2E7D32",
+          "content": "✅ O: 地图徽针人工=橙#FF7043\n    机柜=蓝绿#0097A7区分",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "5ZuV0",
+      "x": -135,
+      "y": 934,
+      "name": "【标注】P02A选择地标 审查结论",
+      "width": 390,
+      "height": 240,
+      "fill": "#FFFDE7",
+      "cornerRadius": 12,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "avf4M",
+          "name": "p02aTitle",
+          "fill": "#E65100",
+          "content": "【标注】P02A 选择地标页",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "frame",
+          "id": "ty7Oe",
+          "name": "p02aDiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#FFD740"
+        },
+        {
+          "type": "text",
+          "id": "BXMIh",
+          "name": "p02aItem1",
+          "fill": "#2E7D32",
+          "content": "✅ A: 顶部无Logo，搜索框居中\n    占满宽度",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "dz87y",
+          "name": "p02aItem2",
+          "fill": "#2E7D32",
+          "content": "✅ 当前位置+热门地标入口布局\n    正确，间距16px",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "OorSv",
+          "name": "p02aItem3",
+          "fill": "#2E7D32",
+          "content": "✅ 搜索结果列表与热门地标\n    切换逻辑已在原型中体现",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "3SoVG",
+          "name": "p02aNote",
+          "fill": "#1565C0",
+          "content": "📝 此页面变更项较少，原型\n    与规范文档基本一致",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "nS6rj",
+      "x": 1584,
+      "y": 934,
+      "name": "【标注】P05A下单页 审查结论",
+      "width": 390,
+      "height": 300,
+      "fill": "#FFFDE7",
+      "cornerRadius": 12,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "C4HzC",
+          "name": "p05aTitle",
+          "fill": "#E65100",
+          "content": "【标注】P05A 下单页",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "frame",
+          "id": "tlwbP",
+          "name": "p05aDiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#FFD740"
+        },
+        {
+          "type": "text",
+          "id": "aggUY",
+          "name": "p05aItem1",
+          "fill": "#2E7D32",
+          "content": "✅ H: 下单页顶部营业状态标签\n    显示正确（绿色 营业中）",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "bEgyU",
+          "name": "p05aItem2",
+          "fill": "#2E7D32",
+          "content": "✅ G: 解锁引导卡 #FFF9E6 背景\n    位于价格区块上方",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "CD2Oc",
+          "name": "p05aItem3",
+          "fill": "#2E7D32",
+          "content": "✅ I: 时间选择区同时含\n    「开始日期」和「结束日期」",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "YiXV0",
+          "name": "p05aItem4",
+          "fill": "#2E7D32",
+          "content": "✅ J: 物品类型选择保险提示\n    已展示在时间选择下方",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "kzP90",
+          "name": "p05aFix",
+          "fill": "#E65100",
+          "content": "🔧 修改4: 新增「结束日期」选择\n    器（原版仅有开始日期）",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "HlfIH",
+          "name": "p05aFix2",
+          "fill": "#E65100",
+          "content": "🔧 修改5: 解锁引导卡文案已调整\n    为「下单后解锁精确地址」",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "TLhAi",
+      "x": 2593,
+      "y": 934,
+      "name": "【标注】P06订单详情 审查结论",
+      "width": 390,
+      "height": 300,
+      "fill": "#FFFDE7",
+      "cornerRadius": 12,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "JZ4FP",
+          "name": "p06Title",
+          "fill": "#E65100",
+          "content": "【标注】P06 订单详情页",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "bold"
+        },
+        {
+          "type": "frame",
+          "id": "L3xQj",
+          "name": "p06Div",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#FFD740"
+        },
+        {
+          "type": "text",
+          "id": "rP6Nc",
+          "name": "p06Item1",
+          "fill": "#2E7D32",
+          "content": "✅ M: 订单详情顶部营业状态\n    标签已显示",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "ZhUCb",
+          "name": "p06Item2",
+          "fill": "#2E7D32",
+          "content": "✅ K: 解锁信息卡含精确地址+\n    导航+电话三个元素",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "rycnu",
+          "name": "p06Item3",
+          "fill": "#2E7D32",
+          "content": "✅ L: 订单状态（寄存中/已取回）\n    展示区块结构正确",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "hHb9f",
+          "name": "p06Item4",
+          "fill": "#2E7D32",
+          "content": "✅ F: 商家电话仅在解锁卡中\n    展示，不在其他区域重复",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "iD1W4",
+          "name": "p06Note",
+          "fill": "#1565C0",
+          "content": "📝 D/H/M 三处营业状态统一\n    采用同一组件规范（✅已执行）",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>无忧存用户端操作流程与流失路径图（优化前）</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #F5F5F5;
+    color: #1A1A1A;
+    padding: 32px 24px;
+    min-width: 1200px;
+  }
+
+  /* Header */
+  .page-header {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    border-left: 5px solid #FF8000;
+  }
+  .page-header h1 { font-size: 22px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px; }
+  .page-header .meta { font-size: 13px; color: #888; line-height: 1.8; }
+  .page-header .meta span { margin-right: 24px; }
+  .badge {
+    display: inline-block; padding: 2px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 600; margin-right: 6px; vertical-align: middle;
+  }
+  .badge-warn { background: #FFF3E0; color: #FF8000; }
+  .badge-data { background: #E3F2FD; color: #1565C0; }
+
+  /* Layout */
+  .layout { display: grid; grid-template-columns: 1fr 340px; gap: 20px; align-items: start; }
+  .main-col { display: flex; flex-direction: column; gap: 20px; }
+  .side-col { display: flex; flex-direction: column; gap: 20px; }
+
+  /* Section card */
+  .card {
+    background: #fff; border-radius: 12px; padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  }
+  .card h2 { font-size: 15px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card h2 .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* Funnel Path A */
+  .funnel { display: flex; flex-direction: column; gap: 0; }
+
+  .funnel-node {
+    position: relative;
+    border-radius: 10px;
+    border: 1.5px solid #E8E8E8;
+    padding: 16px 18px;
+    background: #fff;
+    cursor: default;
+    transition: box-shadow .15s;
+  }
+  .funnel-node:hover { box-shadow: 0 4px 16px rgba(0,0,0,.10); }
+
+  .node-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .node-step {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+  }
+  .node-title { font-size: 15px; font-weight: 700; }
+  .node-subtitle { font-size: 12px; color: #888; margin-left: auto; white-space: nowrap; }
+
+  .node-body { font-size: 13px; color: #444; line-height: 1.7; }
+
+  .node-problems { margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
+  .problem-item {
+    display: flex; align-items: flex-start; gap: 6px;
+    font-size: 12px; color: #555; line-height: 1.5;
+  }
+  .problem-icon { flex-shrink: 0; margin-top: 1px; }
+
+  /* Severity colors */
+  .sev-fatal  { border-color: #FFCDD2; background: #FFF8F8; }
+  .sev-fatal .node-step  { background: #EF4444; color: #fff; }
+  .sev-fatal .node-title { color: #B71C1C; }
+
+  .sev-high   { border-color: #FFE0B2; background: #FFFDF8; }
+  .sev-high .node-step   { background: #FF8000; color: #fff; }
+
+  .sev-mid    { border-color: #FFF9C4; background: #FFFFFB; }
+  .sev-mid .node-step    { background: #F59E0B; color: #fff; }
+
+  .sev-ok     { border-color: #C8E6C9; background: #F9FFF9; }
+  .sev-ok .node-step     { background: #22C55E; color: #fff; }
+
+  .sev-info   { border-color: #BBDEFB; background: #F8FBFF; }
+  .sev-info .node-step   { background: #0097A7; color: #fff; }
+
+  /* Drop connector */
+  .drop-connector {
+    display: flex; align-items: stretch; gap: 0;
+    margin: 0 0 0 12px;
+    height: 52px;
+  }
+  .drop-line {
+    width: 2px; background: #E0E0E0; margin-left: 13px; flex-shrink: 0;
+  }
+  .drop-info {
+    display: flex; align-items: center;
+    margin-left: 16px; gap: 8px;
+    flex: 1;
+  }
+  .drop-bar-wrap {
+    flex: 1; height: 8px; background: #F0F0F0;
+    border-radius: 4px; overflow: hidden;
+    max-width: 180px;
+  }
+  .drop-bar { height: 100%; border-radius: 4px; }
+  .drop-rate {
+    font-size: 13px; font-weight: 700; white-space: nowrap;
+  }
+  .drop-label { font-size: 11px; color: #999; white-space: nowrap; }
+
+  .drop-fatal .drop-bar { background: #EF4444; }
+  .drop-fatal .drop-rate { color: #EF4444; }
+  .drop-high  .drop-bar  { background: #FF8000; }
+  .drop-high  .drop-rate { color: #FF8000; }
+  .drop-mid   .drop-bar  { background: #F59E0B; }
+  .drop-mid   .drop-rate { color: #F59E0B; }
+  .drop-ok    .drop-bar  { background: #22C55E; }
+  .drop-ok    .drop-rate { color: #22C55E; }
+
+  /* Tag chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .chip {
+    font-size: 11px; padding: 2px 8px; border-radius: 12px;
+    background: #F5F5F5; color: #555;
+  }
+  .chip.red   { background: #FFEBEE; color: #C62828; }
+  .chip.orange{ background: #FFF3E0; color: #E65100; }
+  .chip.blue  { background: #E3F2FD; color: #1565C0; }
+  .chip.green { background: #E8F5E9; color: #1B5E20; }
+
+  /* Data callout */
+  .data-callout {
+    background: #E3F2FD; border-radius: 8px;
+    padding: 8px 12px; font-size: 12px; color: #1565C0;
+    margin-top: 8px; display: flex; align-items: center; gap: 6px;
+  }
+  .data-callout .icon { font-size: 14px; }
+
+  /* Screen wireframe */
+  .screen-wrap { display: flex; flex-direction: column; gap: 12px; }
+  .screen {
+    border: 1.5px solid #E0E0E0; border-radius: 10px;
+    overflow: hidden; font-size: 11px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .screen-bar {
+    padding: 5px 10px; font-size: 10px; font-weight: 700;
+    letter-spacing: .5px; text-transform: uppercase; color: #fff;
+  }
+  .screen-inner { padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+  .screen-section {
+    border: 1px solid #E8E8E8; border-radius: 6px;
+    padding: 6px 8px; background: #FAFAFA; position: relative;
+  }
+  .screen-section-label {
+    font-size: 9px; font-weight: 700; color: #999;
+    text-transform: uppercase; letter-spacing: .5px; margin-bottom: 3px;
+  }
+  .screen-section .problem-flag {
+    position: absolute; right: 6px; top: 6px;
+    font-size: 10px; color: #EF4444;
+  }
+  .screen-section p { font-size: 11px; color: #555; line-height: 1.5; }
+  .screen-row { display: flex; gap: 4px; }
+  .screen-btn {
+    border-radius: 4px; padding: 4px 8px; font-size: 10px;
+    font-weight: 600; flex: 1; text-align: center;
+  }
+  .screen-btn.primary { background: #FF8000; color: #fff; }
+  .screen-btn.ghost   { background: #F5F5F5; color: #555; border: 1px solid #E0E0E0; }
+  .screen-tag {
+    display: inline-block; border-radius: 3px;
+    padding: 1px 5px; font-size: 9px; font-weight: 700; color: #fff;
+    margin-right: 3px;
+  }
+  .tag-manual { background: #FF7043; }
+  .tag-machine{ background: #0097A7; }
+
+  /* Sidebar widgets */
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-item {
+    background: #F8F8F8; border-radius: 8px; padding: 12px;
+    text-align: center;
+  }
+  .stat-item .val { font-size: 22px; font-weight: 800; line-height: 1; }
+  .stat-item .lbl { font-size: 11px; color: #888; margin-top: 4px; line-height: 1.3; }
+  .stat-item.red .val  { color: #EF4444; }
+  .stat-item.orange .val { color: #FF8000; }
+  .stat-item.yellow .val { color: #F59E0B; }
+  .stat-item.blue .val   { color: #0097A7; }
+  .stat-item.green .val  { color: #22C55E; }
+  .stat-item.gray .val   { color: #888; }
+
+  /* Path B */
+  .path-b-wrap { display: flex; flex-direction: column; gap: 12px; }
+  .path-b-node {
+    border-radius: 8px; padding: 14px 16px;
+    border: 1.5px solid #E8E8E8;
+    font-size: 13px;
+  }
+  .path-b-node h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .path-b-node p  { font-size: 12px; color: #555; line-height: 1.6; }
+  .path-b-arrow {
+    text-align: center; color: #CCC; font-size: 18px; margin: 2px 0;
+  }
+  .path-b-error { border-color: #FFCDD2; background: #FFF8F8; }
+  .path-b-ok    { border-color: #C8E6C9; background: #F9FFF9; }
+  .path-b-info  { border-color: #BBDEFB; background: #F8FBFF; }
+
+  /* Funnel summary bar */
+  .funnel-summary {
+    display: flex; align-items: stretch; gap: 0;
+    background: #fff; border-radius: 10px; overflow: hidden;
+    border: 1.5px solid #E8E8E8;
+  }
+  .fseg {
+    flex: 1; padding: 14px 12px; text-align: center;
+    border-right: 1px solid #F0F0F0; position: relative;
+  }
+  .fseg:last-child { border-right: none; }
+  .fseg .pct { font-size: 18px; font-weight: 800; line-height: 1; }
+  .fseg .lbl { font-size: 10px; color: #888; margin-top: 4px; line-height: 1.4; }
+  .fseg .arrow-r {
+    position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+    font-size: 14px; color: #CCC; z-index: 1;
+  }
+
+  /* Tooltip */
+  .tooltip-wrap { position: relative; display: inline-block; }
+  .tooltip-wrap:hover .tooltip-box { display: block; }
+  .tooltip-box {
+    display: none; position: absolute; left: 50%; transform: translateX(-50%);
+    bottom: calc(100% + 6px); background: #333; color: #fff;
+    font-size: 11px; padding: 6px 10px; border-radius: 6px;
+    white-space: nowrap; z-index: 10;
+  }
+  .tooltip-box::after {
+    content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    border: 5px solid transparent; border-top-color: #333;
+  }
+
+  /* Legend */
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: #555; }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* Footer */
+  .page-footer {
+    text-align: center; font-size: 11px; color: #BBB; margin-top: 20px;
+    padding-top: 16px; border-top: 1px solid #EBEBEB;
+  }
+
+  .divider { height: 1px; background: #F0F0F0; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="page-header">
+  <h1>无忧存小程序用户端 · 操作流程与流失路径图（优化前）</h1>
+  <div class="meta" style="margin-top:10px;">
+    <span>版本 v1.0</span>
+    <span>2026-03-11</span>
+    <span>数据基准：8.16–8.31 实测 + 旅程地图估算</span>
+    <span>
+      <span class="badge badge-data">📊 实测数据</span>
+      <span class="badge badge-warn">⚠️ 估算数据</span>
+    </span>
+  </div>
+</div>
+
+<!-- Funnel Summary -->
+<div class="card" style="margin-bottom:20px;">
+  <h2><span class="dot" style="background:#FF8000;"></span>搜索流全链路转化漏斗概览</h2>
+  <div class="funnel-summary">
+    <div class="fseg">
+      <div class="pct" style="color:#555;">100%</div>
+      <div class="lbl">进入首页</div>
+      <div class="arrow-r">›</div>
+    </div>
+    <div class="fseg">
+      <div class="pct" style="color:#F59E0B;">60–70%</div>
+      <div class="lbl">进入地图/列表<br><span style="color:#F59E0B;font-size:9px;">⚠️ 流失30–40%</span></div>
+      <div class="arrow-r">›</div>
+    </div>
+    <div class="fseg">
+      <div class="pct" style="color:#FF8000;">45–55%</div>
+      <div class="lbl">查看网点详情<br><span style="color:#FF8000;font-size:9px;">⚠️ 流失15–20%</span></div>
+      <div class="arrow-r">›</div>
+    </div>
+    <div class="fseg">
+      <div class="pct" style="color:#EF4444;">~20%</div>
+      <div class="lbl">到达下单页<br><span style="color:#EF4444;font-size:9px;">⚠️ 流失50%+</span></div>
+      <div class="arrow-r">›</div>
+    </div>
+    <div class="fseg">
+      <div class="pct" style="color:#EF4444;">~10%</div>
+      <div class="lbl">完成支付<br><span style="color:#888;font-size:9px;">总转化率20.94%📊</span></div>
+      <div class="arrow-r">›</div>
+    </div>
+    <div class="fseg">
+      <div class="pct" style="color:#22C55E;">7–8%</div>
+      <div class="lbl">有效履约完成<br><span style="color:#888;font-size:9px;">扣除飞单/取消</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Layout -->
+<div class="layout">
+
+<!-- Left: Path A Funnel -->
+<div class="main-col">
+
+  <!-- Path A Title -->
+  <div class="card" style="padding:16px 24px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-size:13px;color:#888;margin-bottom:4px;">路径 A · 主路径</div>
+        <div style="font-size:17px;font-weight:800;">搜索流  <span style="font-size:13px;color:#888;font-weight:400;">微信搜索 / 小程序入口 / 分享链接</span></div>
+      </div>
+      <div style="background:#FFF3E0;border-radius:8px;padding:10px 16px;text-align:center;">
+        <div style="font-size:20px;font-weight:800;color:#FF8000;">~60%</div>
+        <div style="font-size:11px;color:#888;">无忧存流量占比</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Funnel Steps -->
+  <div class="funnel card" style="gap:0;padding:20px;">
+
+    <!-- Step 1: Homepage -->
+    <div class="funnel-node sev-high">
+      <div class="node-header">
+        <div class="node-step">1</div>
+        <div class="node-title">首页 · 功能选择</div>
+        <div class="node-subtitle">
+          <span class="badge badge-warn">⚠️ 流失 30–40%</span>
+        </div>
+      </div>
+
+      <!-- Wireframe -->
+      <div style="display:grid;grid-template-columns:1fr 220px;gap:14px;align-items:start;">
+        <div class="node-problems">
+          <div class="problem-item">
+            <span class="problem-icon">🔴</span>
+            <span><strong>3大入口视觉权重相同</strong>：「扫码存包」「行李配送」「寄存网点」平铺，用户不知道选哪个，产生决策疲劳</span>
+          </div>
+          <div class="problem-item">
+            <span class="problem-icon">🔴</span>
+            <span><strong>4个搜索入口冗余</strong>：定位 / 热门搜索点 / 更多 / 搜索框，全部跳转同一地标输入框，路径不清晰</span>
+          </div>
+          <div class="problem-item">
+            <span class="problem-icon">🟡</span>
+            <span><strong>附近模块位置靠下</strong>：点击率仅 4.66%，与搜索差距 13 倍，用户视觉根本看不到</span>
+          </div>
+          <div class="problem-item">
+            <span class="problem-icon">🟡</span>
+            <span><strong>「扫码存包」引发误解</strong>：搜索流用户误以为要先找到柜子再操作，路径混乱</span>
+          </div>
+          <div class="data-callout">
+            <span class="icon">📊</span>
+            <span>搜索使用率 55%+（名称搜索 35.63% + 查找按钮 19.76%）&nbsp;·&nbsp;附近点击率 4.66%&nbsp;·&nbsp;城市切换 15.04%</span>
+          </div>
+        </div>
+        <!-- Screen mockup -->
+        <div class="screen">
+          <div class="screen-bar" style="background:#FF8000;">首页（优化前）</div>
+          <div class="screen-inner">
+            <div class="screen-section" style="background:#FF8000;color:#fff;text-align:center;padding:10px;">
+              <div style="font-size:10px;font-weight:600;">Banner 运营轮播</div>
+            </div>
+            <div class="screen-section">
+              <div class="screen-section-label">三大功能模块（权重相同）⚠️</div>
+              <div class="screen-row">
+                <div class="screen-btn ghost">扫码存包</div>
+                <div class="screen-btn ghost">行李配送</div>
+                <div class="screen-btn ghost">寄存网点</div>
+              </div>
+            </div>
+            <div class="screen-section">
+              <div class="screen-section-label">4 个搜索入口 → 同一目标 ⚠️</div>
+              <div style="font-size:10px;color:#888;margin-bottom:4px;">📍 定位 &nbsp; 🔥 热门 &nbsp; 更多 &nbsp; 🔍 搜索框</div>
+              <div class="screen-btn ghost" style="font-size:10px;">AI 搜索（上下文仅 3 句）</div>
+            </div>
+            <div class="screen-section" style="border-color:#FFE0B2;">
+              <div class="screen-section-label">我的附近 · 点击率 4.66% 🔻</div>
+              <div style="font-size:10px;color:#888;">卡片简略，位置靠下，视觉优先级极低</div>
+            </div>
+            <div class="screen-section">
+              <div class="screen-section-label">金刚区 / 活动区</div>
+            </div>
+            <div style="display:flex;border-top:1px solid #EEE;padding-top:6px;gap:0;">
+              <div style="flex:1;text-align:center;font-size:10px;color:#FF8000;font-weight:600;">🏠 首页</div>
+              <div style="flex:1;text-align:center;font-size:10px;color:#999;">📦 订单</div>
+              <div style="flex:1;text-align:center;font-size:10px;color:#999;">🚀 行程</div>
+              <div style="flex:1;text-align:center;font-size:10px;color:#999;">👤 我的</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips" style="margin-top:12px;">
+        <span class="chip red">决策疲劳</span>
+        <span class="chip red">入口冗余</span>
+        <span class="chip orange">附近模块低效</span>
+        <span class="chip orange">路径不清晰</span>
+      </div>
+    </div>
+
+    <!-- Drop connector 1→2 -->
+    <div class="drop-connector drop-mid">
+      <div class="drop-line"></div>
+      <div class="drop-info">
+        <div>
+          <div class="drop-bar-wrap"><div class="drop-bar" style="width:70%;"></div></div>
+        </div>
+        <div class="drop-rate">流失 ~30%</div>
+        <div class="drop-label">⚠️ 估算</div>
+      </div>
+    </div>
+
+    <!-- Step 2: Map/List -->
+    <div class="funnel-node sev-mid">
+      <div class="node-header">
+        <div class="node-step">2</div>
+        <div class="node-title">地图 / 列表页 · 筛选找点</div>
+        <div class="node-subtitle">
+          <span class="badge badge-warn">⚠️ 流失 15–20%</span>
+        </div>
+      </div>
+      <div class="node-problems">
+        <div class="problem-item">
+          <span class="problem-icon">🟡</span>
+          <span><strong>地图选中后列表不联动</strong>：点击地图图标后，底部列表对应卡片不会自动置顶/高亮，用户需手动滚动查找</span>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">🟡</span>
+          <span><strong>人工寄存卡片无图片</strong>：与智能柜卡片视觉不一致，信任感弱</span>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">⚪</span>
+          <span><strong>搜索无结果缺乏引导</strong>：附近无网点时无反馈操作，用户直接离开</span>
+        </div>
+      </div>
+      <div class="chips" style="margin-top:10px;">
+        <span class="chip orange">地图交互不连贯</span>
+        <span class="chip orange">卡片信息不一致</span>
+        <span class="chip">空状态缺失</span>
+      </div>
+    </div>
+
+    <!-- Drop connector 2→3 -->
+    <div class="drop-connector drop-high">
+      <div class="drop-line"></div>
+      <div class="drop-info">
+        <div>
+          <div class="drop-bar-wrap"><div class="drop-bar" style="width:55%;"></div></div>
+        </div>
+        <div class="drop-rate">流失 ~45%</div>
+        <div class="drop-label">⚠️ 估算（含详情页+列表页）</div>
+      </div>
+    </div>
+
+    <!-- Step 3: Detail Page (FATAL) -->
+    <div class="funnel-node sev-fatal">
+      <div class="node-header">
+        <div class="node-step">3</div>
+        <div class="node-title">网点详情页</div>
+        <div class="node-subtitle">
+          <span class="badge" style="background:#FFCDD2;color:#B71C1C;">🔴🔴🔴 最大流失点 · 估算 50%+</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 220px;gap:14px;align-items:start;">
+        <div class="node-problems">
+          <div class="problem-item">
+            <span class="problem-icon">🔴</span>
+            <span><strong>精确地址下单前不可见</strong>（防爬策略）：用户无法判断网点是否在行程路上，安全感归零。心理路径：<br>
+            <em style="color:#888;font-size:11px;">"在哪？→ 不知道 → 不敢下单 → 转投存知己/途简单"</em></span>
+          </div>
+          <div class="problem-item">
+            <span class="problem-icon">🔴</span>
+            <span><strong>商家电话不可见</strong>：无法提前确认网点是否在营业，用户不放心</span>
+          </div>
+          <div class="problem-item">
+            <span class="problem-icon">🔴</span>
+            <span><strong>实景图高斯模糊</strong>：用户无法判断网点环境，信任感进一步下降</span>
+          </div>
+          <div class="problem-item">
+            <span class="problem-icon">🟠</span>
+            <span><strong>「违约金」措辞</strong>：退改规则中的"违约金"字眼产生法律风险联想，下单意愿降低</span>
+          </div>
+          <div class="problem-item">
+            <span class="problem-icon">🟡</span>
+            <span><strong>信息无优先级</strong>：核心决策信息（距离/价格/时间）淹没在大量文字说明中</span>
+          </div>
+          <div class="data-callout">
+            <span class="icon">⚡</span>
+            <span>竞品（存知己 / 途简单）详情页<strong>直接显示精确地址</strong>，无忧存用户直接跳失</span>
+          </div>
+        </div>
+        <!-- Screen mockup -->
+        <div class="screen">
+          <div class="screen-bar" style="background:#C62828;">详情页（优化前）· 致命</div>
+          <div class="screen-inner">
+            <div class="screen-section" style="height:50px;background:#C8E6C9;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:10px;color:#555;">🗺️ 地图（精确点可见，导航锁定）</span>
+            </div>
+            <div class="screen-section" style="border-color:#FFCDD2;">
+              <div class="screen-section-label">核心信息</div>
+              <p>📍 精确地址：<span style="color:#EF4444;">❌ 下单后可见</span></p>
+              <p>📞 商家电话：<span style="color:#EF4444;">❌ 下单后解锁</span></p>
+              <p>💰 8元/天 &nbsp; ⏰ 08:00–22:00</p>
+            </div>
+            <div class="screen-section" style="height:44px;background:#F5F5F5;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:10px;color:#888;">🖼️ 实景图 · <span style="color:#EF4444;">高斯模糊</span>遮罩</span>
+            </div>
+            <div class="screen-section" style="border-color:#FFCDD2;">
+              <p>📋 寄存须知（大量文字未精简）</p>
+              <p style="color:#EF4444;font-size:10px;">⚠️ 含「违约金」措辞</p>
+            </div>
+            <div class="screen-btn primary" style="margin-top:4px;">立即预订</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips" style="margin-top:12px;">
+        <span class="chip red">地址不透明</span>
+        <span class="chip red">电话不可见</span>
+        <span class="chip red">图片模糊</span>
+        <span class="chip red">违约金措辞</span>
+        <span class="chip orange">竞品跳失</span>
+        <span class="chip orange">信息无优先级</span>
+      </div>
+    </div>
+
+    <!-- Drop connector 3→4 -->
+    <div class="drop-connector drop-fatal">
+      <div class="drop-line"></div>
+      <div class="drop-info">
+        <div>
+          <div class="drop-bar-wrap"><div class="drop-bar" style="width:100%;"></div></div>
+        </div>
+        <div class="drop-rate">流失 50%+</div>
+        <div class="drop-label">⚠️ 最大单点流失</div>
+      </div>
+    </div>
+
+    <!-- Step 4: Order Page -->
+    <div class="funnel-node sev-mid">
+      <div class="node-header">
+        <div class="node-step">4</div>
+        <div class="node-title">下单页 · 确认支付</div>
+        <div class="node-subtitle">
+          <span class="badge badge-warn">⚠️ 流失 50–60%</span>
+        </div>
+      </div>
+      <div class="node-problems">
+        <div class="problem-item">
+          <span class="problem-icon">🟠</span>
+          <span><strong>优惠券强制选中且不可取消</strong>：用户感到被强迫，产生失控感，但整体优惠券购买率达 69.2%，接受度高</span>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">🟡</span>
+          <span><strong>《寄存服务协议》无摘要</strong>：强制勾选大段法律文本，用户抵触感强</span>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">⚪</span>
+          <span><strong>无渠道首单弹窗</strong>：未利用投放渠道信息提供专属引导</span>
+        </div>
+      </div>
+      <div class="data-callout">
+        <span class="icon">📊</span>
+        <span>总转化率实测 <strong>20.94%</strong>（8.16–8.31，人工 + 寄存柜合计）</span>
+      </div>
+      <div class="chips" style="margin-top:10px;">
+        <span class="chip orange">优惠券强制</span>
+        <span class="chip orange">协议无摘要</span>
+        <span class="chip">失控感</span>
+      </div>
+    </div>
+
+    <!-- Drop connector 4→5 -->
+    <div class="drop-connector drop-mid">
+      <div class="drop-line"></div>
+      <div class="drop-info">
+        <div>
+          <div class="drop-bar-wrap"><div class="drop-bar" style="width:50%;"></div></div>
+        </div>
+        <div class="drop-rate">流失 ~50%</div>
+        <div class="drop-label">⚠️ 估算</div>
+      </div>
+    </div>
+
+    <!-- Step 5: Payment Success -->
+    <div class="funnel-node sev-info">
+      <div class="node-header">
+        <div class="node-step">5</div>
+        <div class="node-title">支付成功页</div>
+        <div class="node-subtitle">
+          <span class="badge badge-warn">⚠️ 飞单/取消 20–30%</span>
+        </div>
+      </div>
+      <div class="node-problems">
+        <div class="problem-item">
+          <span class="problem-icon">🟠</span>
+          <span><strong>防飞单提醒缺失</strong>：无引导用户通过平台完成全程，商家可能引导线下现金交易（绕开平台佣金）</span>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">🟡</span>
+          <span><strong>地址/电话解锁无仪式感</strong>：用户下单后获得精确地址，但页面未强调这是"解锁奖励"，体验平淡</span>
+        </div>
+        <div class="problem-item">
+          <span class="problem-icon">⚪</span>
+          <span><strong>无「再次下单」入口</strong>：不便于复购</span>
+        </div>
+      </div>
+      <div class="data-callout">
+        <span class="icon">📊</span>
+        <span>飞单率估算 <strong>20–30%</strong>（线下截单）&nbsp;·&nbsp; 取消率：原 30%+ → 优化后约 25%</span>
+      </div>
+      <div class="chips" style="margin-top:10px;">
+        <span class="chip red">飞单风险</span>
+        <span class="chip orange">解锁无感</span>
+        <span class="chip">无复购引导</span>
+      </div>
+    </div>
+
+    <!-- Arrow end -->
+    <div class="drop-connector drop-ok" style="height:32px;">
+      <div class="drop-line"></div>
+      <div class="drop-info">
+        <div class="drop-rate" style="color:#22C55E;">有效履约完成</div>
+      </div>
+    </div>
+
+    <div class="funnel-node sev-ok" style="padding:12px 18px;">
+      <div class="node-header" style="margin-bottom:0;">
+        <div class="node-step" style="background:#22C55E;">✓</div>
+        <div class="node-title" style="color:#166534;">线下履约 · 寄存完成</div>
+        <div class="node-subtitle">
+          <span class="badge" style="background:#E8F5E9;color:#166534;">📊 总转化率 20.94%</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /funnel -->
+
+  <!-- Path B -->
+  <div class="card">
+    <h2><span class="dot" style="background:#0097A7;"></span>路径 B · 扫码流&nbsp;<span style="font-size:13px;color:#888;font-weight:400;">线下扫机柜/网点二维码（小铁寄存柜主流量 ~80%）</span></h2>
+    <div class="path-b-wrap">
+      <div class="path-b-node path-b-info">
+        <h4>📱 用户线下扫描二维码（含 box_id 参数）</h4>
+        <p>场景：已到达机柜/网点面前，扫码存包</p>
+      </div>
+      <div class="path-b-arrow">↓</div>
+      <div class="path-b-node path-b-error">
+        <h4>❌ 优化前错误设计：扫码 → 进入首页（场景 A/B/C）</h4>
+        <p><strong>v1.0 方案（已废弃）</strong>：扫码用户被引导进入首页，根据来源参数动态显示不同布局：<br>
+        场景A 突出「扫码存包」/ 场景B 突出搜索 / 场景C 显示引导问卷<br><br>
+        <span style="color:#C62828;"><strong>问题</strong>：用户已在柜前，不需要经过首页；额外一步 = 额外流失风险；智能识别方案增加开发复杂度</span></p>
+      </div>
+      <div class="path-b-arrow">↓</div>
+      <div class="path-b-node path-b-ok">
+        <h4>✅ 优化后正确路径（v2.0 已确认）</h4>
+        <p>扫码 → <strong>直达下单页</strong>（跳过首页）<br>
+        智能柜：选择柜门大小 → 支付&nbsp;&nbsp;|&nbsp;&nbsp;人工网点：填写时间/件数 → 支付</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-col -->
+
+<!-- Right: Sidebar -->
+<div class="side-col">
+
+  <!-- Key Stats -->
+  <div class="card">
+    <h2><span class="dot" style="background:#1565C0;"></span>关键数据基线</h2>
+    <div class="stat-grid">
+      <div class="stat-item orange">
+        <div class="val">55%+</div>
+        <div class="lbl">首页搜索使用率<br><span style="font-size:10px;color:#ccc;">名称35.6% + 查找19.8%</span></div>
+      </div>
+      <div class="stat-item red">
+        <div class="val">4.66%</div>
+        <div class="lbl">「附近」模块<br>点击率</div>
+      </div>
+      <div class="stat-item yellow">
+        <div class="val">15.04%</div>
+        <div class="lbl">城市切换<br>点击率</div>
+      </div>
+      <div class="stat-item blue">
+        <div class="val">20.94%</div>
+        <div class="lbl">总转化率<br><span style="font-size:10px;">实测 8.16–8.31</span></div>
+      </div>
+      <div class="stat-item red">
+        <div class="val">30%+</div>
+        <div class="lbl">原取消率<br><span style="font-size:10px;">→ 优化后25%</span></div>
+      </div>
+      <div class="stat-item red">
+        <div class="val">20–30%</div>
+        <div class="lbl">估算飞单率<br><span style="font-size:10px;">线下截单</span></div>
+      </div>
+      <div class="stat-item green">
+        <div class="val">69.2%</div>
+        <div class="lbl">优惠券包<br>购买率</div>
+      </div>
+      <div class="stat-item gray">
+        <div class="val">6.74%</div>
+        <div class="lbl">公众号来源<br>转化率</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem Severity -->
+  <div class="card">
+    <h2><span class="dot" style="background:#EF4444;"></span>流失节点严重度</h2>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:12px;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#EF4444;flex-shrink:0;"></div>
+        <div style="flex:1;"><strong>致命</strong> · 详情页地址/电话不透明</div>
+        <div style="font-weight:700;color:#EF4444;">50%+</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#FF8000;flex-shrink:0;"></div>
+        <div style="flex:1;"><strong>严重</strong> · 首页功能入口混乱</div>
+        <div style="font-weight:700;color:#FF8000;">30–40%</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#F59E0B;flex-shrink:0;"></div>
+        <div style="flex:1;"><strong>显著</strong> · 下单页优惠券强制</div>
+        <div style="font-weight:700;color:#F59E0B;">50–60%</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#F59E0B;flex-shrink:0;"></div>
+        <div style="flex:1;"><strong>显著</strong> · 地图列表操作不连贯</div>
+        <div style="font-weight:700;color:#F59E0B;">15–20%</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#888;flex-shrink:0;"></div>
+        <div style="flex:1;"><strong>一般</strong> · 支付后飞单/无复购入口</div>
+        <div style="font-weight:700;color:#888;">20–30%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Root Cause -->
+  <div class="card">
+    <h2><span class="dot" style="background:#9C27B0;"></span>核心矛盾分析</h2>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;color:#444;">
+      <div style="background:#FFF3E0;border-radius:8px;padding:10px 12px;">
+        <div style="font-weight:700;color:#E65100;margin-bottom:4px;">矛盾①：防爬 vs 转化</div>
+        <div>精确地址/电话下单后才解锁 → 用户无法决策 → 转投竞品<br>
+        <span style="color:#888;">存知己/途简单直接展示精确地址</span></div>
+      </div>
+      <div style="background:#F3E5F5;border-radius:8px;padding:10px 12px;">
+        <div style="font-weight:700;color:#6A1B9A;margin-bottom:4px;">矛盾②：两端合并 vs 路径清晰</div>
+        <div>小铁（扫码80%）+ 无忧存（搜索60%）合并后，首页需兼容两种截然不同的用户意图，导致功能堆叠</div>
+      </div>
+      <div style="background:#E8F5E9;border-radius:8px;padding:10px 12px;">
+        <div style="font-weight:700;color:#1B5E20;margin-bottom:4px;">已确认解法（v2.1）</div>
+        <div>扫码流直达下单页（不经首页）<br>首页专注搜索流，合并冗余入口<br>区域描述代替模糊地址<br>支付成功页解锁 + 防飞单提醒</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optimization Target -->
+  <div class="card">
+    <h2><span class="dot" style="background:#22C55E;"></span>优化目标基线</h2>
+    <div style="font-size:12px;display:flex;flex-direction:column;gap:6px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #F0F0F0;">
+        <span style="color:#555;">首页搜索点击率</span>
+        <span><span style="color:#EF4444;">55%</span> → <span style="color:#22C55E;font-weight:700;">≥65%</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #F0F0F0;">
+        <span style="color:#555;">附近模块点击率</span>
+        <span><span style="color:#EF4444;">4.66%</span> → <span style="color:#22C55E;font-weight:700;">≥15%</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #F0F0F0;">
+        <span style="color:#555;">详情→下单转化</span>
+        <span><span style="color:#EF4444;">待统计</span> → <span style="color:#22C55E;font-weight:700;">+10%</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #F0F0F0;">
+        <span style="color:#555;">取消率</span>
+        <span><span style="color:#F59E0B;">30%+</span> → <span style="color:#22C55E;font-weight:700;">≤20%</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;">
+        <span style="color:#555;">历史搜索使用率</span>
+        <span><span style="color:#888;">0（新功能）</span> → <span style="color:#22C55E;font-weight:700;">≥20%</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="card" style="padding:16px;">
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#EF4444;"></div> 致命问题</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#FF8000;"></div> 严重问题</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#F59E0B;"></div> 显著问题</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#22C55E;"></div> 正常/完成</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0097A7;"></div> 信息参考</div>
+      <div style="font-size:11px;color:#999;width:100%;margin-top:6px;">
+        📊 实测数据 &nbsp;·&nbsp; ⚠️ 估算数据（旅程地图分析推断）
+      </div>
+    </div>
+  </div>
+
+</div><!-- /side-col -->
+</div><!-- /layout -->
+
+<div class="page-footer">
+  无忧存用户端操作流程与流失路径图（优化前）· v1.0 · 2026-03-11<br>
+  数据来源：无忧存运营情况报告.md / 用户旅程地图梳理-v1.0 / UI优化方案-v2.1
+</div>
+
+</body>
+</html>

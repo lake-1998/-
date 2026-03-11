@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>无忧存用户旅程地图 · v2.1 · 2026-03-10</title>
+<style>
+/* ─── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red:    #DC2626;
+  --red-lt: #FEF2F2;
+  --red-md: #FECACA;
+  --amber:  #D97706;
+  --amber-lt:#FFFBEB;
+  --amber-md:#FDE68A;
+  --indigo: #4F46E5;
+  --indigo-lt:#EEF2FF;
+  --purple: #7C3AED;
+  --purple-lt:#F5F3FF;
+  --green:  #059669;
+  --green-lt:#ECFDF5;
+  --green-md:#A7F3D0;
+  --gray-50:#F9FAFB;
+  --gray-100:#F3F4F6;
+  --gray-200:#E5E7EB;
+  --gray-300:#D1D5DB;
+  --gray-500:#6B7280;
+  --gray-600:#4B5563;
+  --gray-700:#374151;
+  --gray-900:#111827;
+  --font: -apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+}
+body {
+  font-family: var(--font);
+  background: #F0F2F5;
+  color: var(--gray-900);
+  min-width: 1280px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ─── Header ─── */
+.hdr {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f3460 100%);
+  color: #fff;
+  padding: 32px 48px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 3px solid var(--indigo);
+}
+.hdr-left h1 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+}
+.hdr-left .sub {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.9;
+}
+.hdr-right {
+  text-align: right;
+}
+.badge-row { display: flex; gap: 8px; justify-content: flex-end; margin-bottom: 10px; }
+.badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+.badge-v { background: var(--indigo); color: #fff; }
+.badge-ok { background: var(--green); color: #fff; }
+.hdr-right .meta { font-size: 12px; color: #64748b; line-height: 2; }
+
+/* ─── Layout wrapper ─── */
+.wrap { padding: 24px 40px 60px; }
+
+/* ─── Section titles ─── */
+.sec-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px; height: 16px;
+  border-radius: 2px;
+  background: var(--indigo);
+  flex-shrink: 0;
+}
+.sec-title.red::before  { background: var(--red); }
+.sec-title.grn::before  { background: var(--green); }
+.sec-title.pur::before  { background: var(--purple); }
+.sec-title.amb::before  { background: var(--amber); }
+
+/* ─── Alert box (dual-path) ─── */
+.alert-dual {
+  background: #fffbeb;
+  border: 2px solid #fbbf24;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.alert-dual .icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.alert-dual h3 { font-size: 14px; font-weight: 800; color: #92400e; margin-bottom: 10px; }
+.path-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+.path-card {
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.path-card.scan  { background: #dbeafe; border: 1.5px solid #93c5fd; }
+.path-card.search { background: #dcfce7; border: 1.5px solid #86efac; }
+.path-card .pname {
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.path-card.scan .pname  { color: #1d4ed8; }
+.path-card.search .pname { color: #15803d; }
+.arrow-flow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.flow-node {
+  background: rgba(255,255,255,.8);
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.flow-arrow { color: #9ca3af; font-size: 12px; }
+.deprecated {
+  background: #fee2e2;
+  border: 1.5px solid #fca5a5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 11.5px;
+  color: #991b1b;
+  margin-top: 10px;
+}
+.deprecated strong { font-weight: 800; }
+
+/* ─── Emotion curve ─── */
+.emotion-wrap {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.emotion-labels {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  margin-top: 10px;
+}
+.elabel {
+  text-align: center;
+  font-size: 11px;
+  color: var(--gray-500);
+  padding: 0 4px;
+}
+.elabel strong { display: block; font-size: 12px; color: var(--gray-700); font-weight: 700; }
+.elabel .emoji { font-size: 18px; display: block; margin-bottom: 2px; }
+.elabel .drop-pct {
+  display: inline-block;
+  background: var(--red-md);
+  color: var(--red);
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.elabel .drop-pct.amber {
+  background: var(--amber-md);
+  color: #92400e;
+}
+
+/* ─── Journey stage columns ─── */
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.stage-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.07);
+  display: flex;
+  flex-direction: column;
+}
+/* Stage header color coding */
+.stage-card.s1 .stage-hdr { background: var(--indigo); }
+.stage-card.s2 .stage-hdr { background: var(--red); }
+.stage-card.s3 .stage-hdr { background: var(--red); }
+.stage-card.s4 .stage-hdr { background: var(--amber); }
+.stage-card.s5 .stage-hdr { background: var(--red); }
+.stage-card.s6 .stage-hdr { background: var(--purple); }
+
+.stage-hdr {
+  padding: 12px 14px;
+  color: #fff;
+}
+.stage-hdr .num {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: .75;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.stage-hdr h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin: 2px 0 4px;
+  line-height: 1.3;
+}
+.stage-hdr .page-tag {
+  font-size: 10px;
+  background: rgba(255,255,255,.2);
+  border-radius: 10px;
+  padding: 1px 8px;
+  display: inline-block;
+}
+
+.stage-body { padding: 12px 14px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+
+.mini-section-title {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.goal-box {
+  background: var(--gray-50);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--gray-700);
+  font-weight: 600;
+}
+
+.emotion-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.kpi-chip {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 900;
+}
+.kpi-chip.warn { background: var(--red-lt); color: var(--red); border: 1px solid var(--red-md); }
+.kpi-chip.info { background: var(--indigo-lt); color: var(--indigo); }
+.kpi-chip.ok   { background: var(--green-lt); color: var(--green); }
+.kpi-chip.amb  { background: var(--amber-lt); color: var(--amber); }
+
+/* Touchpoints */
+.touch-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.touch-item {
+  font-size: 11px;
+  color: var(--gray-600);
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.touch-item::before {
+  content: '›';
+  color: var(--gray-400);
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+/* Pain points */
+.pain-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.pain-item {
+  border-radius: 6px;
+  padding: 6px 9px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.pain-item.p0 {
+  background: var(--red-lt);
+  border-left: 3px solid var(--red);
+  color: #7f1d1d;
+}
+.pain-item.p1 {
+  background: var(--amber-lt);
+  border-left: 3px solid var(--amber);
+  color: #78350f;
+}
+.pain-item.p2 {
+  background: #fefce8;
+  border-left: 3px solid #ca8a04;
+  color: #713f12;
+}
+.pain-badge {
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.pain-badge.p0 { background: var(--red); color: #fff; }
+.pain-badge.p1 { background: var(--amber); color: #fff; }
+.pain-badge.p2 { background: #ca8a04; color: #fff; }
+
+/* Opportunity */
+.opp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.opp-item {
+  font-size: 11px;
+  color: #065f46;
+  background: var(--green-lt);
+  border-radius: 5px;
+  padding: 4px 8px;
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+}
+.opp-item::before { content: '→'; flex-shrink: 0; color: var(--green); font-weight: 700; }
+.opp-item.done { opacity: .75; }
+.opp-item.done::before { content: '✓'; color: var(--green); }
+
+/* ─── Unlock strategy ─── */
+.unlock-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.unlock-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+.unlock-card {
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.unlock-card .icon { font-size: 22px; margin-bottom: 6px; }
+.unlock-card .info-name { font-size: 12px; font-weight: 700; color: var(--gray-700); margin-bottom: 4px; }
+.unlock-card .trigger {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.unlock-card .show-as { font-size: 10.5px; color: var(--gray-500); line-height: 1.4; }
+
+.unlock-card.locked   { background: var(--red-lt); border: 1.5px solid var(--red-md); }
+.unlock-card.locked .trigger { background: var(--red); color: #fff; }
+.unlock-card.always   { background: var(--green-lt); border: 1.5px solid var(--green-md); }
+.unlock-card.always .trigger { background: var(--green); color: #fff; }
+
+/* ─── P0 Priority Matrix ─── */
+.matrix-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.matrix-table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+.matrix-table th {
+  background: var(--gray-100);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gray-600);
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--gray-200);
+}
+.matrix-table td {
+  padding: 10px 12px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: top;
+}
+.matrix-table tr:hover td { background: var(--gray-50); }
+.matrix-table .rank {
+  width: 36px;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--red);
+  text-align: center;
+}
+.pain-name-cell { font-weight: 700; color: var(--gray-900); }
+.stage-pill {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  font-weight: 600;
+}
+.loss-chip {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--red);
+  background: var(--red-lt);
+  padding: 1px 7px;
+  border-radius: 6px;
+}
+
+/* ─── Metrics dashboard ─── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.metric-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  text-align: center;
+}
+.metric-card .mval {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.metric-card .mlabel {
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+.metric-card .msub {
+  font-size: 10px;
+  color: var(--gray-400);
+  margin-top: 4px;
+}
+.metric-card.danger .mval { color: var(--red); }
+.metric-card.warn   .mval { color: var(--amber); }
+.metric-card.ok     .mval { color: var(--green); }
+.metric-card.info   .mval { color: var(--indigo); }
+
+/* ─── v2.1 Diff box ─── */
+.diff-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+.diff-side { border-radius: 10px; overflow: hidden; }
+.diff-side .diff-hdr {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.diff-side.old .diff-hdr { background: #fee2e2; color: #991b1b; }
+.diff-side.new .diff-hdr { background: #dcfce7; color: #14532d; }
+.diff-rows { border: 1px solid var(--gray-200); border-top: none; border-radius: 0 0 10px 10px; }
+.diff-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 12px;
+}
+.diff-row:last-child { border-bottom: none; }
+.diff-row .dkey {
+  padding: 9px 12px;
+  font-weight: 700;
+  color: var(--gray-600);
+  background: var(--gray-50);
+  font-size: 11px;
+}
+.diff-row .dval { padding: 9px 12px; color: var(--gray-800); line-height: 1.5; }
+.diff-side.old .dval { color: #7f1d1d; }
+.diff-side.new .dval { color: #14532d; }
+.diff-side.new .dval strong { color: #059669; }
+
+/* ─── Action timeline ─── */
+.timeline-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.timeline-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+.tl-col {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1.5px solid var(--gray-200);
+}
+.tl-hdr {
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.tl-col.done   .tl-hdr { background: var(--green-lt); color: var(--green); }
+.tl-col.now    .tl-hdr { background: var(--red-lt); color: var(--red); }
+.tl-col.soon   .tl-hdr { background: var(--amber-lt); color: var(--amber); }
+.tl-col.later  .tl-hdr { background: var(--indigo-lt); color: var(--indigo); }
+.tl-body { padding: 10px 14px; }
+.tl-item {
+  font-size: 11.5px;
+  color: var(--gray-700);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.5;
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.tl-col.done  .tl-dot { background: var(--green); }
+.tl-col.now   .tl-dot { background: var(--red); }
+.tl-col.soon  .tl-dot { background: var(--amber); }
+.tl-col.later .tl-dot { background: var(--indigo); }
+
+/* ─── Footer ─── */
+.footer {
+  background: var(--gray-900);
+  color: #64748b;
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 2;
+}
+.footer span { color: #94a3b8; }
+
+/* ─── Divider ─── */
+.divider { height: 1px; background: var(--gray-200); margin: 24px 0; }
+
+/* Print */
+@media print {
+  body { min-width: auto; }
+  .hdr { page-break-after: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ HEADER ════════════ -->
+<header class="hdr">
+  <div class="hdr-left">
+    <h1>无忧存 · 用户旅程地图</h1>
+    <div class="sub">
+      平台合并（小铁寄存柜 × 无忧存）· C端小程序 / H5 全流程分析<br>
+      产品评审汇报版 · 包含痛点矩阵 / 情绪曲线 / 优化路线图
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="badge-row">
+      <span class="badge badge-v">v2.1</span>
+      <span class="badge badge-ok">已对齐产品决策</span>
+    </div>
+    <div class="meta">
+      文档版本：v2.1（对齐 UI 优化方案 v2.1）<br>
+      创建：2026-03-06 &nbsp;|&nbsp; 最后修订：2026-03-10<br>
+      UI 改动说明：v1.0（2026-03-09）已同步
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ════════════ SECTION 0: CRITICAL NOTICE ════════════ -->
+<div class="alert-dual">
+  <div class="icon">⚠️</div>
+  <div style="flex:1">
+    <h3>核心认知：两条完全独立的用户路径（v2.1 已确认，影响前端路由）</h3>
+    <div class="path-grid">
+      <div class="path-card scan">
+        <div class="pname">📷 扫码流</div>
+        <div style="font-size:11px;color:#1e40af;margin-bottom:6px">入口信号：URL 含 <code style="background:#bfdbfe;padding:1px 5px;border-radius:3px">box_id</code> 参数</div>
+        <div class="arrow-flow">
+          <span class="flow-node">扫机柜/网点二维码</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-node" style="background:#1d4ed8;color:#fff">直接跳 P04B 下单页</span>
+        </div>
+        <div style="font-size:11px;color:#1e40af;margin-top:6px">❌ 不经过首页 &nbsp;·&nbsp; 首页不渲染 &nbsp;·&nbsp; 在P04B处理公众号关注</div>
+      </div>
+      <div class="path-card search">
+        <div class="pname">🔍 搜索流</div>
+        <div style="font-size:11px;color:#166534;margin-bottom:6px">入口信号：无 <code style="background:#bbf7d0;padding:1px 5px;border-radius:3px">box_id</code> 参数（运营/搜索/分享/直进）</div>
+        <div class="arrow-flow">
+          <span class="flow-node">P01 首页</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-node">P02 地图/列表</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-node">P03 详情</span>
+          <span class="flow-arrow">→</span>
+          <span class="flow-node" style="background:#15803d;color:#fff">P04A 下单</span>
+        </div>
+        <div style="font-size:11px;color:#166534;margin-top:6px">✅ 经过首页 &nbsp;·&nbsp; 首页只服务搜索流用户 &nbsp;·&nbsp; 布局固定</div>
+      </div>
+    </div>
+  
+  </div>
+</div>
+
+<!-- ════════════ SECTION 1: KEY METRICS ════════════ -->
+<div class="sec-title red">关键数据看板</div>
+<div class="metrics-grid">
+  <div class="metric-card info">
+    <div class="mval">55%+</div>
+    <div class="mlabel">首页搜索使用率</div>
+    <div class="msub">名称搜索35.63% + 查找按钮19.76%</div>
+  </div>
+  <div class="metric-card danger">
+    <div class="mval">50%+</div>
+    <div class="mlabel">详情页（阶段3）流失率</div>
+    <div class="msub">最大流失点 · 防飞单策略影响</div>
+  </div>
+  <div class="metric-card danger">
+    <div class="mval">4.66%</div>
+    <div class="mlabel">「我的附近」点击率</div>
+    <div class="msub">与搜索差距 13 倍</div>
+  </div>
+  <div class="metric-card warn">
+    <div class="mval">20-30%</div>
+    <div class="mlabel">估算飞单率</div>
+    <div class="msub">行业平均水平，需防控</div>
+  </div>
+  <div class="metric-card ok">
+    <div class="mval">3353</div>
+    <div class="mlabel">商家门店数 · 267城市</div>
+    <div class="msub">存知己~2000 · 途简单1710（竞品）</div>
+  </div>
+</div>
+
+<!-- ════════════ SECTION 2: EMOTION CURVE ════════════ -->
+<div class="emotion-wrap">
+  <div class="sec-title">情绪曲线（全旅程）</div>
+
+  <!-- SVG curve -->
+  <svg viewBox="0 0 900 140" width="100%" style="display:block;margin-bottom:6px">
+    <!-- grid lines -->
+    <line x1="0" y1="35"  x2="900" y2="35"  stroke="#F3F4F6" stroke-width="1"/>
+    <line x1="0" y1="70"  x2="900" y2="70"  stroke="#F3F4F6" stroke-width="1"/>
+    <line x1="0" y1="105" x2="900" y2="105" stroke="#F3F4F6" stroke-width="1"/>
+    <!-- labels -->
+    <text x="6" y="33" font-size="10" fill="#9CA3AF">😊 高</text>
+    <text x="6" y="68" font-size="10" fill="#9CA3AF">😐 中</text>
+    <text x="6" y="103" font-size="10" fill="#9CA3AF">😟 低</text>
+    <!-- stage dividers -->
+    <line x1="150" y1="0" x2="150" y2="140" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="300" y1="0" x2="300" y2="140" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="450" y1="0" x2="450" y2="140" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="600" y1="0" x2="600" y2="140" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="750" y1="0" x2="750" y2="140" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4,3"/>
+    <!-- Filled area under curve -->
+    <defs>
+      <linearGradient id="curveGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6366F1" stop-opacity=".15"/>
+        <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M 30,90 C 60,88 100,80 150,85
+             C 200,90 240,100 300,108
+             C 350,116 380,122 450,120
+             C 510,118 540,90 600,75
+             C 640,64 660,50 700,62
+             C 730,72 760,80 825,85
+             L 825,140 L 30,140 Z"
+          fill="url(#curveGrad)"/>
+    <!-- Curve line -->
+    <path d="M 30,90 C 60,88 100,80 150,85
+             C 200,90 240,100 300,108
+             C 350,116 380,122 450,120
+             C 510,118 540,90 600,75
+             C 640,64 660,50 700,62
+             C 730,72 760,80 825,85"
+          fill="none" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Key pain point markers -->
+    <circle cx="300" cy="108" r="5" fill="#DC2626"/>
+    <text x="295" y="124" font-size="9" fill="#DC2626" text-anchor="middle">P0 最大流失</text>
+    <circle cx="450" cy="120" r="5" fill="#DC2626"/>
+    <text x="445" y="136" font-size="9" fill="#DC2626" text-anchor="middle">50%+ 流失</text>
+    <!-- Stage dots -->
+    <circle cx="75"  cy="90"  r="3.5" fill="#6366F1"/>
+    <circle cx="225" cy="95"  r="3.5" fill="#DC2626"/>
+    <circle cx="375" cy="114" r="3.5" fill="#DC2626"/>
+    <circle cx="525" cy="99"  r="3.5" fill="#D97706"/>
+    <circle cx="675" cy="56"  r="3.5" fill="#DC2626"/>
+    <circle cx="805" cy="83"  r="3.5" fill="#7C3AED"/>
+  </svg>
+
+  <!-- Stage labels -->
+  <div class="emotion-labels">
+    <div class="elabel">
+      <span class="emoji">😟</span>
+      <strong>阶段1</strong>
+      需求产生<br>焦虑、不确定
+    </div>
+    <div class="elabel">
+      <span class="emoji">🤔😰</span>
+      <strong>阶段2</strong>
+      首页搜索<br>困惑、认知焦虑
+      <span class="drop-pct amber">流失 30-40%</span>
+    </div>
+    <div class="elabel">
+      <span class="emoji">😰😠</span>
+      <strong>阶段3</strong>
+      详情查看<br>疑虑、安全感下降
+      <span class="drop-pct">流失 50%+</span>
+    </div>
+    <div class="elabel">
+      <span class="emoji">😌➡️😊</span>
+      <strong>阶段4</strong>
+      下单支付<br>决策、期待
+    </div>
+    <div class="elabel">
+      <span class="emoji">😤➡️😊</span>
+      <strong>阶段5</strong>
+      线下履约<br>找店焦虑 → 满意
+      <span class="drop-pct">到店取消 15-20%</span>
+    </div>
+    <div class="elabel">
+      <span class="emoji">😐</span>
+      <strong>阶段6</strong>
+      后续服务<br>平淡、缺乏惊喜
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ SECTION 3: JOURNEY STAGES ════════════ -->
+<div class="sec-title">六阶段旅程详情</div>
+<div class="journey-grid">
+
+  <!-- Stage 1 -->
+  <div class="stage-card s1">
+    <div class="stage-hdr">
+      <div class="num">STAGE 01</div>
+      <h3>需求产生</h3>
+      <span class="page-tag">触发阶段</span>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="mini-section-title">用户目标</div>
+        <div class="goal-box">意识到需要寄存行李，寻找解决方案</div>
+      </div>
+      <div>
+        <div class="mini-section-title">情绪</div>
+        <span class="emotion-tag">😟 焦虑、不确定</span>
+      </div>
+      <div>
+        <div class="mini-section-title">触达渠道</div>
+        <div class="touch-list">
+          <div class="touch-item">微信搜索（占比 60%）</div>
+          <div class="touch-item">小红书/旅游攻略</div>
+          <div class="touch-item">朋友分享小程序</div>
+          <div class="touch-item">线下扫码 → 直达P04B</div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">核心痛点</div>
+        <div class="pain-list">
+          <div class="pain-item p2"><span class="pain-badge p2">P2</span>品牌认知度低，搜索量&lt;&lt;存知己</div>
+          <div class="pain-item p2"><span class="pain-badge p2">P2</span>渠道分散，触达困难</div>
+          <div class="pain-item p2"><span class="pain-badge p2">P2</span>新用户信任感不足</div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">优化机会</div>
+        <div class="opp-list">
+          <div class="opp-item">SEO优化"行李寄存"关键词</div>
+          <div class="opp-item">小红书/抖音内容种草</div>
+          <div class="opp-item">首页信任背书（100万保险）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 2 -->
+  <div class="stage-card s2">
+    <div class="stage-hdr">
+      <div class="num">STAGE 02 · 仅搜索流</div>
+      <h3>信息获取</h3>
+      <span class="page-tag">P01 首页</span>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="mini-section-title">用户目标</div>
+        <div class="goal-box">快速找到合适的寄存网点</div>
+      </div>
+      <div>
+        <div class="mini-section-title">情绪</div>
+        <span class="emotion-tag">🤔😰 困惑、认知焦虑</span>
+      </div>
+      <div>
+        <div class="mini-section-title">数据</div>
+        <div class="kpi-row">
+          <span class="kpi-chip warn">流失 30-40%</span>
+          <span class="kpi-chip info">搜索率 55%+</span>
+          <span class="kpi-chip warn">附近仅 4.66%</span>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">核心痛点</div>
+        <div class="pain-list">
+          <div class="pain-item p0"><span class="pain-badge p0">P0</span>顶部两个功能平铺，搜索流用户认知负担重</div>
+          <div class="pain-item p0"><span class="pain-badge p0">P0</span>搜索区4个入口指向同一功能，路径混乱</div>
+          <div class="pain-item p1"><span class="pain-badge p1">P1</span>AI搜索，上下文记忆仅3句，对话推荐体验差</div>
+          <div class="pain-item p1"><span class="pain-badge p1">P1</span>「我的附近」曝光使用率低，仅（4.66%）</div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">优化机会</div>
+        <div class="opp-list">
+          <div class="opp-item">删Logo导航栏 / 内嵌搜索框 / 功能按钮下移改为金刚位</div>
+          <div class="opp-item">合并重复入口，统一搜索路径</div>
+          <div class="opp-item">AI搜索能力优化，考虑路径规划能力</div>
+          <div class="opp-item">附近模块改为「附近X个寄存点」</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 3 -->
+  <div class="stage-card s3">
+    <div class="stage-hdr">
+      <div class="num">STAGE 03 · ⚠️最大流失点</div>
+      <h3>网点信息查看</h3>
+      <span class="page-tag">P03 详情页</span>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="mini-section-title">用户目标</div>
+        <div class="goal-box">判断网点是否符合需求，决定是否下单</div>
+      </div>
+      <div>
+        <div class="mini-section-title">情绪</div>
+        <span class="emotion-tag">😰😠 疑虑、安全感下降</span>
+      </div>
+      <div>
+        <div class="mini-section-title">数据</div>
+        <div class="kpi-row">
+          <span class="kpi-chip warn">流失 50%+</span>
+          <span class="kpi-chip info">通常看3-5个网点</span>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">核心痛点</div>
+        <div class="pain-list">
+          <div class="pain-item p0"><span class="pain-badge p0">P0</span>防飞单锁定：地址模糊/电话隐藏/导航锁定，安全感偏低</div>
+          <div class="pain-item p0"><span class="pain-badge p0">P0</span>信息无优先级，决策效率低</div>
+          <div class="pain-item p1"><span class="pain-badge p1">P1</span>缺乏网点对比功能</div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">优化机会</div>
+        <div class="opp-list">
+          <div class="opp-item">删导航按钮/电话按钮/调整页面信息展示模块/该删除的删除</div>
+          <div class="opp-item">增加「下单后解锁」预告区块</div>
+          <div class="opp-item">技术防爬减少对锁定依赖</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 4 -->
+  <div class="stage-card s4">
+    <div class="stage-hdr">
+      <div class="num">STAGE 04</div>
+      <h3>预订决策</h3>
+      <span class="page-tag">P04A 搜索流 / P04B 扫码流</span>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="mini-section-title">用户目标</div>
+        <div class="goal-box">快速完成支付，锁定网点</div>
+      </div>
+      <div>
+        <div class="mini-section-title">情绪</div>
+        <span class="emotion-tag">😌➡️😊 决策、期待</span>
+      </div>
+      <div>
+        <div class="mini-section-title">数据</div>
+        <div class="kpi-row">
+          <span class="kpi-chip amb">转化率 40-50%</span>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">核心痛点</div>
+        <div class="pain-list">
+          <div class="pain-item p1"><span class="pain-badge p1">P1</span>优惠券强制使用，用户无自主权</div>
+          <div class="pain-item p1"><span class="pain-badge p1">P1</span>投放流量承接无互动抓手，ROI低</div>
+          <div class="pain-item p2"><span class="pain-badge p2">P2</span>下单流程可进一步简化</div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">优化机会</div>
+        <div class="opp-list">
+          <div class="opp-item">优惠券可选择取消勾选</div>
+          <div class="opp-item">渠道专属福利弹窗</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 5 -->
+  <div class="stage-card s5">
+    <div class="stage-hdr">
+      <div class="num">STAGE 05 · ⚡飞单风险</div>
+      <h3>线下履约</h3>
+      <span class="page-tag">到店 + 寄存 + 取包</span>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="mini-section-title">用户目标</div>
+        <div class="goal-box">找到网点 → 顺利寄存 → 快速取包</div>
+      </div>
+      <div>
+        <div class="mini-section-title">情绪</div>
+        <span class="emotion-tag">😤➡️😊 找店焦虑→满意</span>
+      </div>
+      <div>
+        <div class="mini-section-title">数据</div>
+        <div class="kpi-row">
+          <span class="kpi-chip warn">到店取消 15-20%</span>
+          <span class="kpi-chip warn">飞单率 20-30%(待核实)</span>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">核心痛点</div>
+        <div class="pain-list">
+          <div class="pain-item p0"><span class="pain-badge p0">P0</span>找不到网点：GPS不准/仅门头图/电话不通</div>
+          <div class="pain-item p0"><span class="pain-badge p0">P0</span>违约金机制不合理：商家原因用户也扣费</div>
+          <div class="pain-item p1"><span class="pain-badge p1">P1</span>飞单：商家诱导现金支付，平台缺防范手段</div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">优化机会</div>
+        <div class="opp-list">
+          <div class="opp-item">GPS校准+多角度实景+导航路书+紧急转客服</div>
+          <div class="opp-item">分级违约金 + 商家原因特殊豁免</div>
+          <div class="opp-item">防飞单Phase1：阶梯分成/保证金/保险绑定</div>
+          <div class="opp-item">防爬：商家虚拟号</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage 6 -->
+  <div class="stage-card s6">
+    <div class="stage-hdr">
+      <div class="num">STAGE 06</div>
+      <h3>后续服务</h3>
+      <span class="page-tag">退款 / 复购 / 分享</span>
+    </div>
+    <div class="stage-body">
+      <div>
+        <div class="mini-section-title">用户目标</div>
+        <div class="goal-box">申请退款 / 再次使用 / 分享推荐</div>
+      </div>
+      <div>
+        <div class="mini-section-title">情绪</div>
+        <span class="emotion-tag">😐 平淡、缺乏惊喜</span>
+      </div>
+      <div>
+        <div class="mini-section-title">数据</div>
+        <div class="kpi-row">
+          <span class="kpi-chip info">复购周期 3-6月</span>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">核心痛点</div>
+        <div class="pain-list">
+          <div class="pain-item p1"><span class="pain-badge p1">P1</span>无会员体系/积分/等级，缺长期留存</div>
+          <div class="pain-item p1"><span class="pain-badge p1">P1</span>3个月后忘记品牌，流失到竞品</div>
+          <div class="pain-item p2"><span class="pain-badge p2">P2</span>无分享激励，社交裂变能力弱</div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section-title">优化机会</div>
+        <div class="opp-list">
+          <div class="opp-item">会员体系</div>
+          <div class="opp-item">沉睡唤醒+地理位置触达+节日营销</div>
+          <div class="opp-item">邀请有礼 + 拼团寄存</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end journey-grid -->
+
+<!-- ════════════ SECTION 4: UNLOCK STRATEGY ════════════ -->
+<div class="unlock-box">
+  <div class="sec-title">信息解锁策略（P03 详情页 · v2.1 已确认 · 影响接口权限）</div>
+  <div style="font-size:12px;color:#b45309;background:#fffbeb;border-radius:8px;padding:10px 14px;margin-bottom:4px;border:1px solid #fde68a">
+    ⚠️ <strong>解锁触发点为"下单完成"，与"登录"无关</strong>。详情页不设计"登录后查看"中间态。防飞单策略目标：防止绕过平台现金交易。
+  </div>
+  <div class="unlock-grid">
+    <div class="unlock-card locked">
+      <div class="icon">📍</div>
+      <div class="info-name">精确地址</div>
+      <span class="trigger">下单完成后</span>
+      <div class="show-as">未解锁显示：<br>区域级描述<br>如「外滩附近」</div>
+    </div>
+    <div class="unlock-card locked">
+      <div class="icon">📞</div>
+      <div class="info-name">商家电话（虚拟号）</div>
+      <span class="trigger">下单完成后</span>
+      <div class="show-as">⑪ 已删除商家电话模块<br>改为全流程虚拟号</div>
+    </div>
+    <div class="unlock-card locked">
+      <div class="icon">🖼️</div>
+      <div class="info-name">实景大图</div>
+      <span class="trigger">下单完成后</span>
+      <div class="show-as">未解锁：<br>模糊遮罩<br>（缩略图不模糊）</div>
+    </div>
+    <div class="unlock-card locked">
+      <div class="icon">🧭</div>
+      <div class="info-name">导航功能</div>
+      <span class="trigger">下单完成后</span>
+      <div class="show-as">⑥ 已删除导航按钮</div>
+    </div>
+    <div class="unlock-card always">
+      <div class="icon">🗺️</div>
+      <div class="info-name">地图精确点位</div>
+      <span class="trigger">始终显示</span>
+      <div class="show-as">关闭的是导航能力<br>不是点位本身<br>用户可看到位置</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ SECTION 5: P0 MATRIX ════════════ -->
+<div class="matrix-box">
+  <div class="sec-title red">P0 级痛点优先级矩阵（必须立即解决）</div>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th style="width:42px">优先</th>
+        <th style="width:220px">痛点</th>
+        <th style="width:130px">所在阶段</th>
+        <th style="width:130px">量化影响</th>
+        <th>优先级理由 / 竞品差距</th>
+        <th style="width:100px">当前状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="rank">1</td>
+        <td><span class="pain-name-cell">防飞单策略影响下单前体验</span></td>
+        <td><span class="stage-pill">阶段3 详情页</span></td>
+        <td><span class="loss-chip">流失 50%+</span></td>
+        <td style="font-size:12px">地址/电话/导航下单前锁定；用户安全感下降直接流失</td>
+        <td><span class="kpi-chip amb">v2.1 部分补偿<br>（评价/保障区块）</span></td>
+      </tr>
+      <tr>
+        <td class="rank">2</td>
+        <td><span class="pain-name-cell">找不到网点（到店高流失）</span></td>
+        <td><span class="stage-pill">阶段5 线下履约</span></td>
+        <td><span class="loss-chip">取消率 15-20%</span></td>
+        <td style="font-size:12px">GPS漂移+仅门头图+电话不通 → 用户转圈10分钟被迫取消，还扣违约金；最大差评来源，影响口碑和复购</td>
+        <td><span class="kpi-chip warn">待规划</span></td>
+      </tr>
+      <tr>
+        <td class="rank">3</td>
+        <td><span class="pain-name-cell">首页功能优先级混乱</span></td>
+        <td><span class="stage-pill">阶段2 首页P01</span></td>
+        <td><span class="loss-chip">流失 30-40%</span></td>
+        <td style="font-size:12px">三大模块平铺，搜索流用户看到"扫码存包"不知道是否需要到柜前，不知道人工网点扫那个码；"行李配送"概念不清；入口重复冗余4个跳向同一功能</td>
+        <td><span class="kpi-chip ok">v2.1 删Logo栏<br>内嵌搜索框</span></td>
+      </tr>
+      <tr>
+        <td class="rank">4</td>
+        <td><span class="pain-name-cell">违约金机制不合理</span></td>
+        <td><span class="stage-pill">阶段5 线下履约</span></td>
+        <td><span class="loss-chip">高投诉率</span></td>
+        <td style="font-size:12px">商家原因（电话不通、提前关店、GPS偏差）导致用户无法到店，被迫取消后仍扣违约金 → 用户强烈不满，投诉率高</td>
+        <td><span class="kpi-chip warn">待规划</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ════════════ SECTION 7: ACTION TIMELINE ════════════ -->
+<div class="timeline-box">
+  <div class="sec-title grn">优化行动路线图</div>
+  <div class="timeline-cols">
+    <div class="tl-col done">
+      <div class="tl-hdr">✅ v2.1 尽快实现（2026-03-09）</div>
+      <div class="tl-body">
+        <div class="tl-item"><span class="tl-dot"></span>P01 删除品牌Logo导航栏</div>
+        <div class="tl-item"><span class="tl-dot"></span>P01 城市选择器内嵌搜索框</div>
+        <div class="tl-item"><span class="tl-dot"></span>P02 网点卡片类型Badge + 营业状态</div>
+        <div class="tl-item"><span class="tl-dot"></span>P03 删导航按钮（锁定态）</div>
+        <div class="tl-item"><span class="tl-dot"></span>P03 删除商家电话模块</div>
+        <div class="tl-item"><span class="tl-dot"></span>P03 删除3步骤寄存流程</div>
+        <div class="tl-item"><span class="tl-dot"></span>P03 删除用户评价模块</div>
+        <div class="tl-item"><span class="tl-dot"></span>P03 调整寄存保障区块</div>
+        <div class="tl-item"><span class="tl-dot"></span>P03 CTA栏左侧改为收藏</div>
+      </div>
+    </div>
+    <div class="tl-col now">
+      <div class="tl-hdr">🔴 立即启动（1个月内）· P0优先</div>
+      <div class="tl-body">
+        <div class="tl-item"><span class="tl-dot"></span>首页入口合并（删重复入口）</div>
+        <div class="tl-item"><span class="tl-dot"></span>「附近X个寄存点」模块重设计</div>
+        <div class="tl-item"><span class="tl-dot"></span>多角度实景照片，导航路书标准化（运营）</div>
+        <div class="tl-item"><span class="tl-dot"></span>紧急联系转客服机制</div>
+        <div class="tl-item"><span class="tl-dot"></span>违约金分级规则优化（法务协同）</div>
+        <div class="tl-item"><span class="tl-dot"></span>商家原因特殊豁免规则</div>
+        <div class="tl-item"><span class="tl-dot"></span>虚拟号电话</div>
+        <div class="tl-item"><span class="tl-dot"></span>「下单后解锁」预告区块</div>
+      </div>
+    </div>
+    <div class="tl-col soon">
+      <div class="tl-hdr">🟠 2-3个月 · P1优先</div>
+      <div class="tl-body">
+        <div class="tl-item"><span class="tl-dot"></span>防飞单Phase1（阶梯分成+保证金）</div>
+        <div class="tl-item"><span class="tl-dot"></span>优惠券可选择取消勾选</div>
+        <div class="tl-item"><span class="tl-dot"></span>渠道专属福利弹窗</div>
+        <div class="tl-item"><span class="tl-dot"></span>AI对话推荐能力优化</div>
+      </div>
+    </div>
+    <div class="tl-col later">
+      <div class="tl-hdr">🔵 3-6个月 · 留存建设</div>
+      <div class="tl-body">
+        <div class="tl-item"><span class="tl-dot"></span>会员等级体系搭建</div>
+        <div class="tl-item"><span class="tl-dot"></span>积分系统（下单/签到/分享）</div>
+        <div class="tl-item"><span class="tl-dot"></span>生命周期触达（生日券/沉睡唤醒）</div>
+        <div class="tl-item"><span class="tl-dot"></span>地理位置触达推送</div>
+        <div class="tl-item"><span class="tl-dot"></span>邀请有礼 + 拼团寄存</div>
+        <div class="tl-item"><span class="tl-dot"></span>技术防爬（频率限制/设备指纹）</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .wrap -->
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="footer">
+  <span>无忧存用户旅程地图</span> &nbsp;·&nbsp; <span>v2.1</span> &nbsp;·&nbsp;
+  最后修订：2026-03-10 &nbsp;·&nbsp;
+  基于：梳理文档v1.0（2026-03-06）+ UI优化方案v2.1 + UI改动说明v1.0（2026-03-09）<br>
+  <span>仅供产品团队内部评审使用</span>
+</footer>
+
+</body>
+</html>

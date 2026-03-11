@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>无忧存用户旅程地图 · 合并优化前现状版</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #f0f2f5;
+    color: #1a1a1a;
+    min-width: 1200px;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .header .subtitle { font-size: 13px; opacity: 0.7; line-height: 1.8; }
+  .header .meta { text-align: right; font-size: 12px; opacity: 0.6; line-height: 2; }
+  .header .badge {
+    display: inline-block; background: #e53e3e; color: white;
+    padding: 2px 10px; border-radius: 12px; font-size: 11px;
+    font-weight: 600; letter-spacing: 0.5px; margin-bottom: 8px;
+  }
+
+  /* Emotion curve */
+  .emotion-section {
+    background: white;
+    margin: 24px 32px 0;
+    border-radius: 12px;
+    padding: 28px 36px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .section-title {
+    font-size: 14px; font-weight: 700; color: #4a4a6a;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before {
+    content: ''; display: inline-block;
+    width: 4px; height: 16px;
+    background: #4361ee; border-radius: 2px;
+  }
+  .emotion-chart {
+    position: relative;
+    height: 120px;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    padding: 0 20px;
+  }
+  .emotion-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .emotion-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    position: absolute;
+    z-index: 2;
+  }
+  .emotion-line {
+    position: absolute;
+    height: 3px;
+    background: linear-gradient(90deg, #4361ee, #7209b7);
+    z-index: 1;
+    border-radius: 2px;
+  }
+  .emotion-label {
+    font-size: 11px; color: #888; margin-top: 8px;
+    text-align: center; line-height: 1.4;
+  }
+  .emotion-emoji { font-size: 18px; margin-bottom: 4px; }
+
+  /* SVG emotion curve */
+  .curve-wrapper { position: relative; margin: 0 0 8px; }
+  .curve-wrapper svg { width: 100%; height: 100px; }
+  .stage-labels {
+    display: flex;
+    padding: 0 40px;
+  }
+  .stage-label {
+    flex: 1;
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+  }
+  .stage-label .emoji { font-size: 16px; display: block; margin-bottom: 2px; }
+  .stage-label .name { font-weight: 600; color: #333; display: block; }
+
+  /* Journey stages */
+  .journey-container {
+    margin: 16px 32px 32px;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .stage-card {
+    flex: 0 0 280px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+  }
+  .stage-header {
+    padding: 16px 18px;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .stage-header .stage-num {
+    width: 24px; height: 24px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+  }
+  .stage-body { padding: 14px 16px; flex: 1; }
+  .info-row {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 10px;
+    font-size: 11px;
+  }
+  .info-label { color: #888; }
+  .info-value { font-weight: 600; color: #333; }
+  .info-value.red { color: #e53e3e; }
+  .info-value.orange { color: #dd6b20; }
+  .info-value.green { color: #38a169; }
+
+  .divider { height: 1px; background: #f0f0f0; margin: 12px 0; }
+
+  .pain-list { display: flex; flex-direction: column; gap: 8px; }
+  .pain-item {
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    line-height: 1.5;
+    border-left: 3px solid;
+  }
+  .pain-p0 { background: #fff5f5; border-color: #fc8181; color: #742a2a; }
+  .pain-p1 { background: #fffaf0; border-color: #f6ad55; color: #7b341e; }
+  .pain-p2 { background: #f0fff4; border-color: #68d391; color: #276749; }
+  .pain-tag {
+    display: inline-block;
+    font-size: 9px; font-weight: 700;
+    padding: 1px 5px; border-radius: 4px;
+    margin-bottom: 4px; letter-spacing: 0.5px;
+  }
+  .tag-p0 { background: #fc8181; color: white; }
+  .tag-p1 { background: #f6ad55; color: white; }
+  .tag-p2 { background: #68d391; color: white; }
+
+  .data-block {
+    background: #f8f9fc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .data-block .data-title { font-size: 10px; color: #888; margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-item { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px; }
+  .data-key { color: #555; }
+  .data-val { font-weight: 700; color: #4361ee; }
+
+  .scenario-box {
+    background: #f0f4ff;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: #3a3a6a;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .scenario-box .scenario-title { font-weight: 700; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #4361ee; }
+
+  .flow-box {
+    background: #1a1a2e;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 10px;
+    color: #a0aec0;
+    line-height: 1.8;
+    font-family: monospace;
+    margin-bottom: 8px;
+  }
+  .flow-box .flow-bad { color: #fc8181; }
+  .flow-box .flow-ok { color: #68d391; }
+
+  /* Arrow between stages */
+  .stage-arrow {
+    flex: 0 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c0c0d0;
+    font-size: 20px;
+    padding-top: 40px;
+  }
+
+  /* Colors for each stage */
+  .s1 { background: linear-gradient(135deg, #4361ee, #3a0ca3); }
+  .s2 { background: linear-gradient(135deg, #e53e3e, #9b2c2c); }
+  .s3 { background: linear-gradient(135deg, #c0392b, #7b241c); }
+  .s4 { background: linear-gradient(135deg, #dd6b20, #9c4221); }
+  .s5 { background: linear-gradient(135deg, #d69e2e, #975a16); }
+  .s6 { background: linear-gradient(135deg, #38a169, #276749); }
+
+  /* Pain matrix */
+  .matrix-section {
+    margin: 0 32px 32px;
+    background: white;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .matrix-col { }
+  .matrix-col-title {
+    font-size: 12px; font-weight: 700;
+    padding: 6px 12px; border-radius: 6px;
+    margin-bottom: 10px; text-align: center;
+  }
+  .matrix-p0-title { background: #fff5f5; color: #c53030; border: 1px solid #fc8181; }
+  .matrix-p1-title { background: #fffaf0; color: #c05621; border: 1px solid #f6ad55; }
+  .matrix-p2-title { background: #f0fff4; color: #276749; border: 1px solid #68d391; }
+  .matrix-item {
+    font-size: 11px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .matrix-item-p0 { background: #fff5f5; color: #742a2a; }
+  .matrix-item-p1 { background: #fffaf0; color: #7b341e; }
+  .matrix-item-p2 { background: #f0fff4; color: #276749; }
+  .matrix-item .stage-tag {
+    font-size: 9px; color: #aaa;
+    display: block; margin-bottom: 2px;
+  }
+  .matrix-item strong { display: block; margin-bottom: 2px; }
+
+  /* Footer */
+  .footer {
+    background: #1a1a2e;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .footer span { color: rgba(255,255,255,0.8); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div>
+    <div class="badge">合并优化前 · 现状分析版</div>
+    <h1>无忧存用户旅程地图</h1>
+    <div class="subtitle">
+      覆盖范围：用户端C端小程序/H5全流程 · 6个旅程阶段 · 16项痛点识别<br>
+      基于平台合并（小铁寄存柜 + 无忧存）前的原始产品现状
+    </div>
+  </div>
+  <div class="meta">
+    <div>文档版本 v1.0</div>
+    <div>创建日期 2026-03-06</div>
+    <div>可视化输出 2026-03-10</div>
+    <div style="margin-top:8px; color:rgba(255,255,255,0.4)">— 此版本反映优化前现状 —</div>
+  </div>
+</div>
+
+<!-- Emotion Curve -->
+<div class="emotion-section">
+  <div class="section-title">全程情绪曲线</div>
+  <div class="curve-wrapper">
+    <svg viewBox="0 0 900 100" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#4361ee"/>
+          <stop offset="40%" style="stop-color:#48cae4"/>
+          <stop offset="60%" style="stop-color:#e53e3e"/>
+          <stop offset="75%" style="stop-color:#dd6b20"/>
+          <stop offset="85%" style="stop-color:#d69e2e"/>
+          <stop offset="100%" style="stop-color:#38a169"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- Grid lines -->
+      <line x1="0" y1="20" x2="900" y2="20" stroke="#f0f0f0" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="0" y1="50" x2="900" y2="50" stroke="#f0f0f0" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="0" y1="80" x2="900" y2="80" stroke="#f0f0f0" stroke-width="1" stroke-dasharray="4,4"/>
+      <!-- Curve path: 6 stages -->
+      <!-- S1:焦虑40, S2:困惑55, S3:危机85, S4:决策35, S5:焦虑80, S6:平淡50 -->
+      <path d="M75,60 C150,55 200,50 225,45 C270,38 290,20 375,88 C430,55 480,38 525,38 C590,38 640,75 675,75 C740,80 800,55 825,48"
+        fill="none" stroke="url(#lineGrad)" stroke-width="3" filter="url(#glow)"/>
+      <!-- Dots -->
+      <circle cx="75" cy="60" r="6" fill="#4361ee" stroke="white" stroke-width="2"/>
+      <circle cx="225" cy="45" r="6" fill="#7c3aed" stroke="white" stroke-width="2"/>
+      <circle cx="375" cy="88" r="8" fill="#e53e3e" stroke="white" stroke-width="2"/>
+      <circle cx="525" cy="38" r="6" fill="#dd6b20" stroke="white" stroke-width="2"/>
+      <circle cx="675" cy="75" r="6" fill="#d69e2e" stroke="white" stroke-width="2"/>
+      <circle cx="825" cy="48" r="6" fill="#38a169" stroke="white" stroke-width="2"/>
+      <!-- Labels on dots -->
+      <text x="75" y="52" text-anchor="middle" font-size="11" fill="#4361ee">😟</text>
+      <text x="225" y="37" text-anchor="middle" font-size="11" fill="#7c3aed">🤔</text>
+      <text x="375" y="80" text-anchor="middle" font-size="11" fill="#e53e3e">😨</text>
+      <text x="525" y="30" text-anchor="middle" font-size="11" fill="#dd6b20">😌</text>
+      <text x="675" y="67" text-anchor="middle" font-size="11" fill="#d69e2e">😤</text>
+      <text x="825" y="40" text-anchor="middle" font-size="11" fill="#38a169">😐</text>
+      <!-- Danger zone annotation -->
+      <rect x="310" y="65" width="130" height="28" rx="4" fill="#fff5f5" stroke="#fc8181" stroke-width="1"/>
+      <text x="375" y="77" text-anchor="middle" font-size="9" fill="#c53030" font-weight="bold">最大流失点</text>
+      <text x="375" y="88" text-anchor="middle" font-size="8" fill="#c53030">流失率 50%+</text>
+    </svg>
+  </div>
+  <div class="stage-labels">
+    <div class="stage-label">
+      <span class="emoji">🌱</span>
+      <span class="name">需求产生</span>
+      <span style="font-size:10px;color:#aaa">触发阶段</span>
+    </div>
+    <div class="stage-label">
+      <span class="emoji">🔍</span>
+      <span class="name">首页搜索</span>
+      <span style="font-size:10px;color:#e53e3e">流失30-40%</span>
+    </div>
+    <div class="stage-label">
+      <span class="emoji">📋</span>
+      <span class="name">网点详情</span>
+      <span style="font-size:10px;color:#c53030;font-weight:bold">流失50%+</span>
+    </div>
+    <div class="stage-label">
+      <span class="emoji">💳</span>
+      <span class="name">预订下单</span>
+      <span style="font-size:10px;color:#dd6b20">流失5-10%</span>
+    </div>
+    <div class="stage-label">
+      <span class="emoji">🚶</span>
+      <span class="name">线下履约</span>
+      <span style="font-size:10px;color:#d69e2e">取消15-20%</span>
+    </div>
+    <div class="stage-label">
+      <span class="emoji">🔄</span>
+      <span class="name">后续复购</span>
+      <span style="font-size:10px;color:#888">沉默流失</span>
+    </div>
+  </div>
+</div>
+
+<!-- Journey Stages -->
+<div class="journey-container">
+
+  <!-- Stage 1 -->
+  <div class="stage-card">
+    <div class="stage-header s1">
+      <div class="stage-num">1</div>
+      需求产生（触发阶段）
+    </div>
+    <div class="stage-body">
+      <div class="info-row">
+        <span class="info-label">情绪状态</span>
+        <span class="info-value">😟 焦虑、不确定</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">阶段时长</span>
+        <span class="info-value">即时触发 - 数分钟</span>
+      </div>
+      <div class="divider"></div>
+      <div class="scenario-box">
+        <div class="scenario-title">用户场景</div>
+        🧳 规划旅行中，看攻略发现需要寄存<br>
+        ⏰ 临时需求，到站后才发现<br>
+        🚉 退房到高铁间的3-5小时空档期
+      </div>
+      <div class="data-block">
+        <div class="data-title">触达渠道</div>
+        <div class="data-item"><span class="data-key">🔍 微信搜索</span><span class="data-val">60%</span></div>
+        <div class="data-item"><span class="data-key">📱 小红书/攻略</span><span class="data-val">~25%</span></div>
+        <div class="data-item"><span class="data-key">📷 线下扫码</span><span class="data-val">~15%</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="pain-list">
+        <div class="pain-item pain-p2">
+          <span class="pain-tag tag-p2">P2</span>
+          <strong>品牌认知度低</strong>
+          "行李寄存"微信指数仅90，竞品存知己知名度更高，用户不知道搜什么
+        </div>
+        <div class="pain-item pain-p2">
+          <span class="pain-tag tag-p2">P2</span>
+          <strong>渠道分散，触达困难</strong>
+          多平台寻找，决策成本高，需要多渠道投放
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-arrow">→</div>
+
+  <!-- Stage 2 -->
+  <div class="stage-card">
+    <div class="stage-header s2">
+      <div class="stage-num">2</div>
+      信息获取（首页）🔴
+    </div>
+    <div class="stage-body">
+      <div class="info-row">
+        <span class="info-label">情绪状态</span>
+        <span class="info-value">🤔 困惑、认知焦虑</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">阶段时长</span>
+        <span class="info-value">2-5 分钟</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">流失率估算</span>
+        <span class="info-value red">30-40%</span>
+      </div>
+      <div class="divider"></div>
+      <div class="data-block">
+        <div class="data-title">关键埋点数据</div>
+        <div class="data-item"><span class="data-key">首页搜索使用率</span><span class="data-val">55%+</span></div>
+        <div class="data-item"><span class="data-key">我的附近点击率</span><span class="data-val" style="color:#e53e3e">4.66%</span></div>
+        <div class="data-item"><span class="data-key">选择城市</span><span class="data-val">15.04%</span></div>
+        <div class="data-item"><span class="data-key">搜索差距倍数</span><span class="data-val" style="color:#e53e3e">13×</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="pain-list">
+        <div class="pain-item pain-p0">
+          <span class="pain-tag tag-p0">P0 致命</span>
+          <strong>功能优先级混乱</strong>
+          三模块（扫码/配送/网点）视觉权重相同，55%用户想找网点但要在3个选项里判断
+        </div>
+        <div class="pain-item pain-p0">
+          <span class="pain-tag tag-p0">P0 致命</span>
+          <strong>入口重复冗余（5个→2目的地）</strong>
+          定位/热门/更多/搜索框 → 全部跳同一个地标输入框；查找按钮→地图（路径混乱）
+        </div>
+        <div class="pain-item pain-p1">
+          <span class="pain-tag tag-p1">P1</span>
+          <strong>AI搜索上下文仅3句</strong>
+          多轮对话能力弱，追问"更便宜"时忘记前面的城市和时间
+        </div>
+        <div class="pain-item pain-p1">
+          <span class="pain-tag tag-p1">P1</span>
+          <strong>"我的附近"点击率4.66%</strong>
+          位置偏下、信息不足、与搜索重复，13倍差距
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-arrow">→</div>
+
+  <!-- Stage 3 -->
+  <div class="stage-card" style="flex: 0 0 300px;">
+    <div class="stage-header s3">
+      <div class="stage-num">3</div>
+      网点详情页 🔴🔴🔴 最大流失
+    </div>
+    <div class="stage-body">
+      <div class="info-row">
+        <span class="info-label">情绪状态</span>
+        <span class="info-value red">😰😠 疑虑、安全感↓↓</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">停留时长</span>
+        <span class="info-value">1-3分钟/网点（对比3-5个）</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">流失率估算</span>
+        <span class="info-value red" style="font-size:14px;font-weight:800">50%+</span>
+      </div>
+      <div class="divider"></div>
+      <div class="data-block">
+        <div class="data-title">用户关注信息 vs 当前状态</div>
+        <div class="data-item"><span class="data-key">① 距目的地距离</span><span class="data-val" style="color:#38a169">✅ 有</span></div>
+        <div class="data-item"><span class="data-key">② 精确地址</span><span class="data-val" style="color:#e53e3e">❌ 下单后才显</span></div>
+        <div class="data-item"><span class="data-key">③ 价格</span><span class="data-val" style="color:#38a169">✅ 有</span></div>
+        <div class="data-item"><span class="data-key">④ 营业时间</span><span class="data-val" style="color:#38a169">✅ 有</span></div>
+        <div class="data-item"><span class="data-key">商家电话</span><span class="data-val" style="color:#e53e3e">❌ 下单后才显</span></div>
+        <div class="data-item"><span class="data-key">实景大图</span><span class="data-val" style="color:#e53e3e">❌ 模糊遮罩</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="pain-list">
+        <div class="pain-item pain-p0">
+          <span class="pain-tag tag-p0">P0 致命</span>
+          <strong>防爬虫策略反噬用户体验</strong>
+          当前策略：下单后才显示精确地址+电话 → 用户安全感崩塌 → 转投竞品（存知己/途简单详情页直接显示）
+        </div>
+        <div class="pain-item pain-p0">
+          <span class="pain-tag tag-p0">P0 致命</span>
+          <strong>信息展示无优先级，页面混乱</strong>
+          所有信息平铺，无视觉层级，核心信息淹没在次要内容中
+        </div>
+        <div class="pain-item pain-p1">
+          <span class="pain-tag tag-p1">P1</span>
+          <strong>缺乏网点对比功能</strong>
+          查A→返回→查B→忘记A，反复横跳，决策疲劳
+        </div>
+      </div>
+      <div class="flow-box">
+        用户心理路径：<br>
+        "看不到具体地址？" <span class="flow-bad">→ 安全感↓↓</span><br>
+        "为什么不让我看？" <span class="flow-bad">→ 产生怀疑</span><br>
+        打开竞品比价 <span class="flow-bad">→ 在竞品下单 💸</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-arrow">→</div>
+
+  <!-- Stage 4 -->
+  <div class="stage-card">
+    <div class="stage-header s4">
+      <div class="stage-num">4</div>
+      预订下单页
+    </div>
+    <div class="stage-body">
+      <div class="info-row">
+        <span class="info-label">情绪状态</span>
+        <span class="info-value">😌→😊 决策、期待</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">阶段时长</span>
+        <span class="info-value">1-2 分钟</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">转化率估算</span>
+        <span class="info-value orange">40-50%</span>
+      </div>
+      <div class="divider"></div>
+      <div class="scenario-box">
+        <div class="scenario-title">下单步骤</div>
+        ① 选择寄存日期<br>
+        ② 确认行李箱件数<br>
+        ③ 查看违约金规则<br>
+        ④ 选择/取消优惠券<br>
+        ⑤ 勾选寄存协议<br>
+        ⑥ 支付（微信/支付宝/汇付）
+      </div>
+      <div class="divider"></div>
+      <div class="pain-list">
+        <div class="pain-item pain-p1">
+          <span class="pain-tag tag-p1">P1</span>
+          <strong>优惠券强制使用，无自主权</strong>
+          系统自动使用券，用户无法取消勾选（想留着下次用更贵订单）
+        </div>
+        <div class="pain-item pain-p1">
+          <span class="pain-tag tag-p1">P1</span>
+          <strong>流量承接无互动抓手</strong>
+          投放引来的用户无专属福利，与老用户同等对待，转化率低
+        </div>
+        <div class="pain-item pain-p2">
+          <span class="pain-tag tag-p2">P2</span>
+          <strong>下单后才解锁关键信息</strong>
+          用户不知道下单后能获得什么，缺乏明确承诺
+        </div>
+      </div>
+      <div class="data-block">
+        <div class="data-title">支付成功后解锁内容</div>
+        <div class="data-item"><span class="data-key">精确地址（可导航）</span><span class="data-val" style="color:#38a169">✅ 解锁</span></div>
+        <div class="data-item"><span class="data-key">商家电话</span><span class="data-val" style="color:#38a169">✅ 解锁</span></div>
+        <div class="data-item"><span class="data-key">专属订单号</span><span class="data-val" style="color:#38a169">✅ 解锁</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-arrow">→</div>
+
+  <!-- Stage 5 -->
+  <div class="stage-card" style="flex: 0 0 300px;">
+    <div class="stage-header s5">
+      <div class="stage-num">5</div>
+      线下履约（到店+取包）⚡
+    </div>
+    <div class="stage-body">
+      <div class="info-row">
+        <span class="info-label">情绪状态</span>
+        <span class="info-value orange">😤 找店焦虑→😊 寄存满意</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">到店取消率</span>
+        <span class="info-value red">15-20%</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">飞单率估算</span>
+        <span class="info-value red">20-30%</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">GPS定位偏差</span>
+        <span class="info-value orange">&gt;50米</span>
+      </div>
+      <div class="divider"></div>
+      <div class="pain-list">
+        <div class="pain-item pain-p0">
+          <span class="pain-tag tag-p0">P0 致命</span>
+          <strong>找不到网点（最大差评来源）</strong>
+          GPS不准+图片只有门头+电话打不通 → 在路上转圈10分钟 → 超时被迫取消 → 还扣违约金 → 差评+永不复购
+        </div>
+        <div class="pain-item pain-p0">
+          <span class="pain-tag tag-p0">P0 致命</span>
+          <strong>违约金机制不合理</strong>
+          商家原因（不接电话/提前关门）导致用户取消，仍要扣违约金；500米内取消=扣费
+        </div>
+        <div class="pain-item pain-p1">
+          <span class="pain-tag tag-p1">P1 飞单</span>
+          <strong>防飞单机制严重不足</strong>
+          商家直收省分成，用户觉得现金更快；平台无强约束手段；估算飞单率20-30%
+        </div>
+      </div>
+      <div class="flow-box">
+        飞单场景：<br>
+        用户到店 → 商家："给我现金少5元"<br>
+        用户："好的！"<br>
+        <span class="flow-bad">→ 平台损失订单 💸</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-arrow">→</div>
+
+  <!-- Stage 6 -->
+  <div class="stage-card">
+    <div class="stage-header s6">
+      <div class="stage-num">6</div>
+      后续服务（复购/留存）
+    </div>
+    <div class="stage-body">
+      <div class="info-row">
+        <span class="info-label">情绪状态</span>
+        <span class="info-value">😐 平淡、缺乏惊喜</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">复购周期</span>
+        <span class="info-value">3-6 个月</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">会员体系</span>
+        <span class="info-value red">❌ 无</span>
+      </div>
+      <div class="divider"></div>
+      <div class="scenario-box">
+        <div class="scenario-title">触点列表</div>
+        • 历史订单列表<br>
+        • 申请退款<br>
+        • 收藏网点<br>
+        • 分享给朋友<br>
+        • 我的优惠券<br>
+        • 个人中心
+      </div>
+      <div class="divider"></div>
+      <div class="pain-list">
+        <div class="pain-item pain-p1">
+          <span class="pain-tag tag-p1">P1</span>
+          <strong>缺乏召回机制</strong>
+          无会员体系、无积分、无复购优惠；3个月后用户忘记品牌名
+        </div>
+        <div class="pain-item pain-p1">
+          <span class="pain-tag tag-p1">P1</span>
+          <strong>品牌记忆弱</strong>
+          下次搜"行李寄存"→竞品先出现→用竞品了（沉默流失）
+        </div>
+        <div class="pain-item pain-p2">
+          <span class="pain-tag tag-p2">P2</span>
+          <strong>分享动力弱</strong>
+          无分享激励机制，社交裂变能力弱，获客成本无法摊销
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Pain Priority Matrix -->
+<div class="matrix-section">
+  <div class="section-title">痛点优先级总矩阵（优化前现状 · 共16项）</div>
+  <div class="matrix-grid">
+    <div class="matrix-col">
+      <div class="matrix-col-title matrix-p0-title">🔴 P0 致命问题（必须立即解决）</div>
+      <div class="matrix-item matrix-item-p0">
+        <span class="stage-tag">阶段3 · 网点详情页</span>
+        <strong>防爬虫策略损害转化</strong>
+        详情页不显示精确位置和电话，用户安全感崩塌，直接转投竞品。流失率50%+
+      </div>
+      <div class="matrix-item matrix-item-p0">
+        <span class="stage-tag">阶段5 · 线下履约</span>
+        <strong>找不到网点导致高流失</strong>
+        GPS不准+图片不足+电话不通，被迫取消还扣违约金，最大差评来源。取消率15-20%
+      </div>
+      <div class="matrix-item matrix-item-p0">
+        <span class="stage-tag">阶段2 · 首页</span>
+        <strong>首页功能优先级混乱</strong>
+        三模块平铺，用户不知选哪个，学习成本高，首次转化率低。流失率30-40%
+      </div>
+      <div class="matrix-item matrix-item-p0">
+        <span class="stage-tag">阶段5 · 线下履约</span>
+        <strong>违约金机制不合理</strong>
+        商家原因导致取消，用户也被扣费，用户投诉主因
+      </div>
+    </div>
+    <div class="matrix-col">
+      <div class="matrix-col-title matrix-p1-title">🟡 P1 严重影响（尽快优化）</div>
+      <div class="matrix-item matrix-item-p1">
+        <span class="stage-tag">阶段3</span>
+        <strong>信息展示无优先级，页面混乱</strong>
+        核心信息淹没，决策效率低
+      </div>
+      <div class="matrix-item matrix-item-p1">
+        <span class="stage-tag">阶段2</span>
+        <strong>入口重复冗余</strong>
+        5个入口 → 2种目的地，用户困惑
+      </div>
+      <div class="matrix-item matrix-item-p1">
+        <span class="stage-tag">阶段4</span>
+        <strong>优惠券强制使用</strong>
+        用户失去控制权，可能放弃下单
+      </div>
+      <div class="matrix-item matrix-item-p1">
+        <span class="stage-tag">阶段5</span>
+        <strong>飞单缺乏有效防范</strong>
+        无强约束手段，飞单率20-30%
+      </div>
+      <div class="matrix-item matrix-item-p1">
+        <span class="stage-tag">阶段2</span>
+        <strong>AI搜索能力不足</strong>
+        上下文仅3句，多轮对话体验差
+      </div>
+      <div class="matrix-item matrix-item-p1">
+        <span class="stage-tag">阶段2</span>
+        <strong>"我的附近"使用率极低</strong>
+        点击率4.66%，与搜索差距13倍
+      </div>
+      <div class="matrix-item matrix-item-p1">
+        <span class="stage-tag">阶段6</span>
+        <strong>缺乏会员体系与召回机制</strong>
+        无积分/等级/复购优惠，用户流失竞品
+      </div>
+    </div>
+    <div class="matrix-col">
+      <div class="matrix-col-title matrix-p2-title">🟢 P2 体验优化（持续改进）</div>
+      <div class="matrix-item matrix-item-p2">
+        <span class="stage-tag">阶段1</span>
+        <strong>品牌认知度低</strong>
+        微信指数90，关键词排名弱
+      </div>
+      <div class="matrix-item matrix-item-p2">
+        <span class="stage-tag">阶段6</span>
+        <strong>分享动力弱</strong>
+        无激励机制，社交裂变能力差
+      </div>
+      <div class="matrix-item matrix-item-p2">
+        <span class="stage-tag">阶段4</span>
+        <strong>流量承接无互动抓手</strong>
+        投放ROI低，新用户无专属福利
+      </div>
+      <div class="matrix-item matrix-item-p2">
+        <span class="stage-tag">阶段2</span>
+        <strong>网点数量不足</strong>
+        优质景区/枢纽网点覆盖不够，需运营持续拓展
+      </div>
+      <div class="matrix-item matrix-item-p2">
+        <span class="stage-tag">阶段5</span>
+        <strong>超时规则不清晰</strong>
+        滞纳金机制用户不知情，易产生纠纷
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  无忧存产品团队 · 用户旅程地图 · <span>合并优化前现状版 v1.0</span> · 2026-03-10
+  <br>本文档反映平台合并UI优化（v2.1）前的原始产品现状，仅供优化前后对比参考
+</div>
+
+</body>
+</html>
